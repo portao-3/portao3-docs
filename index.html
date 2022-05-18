@@ -323,14 +323,33 @@
                   <li>
                     <a href="#retrieve-an-organization" class="toc-h2 toc-link" data-title="Retrieve an Organization">Retrieve an Organization</a>
                   </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#cost-centers" class="toc-h1 toc-link" data-title="Cost Centers">Cost Centers</a>
+              <ul class="toc-list-h2">
                   <li>
-                    <a href="#cost-centers" class="toc-h2 toc-link" data-title="Cost Centers">Cost Centers</a>
+                    <a href="#retrieve-cost-centers" class="toc-h2 toc-link" data-title="Retrieve Cost Centers">Retrieve Cost Centers</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-cost-center" class="toc-h2 toc-link" data-title="Create a Cost Center">Create a Cost Center</a>
                   </li>
                   <li>
                     <a href="#delete-a-cost-center" class="toc-h2 toc-link" data-title="Delete a Cost Center">Delete a Cost Center</a>
                   </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#projects" class="toc-h1 toc-link" data-title="Projects">Projects</a>
+              <ul class="toc-list-h2">
                   <li>
-                    <a href="#projects" class="toc-h2 toc-link" data-title="Projects">Projects</a>
+                    <a href="#retrieve-projects" class="toc-h2 toc-link" data-title="Retrieve Projects">Retrieve Projects</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-project" class="toc-h2 toc-link" data-title="Create a Project">Create a Project</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-project" class="toc-h2 toc-link" data-title="Delete a Project">Delete a Project</a>
                   </li>
               </ul>
           </li>
@@ -449,9 +468,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This will retrieve the users&#39; organization information.</p>
-<h2 id='cost-centers'>Cost Centers</h2>
+<h1 id='cost-centers'>Cost Centers</h1>
 <p>Cost centers are a way to categorize travel and budget expenses inside the platform.</p>
-<h3 id='retrieve-cost-centers'>Retrieve Cost Centers</h3>
+<h2 id='retrieve-cost-centers'>Retrieve Cost Centers</h2>
 <blockquote>
 <p><strong>GET</strong> https://api.portao3.com.br/organization/cost_centers</p>
 </blockquote>
@@ -476,7 +495,7 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
 <p>This will retrieve the users&#39; organization active cost centers.</p>
-<h3 id='create-a-cost-center'>Create a Cost Center</h3>
+<h2 id='create-a-cost-center'>Create a Cost Center</h2>
 <blockquote>
 <p><strong>POST</strong> https://api.portao3.com.br/organization/cost_centers</p>
 </blockquote>
@@ -518,9 +537,9 @@
 <div class="highlight"><pre class="highlight plaintext"><code>NO CONTENT
 </code></pre></div>
 <p>This will delete a Cost Center.</p>
-<h2 id='projects'>Projects</h2>
+<h1 id='projects'>Projects</h1>
 <p>Projects are a way to categorize travel and budget expenses inside the platform.</p>
-<h3 id='retrieve-projects'>Retrieve Projects</h3>
+<h2 id='retrieve-projects'>Retrieve Projects</h2>
 <blockquote>
 <p><strong>GET</strong> https://api.portao3.com.br/organization/projects</p>
 </blockquote>
@@ -545,7 +564,7 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
 <p>This will retrieve the users&#39; organization active projects.</p>
-<h3 id='create-a-project'>Create a Project</h3>
+<h2 id='create-a-project'>Create a Project</h2>
 <blockquote>
 <p><strong>POST</strong> https://api.portao3.com.br/organization/projects</p>
 </blockquote>
@@ -569,11 +588,11 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This will create a new project for the organization</p>
-<h4 id='parameters-2'>Parameters</h4><h5 id='name-required-2'>name <strong>REQUIRED</strong></h5>
+<h3 id='parameters-2'>Parameters</h3><h4 id='name-required-2'>name <strong>REQUIRED</strong></h4>
 <p>The name for the Project on all the information that is displayed to a user.</p>
 <h4 id='externalid-2'>externalId</h4>
 <p>This represents an ID for the Project in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.</p>
-<h3 id='delete-a-project'>Delete a Project</h3>
+<h2 id='delete-a-project'>Delete a Project</h2>
 <blockquote>
 <p><strong>DELETE</strong> https://api.portao3.com.br/organization/projects/{id}</p>
 </blockquote>
