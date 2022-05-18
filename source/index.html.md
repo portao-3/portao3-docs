@@ -157,6 +157,44 @@ The name for the Cost Center on all the information that is displayed to a user.
 
 This represents an ID for the Cost Center in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.
 
+## Update a Cost Center
+
+> **PUT** https://api.portao3.com.br/organization/cost_centers/{id}
+
+```shell
+curl -X PUT https://api.portao3.com.br/organization/cost_centers/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer {token}' \
+  -D '{
+    "name": "",
+    "externalId": "",
+  }'
+```
+
+> **200** Response
+
+```json
+{
+  "id": "0ZkEadksC0y8VW5DOKAY",
+  "name": "",
+  "externalId": "",
+  "status": "ACTIVE",
+  "created_at": 1624047780
+}
+```
+
+This will update a center for the organization
+
+### Parameters
+
+#### name **REQUIRED**
+
+The name for the Cost Center on all the information that is displayed to a user.
+
+#### externalId
+
+This represents an ID for the Cost Center in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.
+
 ## Delete a Cost Center
 
 > **DELETE** https://api.portao3.com.br/organization/cost_centers/{id}
@@ -246,6 +284,44 @@ The name for the Project on all the information that is displayed to a user.
 
 This represents an ID for the Project in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.
 
+## Update a Project
+
+> **PUT** https://api.portao3.com.br/organization/projects/{id}
+
+```shell
+curl -X PUT https://api.portao3.com.br/organization/projects/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer {token}' \
+  -D '{
+    "name": "",
+    "externalId": "",
+  }'
+```
+
+> **200** Response
+
+```json
+{
+  "id": "Mt4ILqGbuJNGfRqxULjr",
+  "name": "",
+  "externalId": "",
+  "status": "ACTIVE",
+  "created_at": 1624047780
+}
+```
+
+This will update a project for the organization
+
+### Parameters
+
+#### name **REQUIRED**
+
+The name for the Project on all the information that is displayed to a user.
+
+#### externalId
+
+This represents an ID for the Project in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.
+
 ## Delete a Project
 
 > **DELETE** https://api.portao3.com.br/organization/projects/{id}
@@ -263,6 +339,260 @@ NO CONTENT
 ```
 
 This will delete a Project.
+
+# Motivations
+
+Motivations are a way to categorize travel and budget expenses inside the platform.
+
+## Retrieve Motives
+
+> **GET** https://api.portao3.com.br/organization/motives
+
+```shell
+curl -X GET https://api.portao3.com.br/organization/motives \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer {token}'
+```
+
+> **200** Response
+
+```json
+[
+  {
+    "id": "Mt4ILqGbuJNGfRqxULjr",
+    "name": "Client Visit",
+    "externalId": "4576",
+    "status": "ACTIVE",
+    "created_at": 1624047780
+  },
+  {
+    ...
+  }
+]
+```
+
+This will retrieve the users' organization active motives.
+
+## Create a Motive
+
+> **POST** https://api.portao3.com.br/organization/motives
+
+```shell
+curl -X POST https://api.portao3.com.br/organization/motives \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer {token}' \
+  -D '{
+    "name": "",
+    "externalId": "",
+  }'
+```
+
+> **201** Response
+
+```json
+{
+  "id": "vqsj85qzi6E7uJMhgKbP",
+  "name": "",
+  "externalId": "",
+  "status": "ACTIVE",
+  "created_at": 1624047780
+}
+```
+
+This will create a new motive for the organization
+
+### Parameters
+
+#### name **REQUIRED**
+
+The name for the Motive on all the information that is displayed to a user.
+
+#### externalId
+
+This represents an ID for the Motive in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.
+
+## Update a Motive
+
+> **PUT** https://api.portao3.com.br/organization/motives/{id}
+
+```shell
+curl -X PUT https://api.portao3.com.br/organization/motives/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer {token}' \
+  -D '{
+    "name": "",
+    "externalId": "",
+  }'
+```
+
+> **200** Response
+
+```json
+{
+  "id": "vqsj85qzi6E7uJMhgKbP",
+  "name": "",
+  "externalId": "",
+  "status": "ACTIVE",
+  "created_at": 1624047780
+}
+```
+
+This will update a motive for the organization
+
+### Parameters
+
+#### name **REQUIRED**
+
+The name for the Motive on all the information that is displayed to a user.
+
+#### externalId
+
+This represents an ID for the Motive in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.
+
+## Delete a Motive
+
+> **DELETE** https://api.portao3.com.br/organization/motives/{id}
+
+```shell
+curl -X DELETE https://api.portao3.com.br/organization/motives/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer {token}'
+```
+
+> **204** Response
+
+```text
+NO CONTENT
+```
+
+This will delete a Motive.
+
+# Tags
+
+Tags are a way to categorize travel and budget expenses inside the platform.
+
+## Retrieve Tags
+
+> **GET** https://api.portao3.com.br/organization/tags
+
+```shell
+curl -X GET https://api.portao3.com.br/organization/tags \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer {token}'
+```
+
+> **200** Response
+
+```json
+[
+  {
+    "id": "Mt4ILqGbuJNGfRqxULjr",
+    "name": "International Expense",
+    "externalId": "9273",
+    "status": "ACTIVE",
+    "created_at": 1624047780
+  },
+  {
+    ...
+  }
+]
+```
+
+This will retrieve the users' organization active tags.
+
+## Create a Tag
+
+> **POST** https://api.portao3.com.br/organization/tags
+
+```shell
+curl -X POST https://api.portao3.com.br/organization/tags \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer {token}' \
+  -D '{
+    "name": "",
+    "externalId": "",
+  }'
+```
+
+> **201** Response
+
+```json
+{
+  "id": "GobatSjVRwp9aBrOuSg9",
+  "name": "",
+  "externalId": "",
+  "status": "ACTIVE",
+  "created_at": 1624047780
+}
+```
+
+This will create a new tag for the organization
+
+### Parameters
+
+#### name **REQUIRED**
+
+The name for the Tag on all the information that is displayed to a user.
+
+#### externalId
+
+This represents an ID for the Tag in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.
+
+## Update a Tag
+
+> **PUT** https://api.portao3.com.br/organization/tags/{id}
+
+```shell
+curl -X PUT https://api.portao3.com.br/organization/tags/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer {token}' \
+  -D '{
+    "name": "",
+    "externalId": "",
+  }'
+```
+
+> **200** Response
+
+```json
+{
+  "id": "GobatSjVRwp9aBrOuSg9",
+  "name": "",
+  "externalId": "",
+  "status": "ACTIVE",
+  "created_at": 1624047780
+}
+```
+
+This will update a tag for the organization
+
+### Parameters
+
+#### name **REQUIRED**
+
+The name for the Tag on all the information that is displayed to a user.
+
+#### externalId
+
+This represents an ID for the Tag in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.
+
+## Delete a Tag
+
+> **DELETE** https://api.portao3.com.br/organization/tags/{id}
+
+```shell
+curl -X DELETE https://api.portao3.com.br/organization/tags/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer {token}'
+```
+
+> **204** Response
+
+```text
+NO CONTENT
+```
+
+This will delete a Tag.
 
 # Cards
 
