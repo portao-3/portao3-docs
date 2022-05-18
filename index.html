@@ -335,6 +335,9 @@
                     <a href="#create-a-cost-center" class="toc-h2 toc-link" data-title="Create a Cost Center">Create a Cost Center</a>
                   </li>
                   <li>
+                    <a href="#update-a-cost-center" class="toc-h2 toc-link" data-title="Update a Cost Center">Update a Cost Center</a>
+                  </li>
+                  <li>
                     <a href="#delete-a-cost-center" class="toc-h2 toc-link" data-title="Delete a Cost Center">Delete a Cost Center</a>
                   </li>
               </ul>
@@ -349,7 +352,44 @@
                     <a href="#create-a-project" class="toc-h2 toc-link" data-title="Create a Project">Create a Project</a>
                   </li>
                   <li>
+                    <a href="#update-a-project" class="toc-h2 toc-link" data-title="Update a Project">Update a Project</a>
+                  </li>
+                  <li>
                     <a href="#delete-a-project" class="toc-h2 toc-link" data-title="Delete a Project">Delete a Project</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#motivations" class="toc-h1 toc-link" data-title="Motivations">Motivations</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#retrieve-motives" class="toc-h2 toc-link" data-title="Retrieve Motives">Retrieve Motives</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-motive" class="toc-h2 toc-link" data-title="Create a Motive">Create a Motive</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-motive" class="toc-h2 toc-link" data-title="Update a Motive">Update a Motive</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-motive" class="toc-h2 toc-link" data-title="Delete a Motive">Delete a Motive</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#tags" class="toc-h1 toc-link" data-title="Tags">Tags</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#retrieve-tags" class="toc-h2 toc-link" data-title="Retrieve Tags">Retrieve Tags</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-tag" class="toc-h2 toc-link" data-title="Create a Tag">Create a Tag</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-tag" class="toc-h2 toc-link" data-title="Update a Tag">Update a Tag</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-tag" class="toc-h2 toc-link" data-title="Delete a Tag">Delete a Tag</a>
                   </li>
               </ul>
           </li>
@@ -523,6 +563,34 @@
 <p>The name for the Cost Center on all the information that is displayed to a user.</p>
 <h4 id='externalid'>externalId</h4>
 <p>This represents an ID for the Cost Center in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.</p>
+<h2 id='update-a-cost-center'>Update a Cost Center</h2>
+<blockquote>
+<p><strong>PUT</strong> https://api.portao3.com.br/organization/cost_centers/{id}</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT https://api.portao3.com.br/organization/cost_centers/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span> <span class="se">\</span>
+  <span class="nt">-D</span> <span class="s1">'{
+    "name": "",
+    "externalId": "",
+  }'</span>
+</code></pre></div>
+<blockquote>
+<p><strong>200</strong> Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0ZkEadksC0y8VW5DOKAY"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This will update a center for the organization</p>
+<h3 id='parameters-2'>Parameters</h3><h4 id='name-required-2'>name <strong>REQUIRED</strong></h4>
+<p>The name for the Cost Center on all the information that is displayed to a user.</p>
+<h4 id='externalid-2'>externalId</h4>
+<p>This represents an ID for the Cost Center in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.</p>
 <h2 id='delete-a-cost-center'>Delete a Cost Center</h2>
 <blockquote>
 <p><strong>DELETE</strong> https://api.portao3.com.br/organization/cost_centers/{id}</p>
@@ -588,9 +656,37 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This will create a new project for the organization</p>
-<h3 id='parameters-2'>Parameters</h3><h4 id='name-required-2'>name <strong>REQUIRED</strong></h4>
+<h3 id='parameters-3'>Parameters</h3><h4 id='name-required-3'>name <strong>REQUIRED</strong></h4>
 <p>The name for the Project on all the information that is displayed to a user.</p>
-<h4 id='externalid-2'>externalId</h4>
+<h4 id='externalid-3'>externalId</h4>
+<p>This represents an ID for the Project in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.</p>
+<h2 id='update-a-project'>Update a Project</h2>
+<blockquote>
+<p><strong>PUT</strong> https://api.portao3.com.br/organization/projects/{id}</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT https://api.portao3.com.br/organization/projects/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span> <span class="se">\</span>
+  <span class="nt">-D</span> <span class="s1">'{
+    "name": "",
+    "externalId": "",
+  }'</span>
+</code></pre></div>
+<blockquote>
+<p><strong>200</strong> Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mt4ILqGbuJNGfRqxULjr"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This will update a project for the organization</p>
+<h3 id='parameters-4'>Parameters</h3><h4 id='name-required-4'>name <strong>REQUIRED</strong></h4>
+<p>The name for the Project on all the information that is displayed to a user.</p>
+<h4 id='externalid-4'>externalId</h4>
 <p>This represents an ID for the Project in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.</p>
 <h2 id='delete-a-project'>Delete a Project</h2>
 <blockquote>
@@ -606,6 +702,200 @@
 <div class="highlight"><pre class="highlight plaintext"><code>NO CONTENT
 </code></pre></div>
 <p>This will delete a Project.</p>
+<h1 id='motivations'>Motivations</h1>
+<p>Motivations are a way to categorize travel and budget expenses inside the platform.</p>
+<h2 id='retrieve-motives'>Retrieve Motives</h2>
+<blockquote>
+<p><strong>GET</strong> https://api.portao3.com.br/organization/motives</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://api.portao3.com.br/organization/motives <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span>
+</code></pre></div>
+<blockquote>
+<p><strong>200</strong> Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mt4ILqGbuJNGfRqxULjr"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Client Visit"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4576"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>This will retrieve the users&#39; organization active motives.</p>
+<h2 id='create-a-motive'>Create a Motive</h2>
+<blockquote>
+<p><strong>POST</strong> https://api.portao3.com.br/organization/motives</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://api.portao3.com.br/organization/motives <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span> <span class="se">\</span>
+  <span class="nt">-D</span> <span class="s1">'{
+    "name": "",
+    "externalId": "",
+  }'</span>
+</code></pre></div>
+<blockquote>
+<p><strong>201</strong> Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vqsj85qzi6E7uJMhgKbP"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This will create a new motive for the organization</p>
+<h3 id='parameters-5'>Parameters</h3><h4 id='name-required-5'>name <strong>REQUIRED</strong></h4>
+<p>The name for the Motive on all the information that is displayed to a user.</p>
+<h4 id='externalid-5'>externalId</h4>
+<p>This represents an ID for the Motive in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.</p>
+<h2 id='update-a-motive'>Update a Motive</h2>
+<blockquote>
+<p><strong>PUT</strong> https://api.portao3.com.br/organization/motives/{id}</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT https://api.portao3.com.br/organization/motives/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span> <span class="se">\</span>
+  <span class="nt">-D</span> <span class="s1">'{
+    "name": "",
+    "externalId": "",
+  }'</span>
+</code></pre></div>
+<blockquote>
+<p><strong>200</strong> Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vqsj85qzi6E7uJMhgKbP"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This will update a motive for the organization</p>
+<h3 id='parameters-6'>Parameters</h3><h4 id='name-required-6'>name <strong>REQUIRED</strong></h4>
+<p>The name for the Motive on all the information that is displayed to a user.</p>
+<h4 id='externalid-6'>externalId</h4>
+<p>This represents an ID for the Motive in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.</p>
+<h2 id='delete-a-motive'>Delete a Motive</h2>
+<blockquote>
+<p><strong>DELETE</strong> https://api.portao3.com.br/organization/motives/{id}</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE https://api.portao3.com.br/organization/motives/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span>
+</code></pre></div>
+<blockquote>
+<p><strong>204</strong> Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>NO CONTENT
+</code></pre></div>
+<p>This will delete a Motive.</p>
+<h1 id='tags'>Tags</h1>
+<p>Tags are a way to categorize travel and budget expenses inside the platform.</p>
+<h2 id='retrieve-tags'>Retrieve Tags</h2>
+<blockquote>
+<p><strong>GET</strong> https://api.portao3.com.br/organization/tags</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://api.portao3.com.br/organization/tags <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span>
+</code></pre></div>
+<blockquote>
+<p><strong>200</strong> Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mt4ILqGbuJNGfRqxULjr"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"International Expense"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9273"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>This will retrieve the users&#39; organization active tags.</p>
+<h2 id='create-a-tag'>Create a Tag</h2>
+<blockquote>
+<p><strong>POST</strong> https://api.portao3.com.br/organization/tags</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://api.portao3.com.br/organization/tags <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span> <span class="se">\</span>
+  <span class="nt">-D</span> <span class="s1">'{
+    "name": "",
+    "externalId": "",
+  }'</span>
+</code></pre></div>
+<blockquote>
+<p><strong>201</strong> Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GobatSjVRwp9aBrOuSg9"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This will create a new tag for the organization</p>
+<h3 id='parameters-7'>Parameters</h3><h4 id='name-required-7'>name <strong>REQUIRED</strong></h4>
+<p>The name for the Tag on all the information that is displayed to a user.</p>
+<h4 id='externalid-7'>externalId</h4>
+<p>This represents an ID for the Tag in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.</p>
+<h2 id='update-a-tag'>Update a Tag</h2>
+<blockquote>
+<p><strong>PUT</strong> https://api.portao3.com.br/organization/tags/{id}</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT https://api.portao3.com.br/organization/tags/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span> <span class="se">\</span>
+  <span class="nt">-D</span> <span class="s1">'{
+    "name": "",
+    "externalId": "",
+  }'</span>
+</code></pre></div>
+<blockquote>
+<p><strong>200</strong> Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GobatSjVRwp9aBrOuSg9"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This will update a tag for the organization</p>
+<h3 id='parameters-8'>Parameters</h3><h4 id='name-required-8'>name <strong>REQUIRED</strong></h4>
+<p>The name for the Tag on all the information that is displayed to a user.</p>
+<h4 id='externalid-8'>externalId</h4>
+<p>This represents an ID for the Tag in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.</p>
+<h2 id='delete-a-tag'>Delete a Tag</h2>
+<blockquote>
+<p><strong>DELETE</strong> https://api.portao3.com.br/organization/tags/{id}</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE https://api.portao3.com.br/organization/tags/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span>
+</code></pre></div>
+<blockquote>
+<p><strong>204</strong> Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>NO CONTENT
+</code></pre></div>
+<p>This will delete a Tag.</p>
 <h1 id='cards'>Cards</h1><h2 id='create-a-card'>Create a Card</h2>
 <blockquote>
 <p><strong>POST</strong> https://api.portao3.com.br/cards</p>
@@ -649,7 +939,7 @@
 <p>This will issue a new virtual card number.</p>
 
 <p>For security reasons, this will be the only response we are able to show you the virtual card number information, so please make sure you do all required treatments with this information on your side at this time.</p>
-<h3 id='parameters-3'>Parameters</h3><h4 id='amount-required'>amount <strong>REQUIRED</strong></h4>
+<h3 id='parameters-9'>Parameters</h3><h4 id='amount-required'>amount <strong>REQUIRED</strong></h4>
 <p>The amount for which the card should be generated, in cents.</p>
 <h4 id='type'>type</h4>
 <p>Defines what kind of merchant will be able to use this card. Needs to be one of our pre-defined types: DEFAULT, HOTEL, FLIGHT, NATIONAL or INTERNATIONAL. Defaults to DEFAULT.</p>
@@ -698,7 +988,7 @@
 <p>This will retrieve a virtual card parameters.</p>
 
 <p>Please notice that this service will not return the virtual card information (such as number, expiration and cvv). This information is only shown once, when you create a new card.</p>
-<h3 id='parameters-4'>Parameters</h3><h4 id='id-required'>id <strong>REQUIRED</strong></h4>
+<h3 id='parameters-10'>Parameters</h3><h4 id='id-required'>id <strong>REQUIRED</strong></h4>
 <p>Card ID</p>
 <h2 id='update-a-card'>Update a Card</h2>
 <blockquote>
@@ -742,7 +1032,7 @@
 <p>While updating a credit card information, you are able to change all the usage parameters, including amounts, dates, and custom fields.</p>
 
 <p>By changing the dates or the amounts of an active card, we will move any funds or change the status for this card as required, so it automatically reflect&#39;s the new information you provided.</p>
-<h3 id='parameters-5'>Parameters</h3><h4 id='amount-required-2'>amount <strong>REQUIRED</strong></h4>
+<h3 id='parameters-11'>Parameters</h3><h4 id='amount-required-2'>amount <strong>REQUIRED</strong></h4>
 <p>The amount for which the card should be generated, in cents.</p>
 <h4 id='type-2'>type</h4>
 <p>Defines what kind of merchant will be able to use this card. Needs to be one of our pre-defined types: DEFAULT, HOTEL, FLIGHT, NATIONAL or INTERNATIONAL. Defaults to DEFAULT.</p>
@@ -814,7 +1104,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Returns a list of cards you’ve previously issued. The cards are returned in sorted order, with the earlier activation date appearing first.</p>
-<h3 id='parameters-6'>Parameters</h3><h4 id='status'>status</h4>
+<h3 id='parameters-12'>Parameters</h3><h4 id='status'>status</h4>
 <p>Filter by the status for the cards you are looking for.</p>
 <h4 id='startsactivationat'>startsActivationAt</h4>
 <p>Filter for the initial date a card is expected to be activated.</p>
@@ -860,7 +1150,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Fetch a list of transactions that are associated to a card.</p>
-<h3 id='parameters-7'>Parameters</h3><h4 id='status-2'>status</h4>
+<h3 id='parameters-13'>Parameters</h3><h4 id='status-2'>status</h4>
 <p>Filter by the status for the transactions you are looking for.</p>
 <h4 id='page-2'>page</h4>
 <p>Page number you are retrieving. Defaults to 1.</p>
