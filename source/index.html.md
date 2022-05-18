@@ -7,7 +7,6 @@ language_tabs: # must be one of https://git.io/vQNgJ
 toc_footers:
 
 includes:
-  - transactionStatus
   - errors
 
 search: true
