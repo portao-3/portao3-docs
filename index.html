@@ -883,9 +883,9 @@
 <p>User management to every passenger, card holder or company employee that have access to the platform.</p>
 <h2 id='retrieve-users'>Retrieve Users</h2>
 <blockquote>
-<p><strong>GET</strong> https://api.portao3.com.br/organization/users</p>
+<p><strong>GET</strong> https://api.portao3.com.br/users</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://api.portao3.com.br/organization/users <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://api.portao3.com.br/users <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span>
 </code></pre></div>
@@ -941,9 +941,9 @@
 <p>This will retrieve the users for an organization.</p>
 <h2 id='create-a-user'>Create a User</h2>
 <blockquote>
-<p><strong>POST</strong> https://api.portao3.com.br/organization/users</p>
+<p><strong>POST</strong> https://api.portao3.com.br/users</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://api.portao3.com.br/organization/users <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://api.portao3.com.br/users <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span> <span class="se">\</span>
   <span class="nt">-D</span> <span class="s1">'{
@@ -1060,9 +1060,9 @@
 <p>The cost center ID related to the user. Should be a valid ID from a cost center created inside the platform. Although it is not required, it will auto-fill the information whenever a user requests a travel or a budget.</p>
 <h2 id='update-a-user'>Update a User</h2>
 <blockquote>
-<p><strong>PUT</strong> https://api.portao3.com.br/organization/users/{id}</p>
+<p><strong>PUT</strong> https://api.portao3.com.br/users/{id}</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT https://api.portao3.com.br/organization/users/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT https://api.portao3.com.br/users/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span> <span class="se">\</span>
   <span class="nt">-D</span> <span class="s1">'{
@@ -1103,7 +1103,7 @@
   }'</span>
 </code></pre></div>
 <blockquote>
-<p><strong>201</strong> Response</p>
+<p><strong>200</strong> Response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B9InbYzWM3bBGSwX2M5muYbLkAv1"</span><span class="p">,</span><span class="w">
@@ -1179,9 +1179,9 @@
 <p>The cost center ID related to the user. Should be a valid ID from a cost center created inside the platform. Although it is not required, it will auto-fill the information whenever a user requests a travel or a budget.</p>
 <h2 id='delete-a-user'>Delete a User</h2>
 <blockquote>
-<p><strong>DELETE</strong> https://api.portao3.com.br/organization/users/{id}</p>
+<p><strong>DELETE</strong> https://api.portao3.com.br/users/{id}</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE https://api.portao3.com.br/organization/users/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE https://api.portao3.com.br/users/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span>
 </code></pre></div>
