@@ -599,10 +599,10 @@ User management to every passenger, card holder or company employee that have ac
 
 ## Retrieve Users
 
-> **GET** https://api.portao3.com.br/organization/users
+> **GET** https://api.portao3.com.br/users
 
 ```shell
-curl -X GET https://api.portao3.com.br/organization/users \
+curl -X GET https://api.portao3.com.br/users \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer {token}'
 ```
@@ -661,10 +661,10 @@ This will retrieve the users for an organization.
 
 ## Create a User
 
-> **POST** https://api.portao3.com.br/organization/users
+> **POST** https://api.portao3.com.br/users
 
 ```shell
-curl -X POST https://api.portao3.com.br/organization/users \
+curl -X POST https://api.portao3.com.br/users \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer {token}' \
   -D '{
@@ -822,10 +822,10 @@ The cost center ID related to the user. Should be a valid ID from a cost center 
 
 ## Update a User
 
-> **PUT** https://api.portao3.com.br/organization/users/{id}
+> **PUT** https://api.portao3.com.br/users/{id}
 
 ```shell
-curl -X PUT https://api.portao3.com.br/organization/users/{id} \
+curl -X PUT https://api.portao3.com.br/users/{id} \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer {token}' \
   -D '{
@@ -866,7 +866,7 @@ curl -X PUT https://api.portao3.com.br/organization/users/{id} \
   }'
 ```
 
-> **201** Response
+> **200** Response
 
 ```json
 {
@@ -983,10 +983,10 @@ The cost center ID related to the user. Should be a valid ID from a cost center 
 
 ## Delete a User
 
-> **DELETE** https://api.portao3.com.br/organization/users/{id}
+> **DELETE** https://api.portao3.com.br/users/{id}
 
 ```shell
-curl -X DELETE https://api.portao3.com.br/organization/users/{id} \
+curl -X DELETE https://api.portao3.com.br/users/{id} \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer {token}'
 ```
