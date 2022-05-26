@@ -1192,7 +1192,7 @@
 </code></pre></div>
 <p>This will delete a User.</p>
 <h1 id='errors'>Errors</h1>
-<p>We use conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, invalid parameter, etc.). Codes in the 5xx range indicate an error with Bank 3&#39;s servers (these are rare).</p>
+<p>We use conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, invalid parameter, etc.). Codes in the 5xx range indicate an error with Portão 3&#39;s servers (these are rare).</p>
 
 <p>Some 4xx errors that could be handled programmatically (e.g., parameter invalid) include an error code that briefly explains the error reported.</p>
 <h3 id='http-status-code-summary'>HTTP Status Code Summary</h3><h4 id='200-201-202-204-successful'>200, 201, 202, 204 - Successful</h4>
@@ -1212,7 +1212,7 @@
 <h4 id='429-too-many-requests'>429 - Too Many Requests</h4>
 <p>Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.</p>
 <h4 id='500-502-503-504-server-errors'>500, 502, 503, 504 - Server Errors</h4>
-<p>Something went wrong on Bank 3&#39;s end. (These are rare.)</p>
+<p>Something went wrong on Portão 3&#39;s end. (These are rare.)</p>
 <h3 id='attributes'>Attributes</h3><h4 id='type'>type</h4>
 <p>The type of error returned. See below for options</p>
 <h4 id='message'>message</h4>
@@ -1226,9 +1226,9 @@
 <h4 id='validation_error'>validation_error</h4>
 <p>Errors triggered when failing to validate fields (e.g., when an amount, or expiration date is invalid or incomplete).</p>
 <h4 id='api_connection_error'>api_connection_error</h4>
-<p>Failure to connect to Bank 3&#39;s API.</p>
+<p>Failure to connect to Portão 3&#39;s API.</p>
 <h4 id='api_error'>api_error</h4>
-<p>API errors cover any other type of problem (e.g., a temporary problem with Bank 3&#39;s servers), and are extremely uncommon.</p>
+<p>API errors cover any other type of problem (e.g., a temporary problem with Portão 3&#39;s servers), and are extremely uncommon.</p>
 <h1 id='service-status'>Service Status</h1>
 <p>We provide a full status page you can follow to check any updates on the status of our APIs and the overall infrastructure. Check it out <a href="https://status.portao3.com.br">here</a>.</p>
 
