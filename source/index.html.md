@@ -831,7 +831,6 @@ curl -X PUT https://api.portao3.com.br/users/{id} \
   -D '{
     "firstName": "John",
     "lastName": "Doe",
-    "email": "john@doe.com",
     "birthdate": "31/12/1990",
     "companyId": "000001",
     "role": "Diretor",
@@ -905,23 +904,19 @@ curl -X PUT https://api.portao3.com.br/users/{id} \
 }
 ```
 
-This will update a user for the organization
+This will update a user for the organization. It is not possible to update a user email address.
 
 ### Parameters
 
-#### firstName **REQUIRED**
+#### firstName
 
 The first name of the person, this should be equal to the name in a government ID as to make issuing travel and credit cards for the user a breeze.
 
-#### lastName **REQUIRED**
+#### lastName
 
 The last names of the person, this should be equal to the name in a government ID as to make issuing travel and credit cards for the user a breeze.
 
-#### email **REQUIRED**
-
-The email address for the user.
-
-#### birthdate **REQUIRED**
+#### birthdate
 
 The birth date for the user, using the format DD/MM/YYYY. This should be equal to the name in a government ID as to make issuing travel and credit cards for the user a breeze.
 
@@ -949,7 +944,7 @@ The number for the user's Brazilian driver license. Although it is not required,
 
 The expiration for the user's Brazilian driver license, using the format DD/MM/YYYY. Although it is not required, it may be usefull to fill it out if a user ever needs to rent a car.
 
-#### documents.cpf.number **REQUIRED**
+#### documents.cpf.number
 
 The government ID for the user, using the format 999.999.999-99 and a valid verification code. It is used whenever we have to issue reservations or credit cards for a user.
 
