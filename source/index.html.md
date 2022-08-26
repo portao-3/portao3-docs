@@ -993,3 +993,130 @@ NO CONTENT
 ```
 
 This will delete a User.
+
+# Groups
+
+Groups are a collection of users. They are used to set permissions in batch or within a policy.
+
+## Retrieve Groups
+
+> **GET** https://api.portao3.com.br/organization/groups
+
+```shell
+curl -X GET https://api.portao3.com.br/organization/groups \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer {token}'
+```
+
+> **200** Response
+
+```json
+[
+  {
+    "id": "Mt4ILqGbuJNGfRqxULjr",
+    "name": "International Expense",
+    "users": ["01R1U4jR7rQFtUuBWq0en36GFc23", "2ihaJQ4EtHYaeRiZqTd16uk2FWn1"],
+    "status": "ACTIVE",
+    "created_at": 1624047780
+  },
+  {
+    ...
+  }
+]
+```
+
+This will retrieve the active groups in an organization.
+
+## Create a Group
+
+> **POST** https://api.portao3.com.br/organization/groups
+
+```shell
+curl -X POST https://api.portao3.com.br/organization/groups \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer {token}' \
+  -D '{
+    "name": "",
+    "users": [""],
+  }'
+```
+
+> **201** Response
+
+```json
+{
+  "id": "GobatSjVRwp9aBrOuSg9",
+  "name": "",
+  "users": [""],
+  "status": "ACTIVE",
+  "created_at": 1624047780
+}
+```
+
+This will create a new group for the organization
+
+### Parameters
+
+#### name **REQUIRED**
+
+The name for the Group on all the information that is displayed to a user.
+
+#### users
+
+An array of User IDs.
+
+## Update a Group
+
+> **PUT** https://api.portao3.com.br/organization/groups/{id}
+
+```shell
+curl -X PUT https://api.portao3.com.br/organization/groups/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer {token}' \
+  -D '{
+    "name": "",
+    "users": [""],
+  }'
+```
+
+> **200** Response
+
+```json
+{
+  "id": "GobatSjVRwp9aBrOuSg9",
+  "name": "",
+  "users": [""],
+  "status": "ACTIVE",
+  "created_at": 1624047780
+}
+```
+
+This will update a group for the organization
+
+### Parameters
+
+#### name **REQUIRED**
+
+The name for the Group on all the information that is displayed to a user.
+
+#### users
+
+An array of User IDs. This will replace the list for the new one sent.
+
+## Delete a Group
+
+> **DELETE** https://api.portao3.com.br/organization/groups/{id}
+
+```shell
+curl -X DELETE https://api.portao3.com.br/organization/groups/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer {token}'
+```
+
+> **204** Response
+
+```text
+NO CONTENT
+```
+
+This will delete a Group.
