@@ -411,6 +411,23 @@
               </ul>
           </li>
           <li>
+            <a href="#groups" class="toc-h1 toc-link" data-title="Groups">Groups</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#retrieve-groups" class="toc-h2 toc-link" data-title="Retrieve Groups">Retrieve Groups</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-group" class="toc-h2 toc-link" data-title="Create a Group">Create a Group</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-group" class="toc-h2 toc-link" data-title="Update a Group">Update a Group</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-group" class="toc-h2 toc-link" data-title="Delete a Group">Delete a Group</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1188,6 +1205,103 @@
 <div class="highlight"><pre class="highlight plaintext"><code>NO CONTENT
 </code></pre></div>
 <p>This will delete a User.</p>
+<h1 id='groups'>Groups</h1>
+<p>Groups are a collection of users. They are used to set permissions in batch or within a policy.</p>
+<h2 id='retrieve-groups'>Retrieve Groups</h2>
+<blockquote>
+<p><strong>GET</strong> https://api.portao3.com.br/organization/groups</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://api.portao3.com.br/organization/groups <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span>
+</code></pre></div>
+<blockquote>
+<p><strong>200</strong> Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mt4ILqGbuJNGfRqxULjr"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"International Expense"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"01R1U4jR7rQFtUuBWq0en36GFc23"</span><span class="p">,</span><span class="w"> </span><span class="s2">"2ihaJQ4EtHYaeRiZqTd16uk2FWn1"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>This will retrieve the active groups in an organization.</p>
+<h2 id='create-a-group'>Create a Group</h2>
+<blockquote>
+<p><strong>POST</strong> https://api.portao3.com.br/organization/groups</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://api.portao3.com.br/organization/groups <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span> <span class="se">\</span>
+  <span class="nt">-D</span> <span class="s1">'{
+    "name": "",
+    "users": [""],
+  }'</span>
+</code></pre></div>
+<blockquote>
+<p><strong>201</strong> Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GobatSjVRwp9aBrOuSg9"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">""</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This will create a new group for the organization</p>
+<h3 id='parameters-11'>Parameters</h3><h4 id='name-required-9'>name <strong>REQUIRED</strong></h4>
+<p>The name for the Group on all the information that is displayed to a user.</p>
+<h4 id='users-2'>users</h4>
+<p>An array of User IDs.</p>
+<h2 id='update-a-group'>Update a Group</h2>
+<blockquote>
+<p><strong>PUT</strong> https://api.portao3.com.br/organization/groups/{id}</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT https://api.portao3.com.br/organization/groups/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span> <span class="se">\</span>
+  <span class="nt">-D</span> <span class="s1">'{
+    "name": "",
+    "users": [""],
+  }'</span>
+</code></pre></div>
+<blockquote>
+<p><strong>200</strong> Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GobatSjVRwp9aBrOuSg9"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">""</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This will update a group for the organization</p>
+<h3 id='parameters-12'>Parameters</h3><h4 id='name-required-10'>name <strong>REQUIRED</strong></h4>
+<p>The name for the Group on all the information that is displayed to a user.</p>
+<h4 id='users-3'>users</h4>
+<p>An array of User IDs. This will replace the list for the new one sent.</p>
+<h2 id='delete-a-group'>Delete a Group</h2>
+<blockquote>
+<p><strong>DELETE</strong> https://api.portao3.com.br/organization/groups/{id}</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE https://api.portao3.com.br/organization/groups/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span>
+</code></pre></div>
+<blockquote>
+<p><strong>204</strong> Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>NO CONTENT
+</code></pre></div>
+<p>This will delete a Group.</p>
 <h1 id='errors'>Errors</h1>
 <p>We use conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, invalid parameter, etc.). Codes in the 5xx range indicate an error with Portão 3&#39;s servers (these are rare).</p>
 
