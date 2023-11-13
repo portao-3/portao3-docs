@@ -7,20 +7,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>API Reference</title>
 
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-touch-icon-144x144-9b24dc42.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/apple-touch-icon-152x152-3080d88c.png" />
-    <link rel="icon" type="image/png" href="images/favicon-32x32-18a06e12.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="images/favicon-16x16-f3b93daa.png" sizes="16x16" />
-    <meta name="application-name" content="Portão 3 for Developers"/>
-
     <style media="screen">
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
-.highlight .gh {
-  color: #999999;
+.highlight .cm {
+  color: #999988;
+  font-style: italic;
 }
-.highlight .sr {
-  color: #f6aa11;
+.highlight .cp {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .c1 {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #6e7781;
+}
+.highlight .err {
+  color: #f6f8fa;
+  background-color: #82071e;
+}
+.highlight .gd {
+  color: #82071e;
+  background-color: #ffebe9;
+}
+.highlight .ge {
+  color: #24292f;
+  font-style: italic;
+}
+.highlight .gr {
+  color: #f6f8fa;
+}
+.highlight .gh {
+  color: #0550ae;
+  font-weight: bold;
+}
+.highlight .gi {
+  color: #116329;
+  background-color: #dafbe1;
 }
 .highlight .go {
   color: #888888;
@@ -29,177 +60,170 @@
   color: #555555;
 }
 .highlight .gs {
+  color: #24292f;
+  font-weight: bold;
 }
 .highlight .gu {
-  color: #aaaaaa;
-}
-.highlight .nb {
-  color: #f6aa11;
-}
-.highlight .cm {
-  color: #75715e;
-}
-.highlight .cp {
-  color: #75715e;
-}
-.highlight .c1 {
-  color: #75715e;
-}
-.highlight .cs {
-  color: #75715e;
-}
-.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
-  color: #75715e;
-}
-.highlight .err {
-  color: #960050;
-}
-.highlight .gr {
-  color: #960050;
+  color: #0550ae;
+  font-weight: bold;
 }
 .highlight .gt {
-  color: #960050;
-}
-.highlight .gd {
-  color: #49483e;
-}
-.highlight .gi {
-  color: #49483e;
-}
-.highlight .ge {
-  color: #49483e;
+  color: #6e7781;
 }
 .highlight .kc {
-  color: #66d9ef;
+  color: #0550ae;
 }
 .highlight .kd {
-  color: #66d9ef;
-}
-.highlight .kr {
-  color: #66d9ef;
-}
-.highlight .no {
-  color: #66d9ef;
-}
-.highlight .kt {
-  color: #66d9ef;
-}
-.highlight .mf {
-  color: #ae81ff;
-}
-.highlight .mh {
-  color: #ae81ff;
-}
-.highlight .il {
-  color: #ae81ff;
-}
-.highlight .mi {
-  color: #ae81ff;
-}
-.highlight .mo {
-  color: #ae81ff;
-}
-.highlight .m, .highlight .mb, .highlight .mx {
-  color: #ae81ff;
-}
-.highlight .sc {
-  color: #ae81ff;
-}
-.highlight .se {
-  color: #ae81ff;
-}
-.highlight .ss {
-  color: #ae81ff;
-}
-.highlight .sd {
-  color: #e6db74;
-}
-.highlight .s2 {
-  color: #e6db74;
-}
-.highlight .sb {
-  color: #e6db74;
-}
-.highlight .sh {
-  color: #e6db74;
-}
-.highlight .si {
-  color: #e6db74;
-}
-.highlight .sx {
-  color: #e6db74;
-}
-.highlight .s1 {
-  color: #e6db74;
-}
-.highlight .s, .highlight .sa, .highlight .dl {
-  color: #e6db74;
-}
-.highlight .na {
-  color: #a6e22e;
-}
-.highlight .nc {
-  color: #a6e22e;
-}
-.highlight .nd {
-  color: #a6e22e;
-}
-.highlight .ne {
-  color: #a6e22e;
-}
-.highlight .nf, .highlight .fm {
-  color: #a6e22e;
-}
-.highlight .vc {
-  color: #ffffff;
-}
-.highlight .nn {
-  color: #ffffff;
-}
-.highlight .ni {
-  color: #ffffff;
-}
-.highlight .bp {
-  color: #ffffff;
-}
-.highlight .vg {
-  color: #ffffff;
-}
-.highlight .vi {
-  color: #ffffff;
-}
-.highlight .nv, .highlight .vm {
-  color: #ffffff;
-}
-.highlight .w {
-  color: #ffffff;
-}
-.highlight {
-  color: #ffffff;
-}
-.highlight .n, .highlight .py, .highlight .nx {
-  color: #ffffff;
-}
-.highlight .nl {
-  color: #f92672;
-}
-.highlight .ow {
-  color: #f92672;
-}
-.highlight .nt {
-  color: #f92672;
-}
-.highlight .k, .highlight .kv {
-  color: #f92672;
+  color: #000000;
+  font-weight: bold;
 }
 .highlight .kn {
-  color: #f92672;
+  color: #000000;
+  font-weight: bold;
 }
 .highlight .kp {
-  color: #f92672;
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #445588;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kv {
+  color: #cf222e;
+}
+.highlight .mf {
+  color: #009999;
+}
+.highlight .mh {
+  color: #009999;
+}
+.highlight .il {
+  color: #009999;
+}
+.highlight .mi {
+  color: #009999;
+}
+.highlight .mo {
+  color: #009999;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #009999;
+}
+.highlight .sa {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .sb {
+  color: #0550ae;
+}
+.highlight .sc {
+  color: #d14;
+}
+.highlight .sd {
+  color: #d14;
+}
+.highlight .s2 {
+  color: #d14;
+}
+.highlight .se {
+  color: #d14;
+}
+.highlight .sh {
+  color: #d14;
+}
+.highlight .si {
+  color: #24292f;
+}
+.highlight .sx {
+  color: #d14;
+}
+.highlight .sr {
+  color: #116329;
+}
+.highlight .s1 {
+  color: #d14;
+}
+.highlight .ss {
+  color: #990073;
+}
+.highlight .s, .highlight .dl {
+  color: #0a3069;
+}
+.highlight .na {
+  color: #116329;
+}
+.highlight .bp {
+  color: #0550ae;
+}
+.highlight .nb {
+  color: #953800;
+}
+.highlight .nc {
+  color: #953800;
+}
+.highlight .no {
+  color: #953800;
+}
+.highlight .nd {
+  color: #8250df;
+}
+.highlight .ni {
+  color: #24292f;
+}
+.highlight .ne {
+  color: #0550ae;
+}
+.highlight .nf, .highlight .fm {
+  color: #8250df;
+}
+.highlight .nl {
+  color: #0550ae;
+}
+.highlight .nn {
+  color: #953800;
+}
+.highlight .nt {
+  color: #116329;
+}
+.highlight .vc {
+  color: #008080;
+}
+.highlight .vg {
+  color: #008080;
+}
+.highlight .vi {
+  color: #008080;
+}
+.highlight .nv, .highlight .vm {
+  color: #0550ae;
+}
+.highlight .ow {
+  color: #000000;
+  font-weight: bold;
 }
 .highlight .o {
-  color: #f92672;
+  color: #0550ae;
+}
+.highlight .w {
+  color: #bbbbbb;
+}
+.highlight {
+  color: #24292f;
+  background-color: #f6f8fa;
+}
+.highlight .l, .highlight .ld {
+  color: #0550ae;
+}
+.highlight .py {
+  color: #0550ae;
+}
+.highlight .gl {
+  color: #6e7781;
 }
     </style>
     <style media="print">
@@ -254,8 +278,11 @@
 .highlight .kd {
   color: #cb4b16;
 }
-.highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
   color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
 }
 .highlight .sr {
   color: #2aa198;
@@ -285,9 +312,9 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-eac36a5a.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all-e9bde216.js"></script>
+    <link href="stylesheets/screen-23dceecb.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-b2a94247.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-b84a9da8.js"></script>
 
     <script>
       $(function() { setupCodeCopy(); });
@@ -302,128 +329,74 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo-bd8c676d.svg" class="logo" alt="" />
-        <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-        </div>
-        <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
-        </div>
-        <ul class="search-results"></ul>
+      <div class="logo-wrapper">
+        <img src="images/logo-bd8c676d.svg" class="logo" alt="" />
+      </div>
       <ul id="toc" class="toc-list-h1">
           <li>
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#organization" class="toc-h1 toc-link" data-title="Organization">Organization</a>
+            <a href="#identity" class="toc-h1 toc-link" data-title="Identity">Identity</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#retrieve-an-organization" class="toc-h2 toc-link" data-title="Retrieve an Organization">Retrieve an Organization</a>
+                    <a href="#authentication" class="toc-h2 toc-link" data-title="Authentication">Authentication</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#cost-centers" class="toc-h1 toc-link" data-title="Cost Centers">Cost Centers</a>
+            <a href="#banking" class="toc-h1 toc-link" data-title="Banking">Banking</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#retrieve-cost-centers" class="toc-h2 toc-link" data-title="Retrieve Cost Centers">Retrieve Cost Centers</a>
+                    <a href="#account" class="toc-h2 toc-link" data-title="Account">Account</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#list-organization-accounts" class="toc-h3 toc-link" data-title="List Organization Accounts">List Organization Accounts</a>
+                          </li>
+                          <li>
+                            <a href="#retrieve-an-account" class="toc-h3 toc-link" data-title="Retrieve an Account">Retrieve an Account</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
-                    <a href="#create-a-cost-center" class="toc-h2 toc-link" data-title="Create a Cost Center">Create a Cost Center</a>
+                    <a href="#wallet" class="toc-h2 toc-link" data-title="Wallet">Wallet</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#create-a-wallet" class="toc-h3 toc-link" data-title="Create a Wallet">Create a Wallet</a>
+                          </li>
+                          <li>
+                            <a href="#retrieve-a-wallet" class="toc-h3 toc-link" data-title="Retrieve a Wallet">Retrieve a Wallet</a>
+                          </li>
+                          <li>
+                            <a href="#list-account-wallets" class="toc-h3 toc-link" data-title="List Account Wallets">List Account Wallets</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
-                    <a href="#update-a-cost-center" class="toc-h2 toc-link" data-title="Update a Cost Center">Update a Cost Center</a>
+                    <a href="#card" class="toc-h2 toc-link" data-title="Card">Card</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#create-a-card" class="toc-h3 toc-link" data-title="Create a Card">Create a Card</a>
+                          </li>
+                          <li>
+                            <a href="#retrieve-a-card" class="toc-h3 toc-link" data-title="Retrieve a Card">Retrieve a Card</a>
+                          </li>
+                          <li>
+                            <a href="#retrieve-card-details" class="toc-h3 toc-link" data-title="Retrieve Card Details">Retrieve Card Details</a>
+                          </li>
+                          <li>
+                            <a href="#list-wallet-cards" class="toc-h3 toc-link" data-title="List Wallet Cards">List Wallet Cards</a>
+                          </li>
+                          <li>
+                            <a href="#list-account-cards" class="toc-h3 toc-link" data-title="List Account Cards">List Account Cards</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
-                    <a href="#delete-a-cost-center" class="toc-h2 toc-link" data-title="Delete a Cost Center">Delete a Cost Center</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#projects" class="toc-h1 toc-link" data-title="Projects">Projects</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#retrieve-projects" class="toc-h2 toc-link" data-title="Retrieve Projects">Retrieve Projects</a>
+                    <a href="#pix-payment" class="toc-h2 toc-link" data-title="Pix Payment">Pix Payment</a>
                   </li>
                   <li>
-                    <a href="#create-a-project" class="toc-h2 toc-link" data-title="Create a Project">Create a Project</a>
-                  </li>
-                  <li>
-                    <a href="#update-a-project" class="toc-h2 toc-link" data-title="Update a Project">Update a Project</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-project" class="toc-h2 toc-link" data-title="Delete a Project">Delete a Project</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#motivations" class="toc-h1 toc-link" data-title="Motivations">Motivations</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#retrieve-motives" class="toc-h2 toc-link" data-title="Retrieve Motives">Retrieve Motives</a>
-                  </li>
-                  <li>
-                    <a href="#create-a-motive" class="toc-h2 toc-link" data-title="Create a Motive">Create a Motive</a>
-                  </li>
-                  <li>
-                    <a href="#update-a-motive" class="toc-h2 toc-link" data-title="Update a Motive">Update a Motive</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-motive" class="toc-h2 toc-link" data-title="Delete a Motive">Delete a Motive</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#tags" class="toc-h1 toc-link" data-title="Tags">Tags</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#retrieve-tags" class="toc-h2 toc-link" data-title="Retrieve Tags">Retrieve Tags</a>
-                  </li>
-                  <li>
-                    <a href="#create-a-tag" class="toc-h2 toc-link" data-title="Create a Tag">Create a Tag</a>
-                  </li>
-                  <li>
-                    <a href="#update-a-tag" class="toc-h2 toc-link" data-title="Update a Tag">Update a Tag</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-tag" class="toc-h2 toc-link" data-title="Delete a Tag">Delete a Tag</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#users" class="toc-h1 toc-link" data-title="Users">Users</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#retrieve-users" class="toc-h2 toc-link" data-title="Retrieve Users">Retrieve Users</a>
-                  </li>
-                  <li>
-                    <a href="#create-a-user" class="toc-h2 toc-link" data-title="Create a User">Create a User</a>
-                  </li>
-                  <li>
-                    <a href="#update-a-user" class="toc-h2 toc-link" data-title="Update a User">Update a User</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-user" class="toc-h2 toc-link" data-title="Delete a User">Delete a User</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#groups" class="toc-h1 toc-link" data-title="Groups">Groups</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#retrieve-groups" class="toc-h2 toc-link" data-title="Retrieve Groups">Retrieve Groups</a>
-                  </li>
-                  <li>
-                    <a href="#create-a-group" class="toc-h2 toc-link" data-title="Create a Group">Create a Group</a>
-                  </li>
-                  <li>
-                    <a href="#update-a-group" class="toc-h2 toc-link" data-title="Update a Group">Update a Group</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-group" class="toc-h2 toc-link" data-title="Delete a Group">Delete a Group</a>
+                    <a href="#boleto-payment" class="toc-h2 toc-link" data-title="Boleto Payment">Boleto Payment</a>
                   </li>
               </ul>
           </li>
@@ -432,12 +405,69 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#http-status-code-summary" class="toc-h2 toc-link" data-title="HTTP Status Code Summary">HTTP Status Code Summary</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#200-201-202-204-successful" class="toc-h3 toc-link" data-title="200, 201, 202, 204 - Successful">200, 201, 202, 204 - Successful</a>
+                          </li>
+                          <li>
+                            <a href="#400-bad-request" class="toc-h3 toc-link" data-title="400 - Bad Request">400 - Bad Request</a>
+                          </li>
+                          <li>
+                            <a href="#401-unauthorized" class="toc-h3 toc-link" data-title="401 - Unauthorized">401 - Unauthorized</a>
+                          </li>
+                          <li>
+                            <a href="#402-request-failed" class="toc-h3 toc-link" data-title="402 - Request Failed">402 - Request Failed</a>
+                          </li>
+                          <li>
+                            <a href="#403-forbidden" class="toc-h3 toc-link" data-title="403 - Forbidden">403 - Forbidden</a>
+                          </li>
+                          <li>
+                            <a href="#404-not-found" class="toc-h3 toc-link" data-title="404 - Not Found">404 - Not Found</a>
+                          </li>
+                          <li>
+                            <a href="#409-conflict" class="toc-h3 toc-link" data-title="409 - Conflict">409 - Conflict</a>
+                          </li>
+                          <li>
+                            <a href="#429-too-many-requests" class="toc-h3 toc-link" data-title="429 - Too Many Requests">429 - Too Many Requests</a>
+                          </li>
+                          <li>
+                            <a href="#500-502-503-504-server-errors" class="toc-h3 toc-link" data-title="500, 502, 503, 504 - Server Errors">500, 502, 503, 504 - Server Errors</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
                     <a href="#attributes" class="toc-h2 toc-link" data-title="Attributes">Attributes</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#type" class="toc-h3 toc-link" data-title="type">type</a>
+                          </li>
+                          <li>
+                            <a href="#message" class="toc-h3 toc-link" data-title="message">message</a>
+                          </li>
+                          <li>
+                            <a href="#param" class="toc-h3 toc-link" data-title="param">param</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
                     <a href="#error-types" class="toc-h2 toc-link" data-title="Error Types">Error Types</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#authentication_error" class="toc-h3 toc-link" data-title="authentication_error">authentication_error</a>
+                          </li>
+                          <li>
+                            <a href="#invalid_request_error" class="toc-h3 toc-link" data-title="invalid_request_error">invalid_request_error</a>
+                          </li>
+                          <li>
+                            <a href="#validation_error" class="toc-h3 toc-link" data-title="validation_error">validation_error</a>
+                          </li>
+                          <li>
+                            <a href="#api_connection_error" class="toc-h3 toc-link" data-title="api_connection_error">api_connection_error</a>
+                          </li>
+                          <li>
+                            <a href="#api_error" class="toc-h3 toc-link" data-title="api_error">api_error</a>
+                          </li>
+                      </ul>
                   </li>
               </ul>
           </li>
@@ -451,24 +481,23 @@
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
 <p>The Portão 3 API is organized around <a href="https://www.w3.org/TR/2004/NOTE-ws-arch-20040211/#relwwwrest">REST</a>. Our API has predictable resource-oriented URLs, accepts form-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.</p>
-<h1 id='authentication'>Authentication</h1>
+<h1 id='identity'>Identity</h1><h2 id='authentication'>Authentication</h2>
 <blockquote>
-<p><strong>POST</strong> https://api.portao3.com.br/auth</p>
+<p><strong>POST</strong> https://api.identity.v2.portao3.com.br/auth/sign-in</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://api.portao3.com.br/auth <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://api.identity.v2.portao3.com.br/auth/sign-in <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">-D</span> <span class="s1">'{
-    "client_id": "",
-    "client_secret": ""
+    "email": "",
+    "password": ""
   }'</span>
 </code></pre></div>
 <blockquote>
 <p><strong>200</strong> Response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your_Access_Token_Will_Show_Up_Here"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="w">
+  </span><span class="nl">"accessToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your_Access_Token_Will_Show_Up_Here"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"refreshToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your_Refresh_Token_Will_Show_Up_Here"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>In order to ensure that only authorized users and applications are allowed access to the API, we make use of the <a href="https://tools.ietf.org/html/rfc6749">OAuth 2.0 authorization framework</a>.</p>
@@ -478,525 +507,201 @@
 <p>With Client Credentials Grant (defined in RFC 6749, section 4.4) an application can directly request an Access Token from the Authorization Server by using its Client Credentials (a Client Id and a Client Secret).</p>
 
 <p>You can create new credentials and manage existing ones in your account dashboard.</p>
-<h1 id='organization'>Organization</h1><h2 id='retrieve-an-organization'>Retrieve an Organization</h2>
+
+<!-- ## Realm
+
+### Retrieve a Realm
+
+> **GET** https://api.portao3.com.br/organization
+
+```shell
+curl -X GET https://api.portao3.com.br/organization \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer {token}'
+```
+
+> **200** Response
+
+```json
+{
+  "id": "zkIAT5N3g69FAl6OUMnd",
+  "organization": {
+    "address": {
+      "city": "Uberlândia",
+      "district": "Jardim Sul",
+      "number": "21",
+      "state": "MG",
+      "street": "Av. dos Vinhedos",
+      "zipCode": "38411-694",
+      "cnpj": "28.352.868/0001-70"
+    },
+    "corporateName": "PORTAO 3 VIAGENS LTDA",
+    "name": "Portão 3",
+    "status": "ACTIVE"
+  }
+}
+```
+
+This will retrieve the users' organization information. -->
+<h1 id='banking'>Banking</h1><h2 id='account'>Account</h2><h3 id='list-organization-accounts'>List Organization Accounts</h3>
 <blockquote>
-<p><strong>GET</strong> https://api.portao3.com.br/organization</p>
+<p><strong>GET</strong> /realms/:realmId/organizations/:organizationId/accounts</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://api.portao3.com.br/organization <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET :url/realms/:realmId/organizations/:organizationId/accounts <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer :token'</span>
 </code></pre></div>
 <blockquote>
 <p><strong>200</strong> Response</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"zkIAT5N3g69FAl6OUMnd"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"organization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"652d22af362a51d216112f9e"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"legalName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PORTAO 3 VIAGENS LTDA"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tradingName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PORTAO 3"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"foundingDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-01"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28352868000170"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"businessType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LTDA"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"financeiro@portao3.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mainActivity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99999"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55999999999"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Uberlândia"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"district"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jardim Sul"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UBERLANDIA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ANDAR 4"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JARDIM SUL"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"70"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"38411694"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MG"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Av. dos Vinhedos"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"zipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"38411-694"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"cnpj"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28.352.868/0001-70"</span><span class="w">
+      </span><span class="nl">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AV DOS VINHEDOS"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"corporateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PORTAO 3 VIAGENS LTDA"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Portão 3"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This will retrieve the users&#39; organization information.</p>
-<h1 id='cost-centers'>Cost Centers</h1>
-<p>Cost centers are a way to categorize travel and budget expenses inside the platform.</p>
-<h2 id='retrieve-cost-centers'>Retrieve Cost Centers</h2>
-<blockquote>
-<p><strong>GET</strong> https://api.portao3.com.br/organization/cost_centers</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://api.portao3.com.br/organization/cost_centers <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span>
-</code></pre></div>
-<blockquote>
-<p><strong>200</strong> Response</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0ZkEadksC0y8VW5DOKAY"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Finance"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="err">...</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
-<p>This will retrieve the users&#39; organization active cost centers.</p>
-<h2 id='create-a-cost-center'>Create a Cost Center</h2>
-<blockquote>
-<p><strong>POST</strong> https://api.portao3.com.br/organization/cost_centers</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://api.portao3.com.br/organization/cost_centers <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span> <span class="se">\</span>
-  <span class="nt">-D</span> <span class="s1">'{
-    "name": "",
-    "externalId": "",
-  }'</span>
-</code></pre></div>
-<blockquote>
-<p><strong>201</strong> Response</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0ZkEadksC0y8VW5DOKAY"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This will create a new cost center for the organization</p>
-<h3 id='parameters'>Parameters</h3><h4 id='name-required'>name <strong>REQUIRED</strong></h4>
-<p>The name for the Cost Center on all the information that is displayed to a user.</p>
-<h4 id='externalid'>externalId</h4>
-<p>This represents an ID for the Cost Center in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.</p>
-<h2 id='update-a-cost-center'>Update a Cost Center</h2>
-<blockquote>
-<p><strong>PUT</strong> https://api.portao3.com.br/organization/cost_centers/{id}</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT https://api.portao3.com.br/organization/cost_centers/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span> <span class="se">\</span>
-  <span class="nt">-D</span> <span class="s1">'{
-    "name": "",
-    "externalId": "",
-  }'</span>
-</code></pre></div>
-<blockquote>
-<p><strong>200</strong> Response</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0ZkEadksC0y8VW5DOKAY"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This will update a center for the organization</p>
-<h3 id='parameters-2'>Parameters</h3><h4 id='name-required-2'>name <strong>REQUIRED</strong></h4>
-<p>The name for the Cost Center on all the information that is displayed to a user.</p>
-<h4 id='externalid-2'>externalId</h4>
-<p>This represents an ID for the Cost Center in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.</p>
-<h2 id='delete-a-cost-center'>Delete a Cost Center</h2>
-<blockquote>
-<p><strong>DELETE</strong> https://api.portao3.com.br/organization/cost_centers/{id}</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE https://api.portao3.com.br/organization/cost_centers/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span>
-</code></pre></div>
-<blockquote>
-<p><strong>204</strong> Response</p>
-</blockquote>
-<div class="highlight"><pre class="highlight plaintext"><code>NO CONTENT
-</code></pre></div>
-<p>This will delete a Cost Center.</p>
-<h1 id='projects'>Projects</h1>
-<p>Projects are a way to categorize travel and budget expenses inside the platform.</p>
-<h2 id='retrieve-projects'>Retrieve Projects</h2>
-<blockquote>
-<p><strong>GET</strong> https://api.portao3.com.br/organization/projects</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://api.portao3.com.br/organization/projects <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span>
-</code></pre></div>
-<blockquote>
-<p><strong>200</strong> Response</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mt4ILqGbuJNGfRqxULjr"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ERP Implementation"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0987"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="err">...</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
-<p>This will retrieve the users&#39; organization active projects.</p>
-<h2 id='create-a-project'>Create a Project</h2>
-<blockquote>
-<p><strong>POST</strong> https://api.portao3.com.br/organization/projects</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://api.portao3.com.br/organization/projects <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span> <span class="se">\</span>
-  <span class="nt">-D</span> <span class="s1">'{
-    "name": "",
-    "externalId": "",
-  }'</span>
-</code></pre></div>
-<blockquote>
-<p><strong>201</strong> Response</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mt4ILqGbuJNGfRqxULjr"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This will create a new project for the organization</p>
-<h3 id='parameters-3'>Parameters</h3><h4 id='name-required-3'>name <strong>REQUIRED</strong></h4>
-<p>The name for the Project on all the information that is displayed to a user.</p>
-<h4 id='externalid-3'>externalId</h4>
-<p>This represents an ID for the Project in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.</p>
-<h2 id='update-a-project'>Update a Project</h2>
-<blockquote>
-<p><strong>PUT</strong> https://api.portao3.com.br/organization/projects/{id}</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT https://api.portao3.com.br/organization/projects/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span> <span class="se">\</span>
-  <span class="nt">-D</span> <span class="s1">'{
-    "name": "",
-    "externalId": "",
-  }'</span>
-</code></pre></div>
-<blockquote>
-<p><strong>200</strong> Response</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mt4ILqGbuJNGfRqxULjr"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This will update a project for the organization</p>
-<h3 id='parameters-4'>Parameters</h3><h4 id='name-required-4'>name <strong>REQUIRED</strong></h4>
-<p>The name for the Project on all the information that is displayed to a user.</p>
-<h4 id='externalid-4'>externalId</h4>
-<p>This represents an ID for the Project in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.</p>
-<h2 id='delete-a-project'>Delete a Project</h2>
-<blockquote>
-<p><strong>DELETE</strong> https://api.portao3.com.br/organization/projects/{id}</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE https://api.portao3.com.br/organization/projects/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span>
-</code></pre></div>
-<blockquote>
-<p><strong>204</strong> Response</p>
-</blockquote>
-<div class="highlight"><pre class="highlight plaintext"><code>NO CONTENT
-</code></pre></div>
-<p>This will delete a Project.</p>
-<h1 id='motivations'>Motivations</h1>
-<p>Motivations are a way to categorize travel and budget expenses inside the platform.</p>
-<h2 id='retrieve-motives'>Retrieve Motives</h2>
-<blockquote>
-<p><strong>GET</strong> https://api.portao3.com.br/organization/motives</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://api.portao3.com.br/organization/motives <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span>
-</code></pre></div>
-<blockquote>
-<p><strong>200</strong> Response</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mt4ILqGbuJNGfRqxULjr"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Client Visit"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4576"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="err">...</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
-<p>This will retrieve the users&#39; organization active motives.</p>
-<h2 id='create-a-motive'>Create a Motive</h2>
-<blockquote>
-<p><strong>POST</strong> https://api.portao3.com.br/organization/motives</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://api.portao3.com.br/organization/motives <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span> <span class="se">\</span>
-  <span class="nt">-D</span> <span class="s1">'{
-    "name": "",
-    "externalId": "",
-  }'</span>
-</code></pre></div>
-<blockquote>
-<p><strong>201</strong> Response</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vqsj85qzi6E7uJMhgKbP"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This will create a new motive for the organization</p>
-<h3 id='parameters-5'>Parameters</h3><h4 id='name-required-5'>name <strong>REQUIRED</strong></h4>
-<p>The name for the Motive on all the information that is displayed to a user.</p>
-<h4 id='externalid-5'>externalId</h4>
-<p>This represents an ID for the Motive in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.</p>
-<h2 id='update-a-motive'>Update a Motive</h2>
-<blockquote>
-<p><strong>PUT</strong> https://api.portao3.com.br/organization/motives/{id}</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT https://api.portao3.com.br/organization/motives/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span> <span class="se">\</span>
-  <span class="nt">-D</span> <span class="s1">'{
-    "name": "",
-    "externalId": "",
-  }'</span>
-</code></pre></div>
-<blockquote>
-<p><strong>200</strong> Response</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vqsj85qzi6E7uJMhgKbP"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This will update a motive for the organization</p>
-<h3 id='parameters-6'>Parameters</h3><h4 id='name-required-6'>name <strong>REQUIRED</strong></h4>
-<p>The name for the Motive on all the information that is displayed to a user.</p>
-<h4 id='externalid-6'>externalId</h4>
-<p>This represents an ID for the Motive in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.</p>
-<h2 id='delete-a-motive'>Delete a Motive</h2>
-<blockquote>
-<p><strong>DELETE</strong> https://api.portao3.com.br/organization/motives/{id}</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE https://api.portao3.com.br/organization/motives/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span>
-</code></pre></div>
-<blockquote>
-<p><strong>204</strong> Response</p>
-</blockquote>
-<div class="highlight"><pre class="highlight plaintext"><code>NO CONTENT
-</code></pre></div>
-<p>This will delete a Motive.</p>
-<h1 id='tags'>Tags</h1>
-<p>Tags are a way to categorize travel and budget expenses inside the platform.</p>
-<h2 id='retrieve-tags'>Retrieve Tags</h2>
-<blockquote>
-<p><strong>GET</strong> https://api.portao3.com.br/organization/tags</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://api.portao3.com.br/organization/tags <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span>
-</code></pre></div>
-<blockquote>
-<p><strong>200</strong> Response</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mt4ILqGbuJNGfRqxULjr"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"International Expense"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9273"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="err">...</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
-<p>This will retrieve the users&#39; organization active tags.</p>
-<h2 id='create-a-tag'>Create a Tag</h2>
-<blockquote>
-<p><strong>POST</strong> https://api.portao3.com.br/organization/tags</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://api.portao3.com.br/organization/tags <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span> <span class="se">\</span>
-  <span class="nt">-D</span> <span class="s1">'{
-    "name": "",
-    "externalId": "",
-  }'</span>
-</code></pre></div>
-<blockquote>
-<p><strong>201</strong> Response</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GobatSjVRwp9aBrOuSg9"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This will create a new tag for the organization</p>
-<h3 id='parameters-7'>Parameters</h3><h4 id='name-required-7'>name <strong>REQUIRED</strong></h4>
-<p>The name for the Tag on all the information that is displayed to a user.</p>
-<h4 id='externalid-7'>externalId</h4>
-<p>This represents an ID for the Tag in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.</p>
-<h2 id='update-a-tag'>Update a Tag</h2>
-<blockquote>
-<p><strong>PUT</strong> https://api.portao3.com.br/organization/tags/{id}</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT https://api.portao3.com.br/organization/tags/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span> <span class="se">\</span>
-  <span class="nt">-D</span> <span class="s1">'{
-    "name": "",
-    "externalId": "",
-  }'</span>
-</code></pre></div>
-<blockquote>
-<p><strong>200</strong> Response</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GobatSjVRwp9aBrOuSg9"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This will update a tag for the organization</p>
-<h3 id='parameters-8'>Parameters</h3><h4 id='name-required-8'>name <strong>REQUIRED</strong></h4>
-<p>The name for the Tag on all the information that is displayed to a user.</p>
-<h4 id='externalid-8'>externalId</h4>
-<p>This represents an ID for the Tag in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.</p>
-<h2 id='delete-a-tag'>Delete a Tag</h2>
-<blockquote>
-<p><strong>DELETE</strong> https://api.portao3.com.br/organization/tags/{id}</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE https://api.portao3.com.br/organization/tags/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span>
-</code></pre></div>
-<blockquote>
-<p><strong>204</strong> Response</p>
-</blockquote>
-<div class="highlight"><pre class="highlight plaintext"><code>NO CONTENT
-</code></pre></div>
-<p>This will delete a Tag.</p>
-<h1 id='users'>Users</h1>
-<p>User management to every passenger, card holder or company employee that have access to the platform.</p>
-<h2 id='retrieve-users'>Retrieve Users</h2>
-<blockquote>
-<p><strong>GET</strong> https://api.portao3.com.br/users</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://api.portao3.com.br/users <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span>
-</code></pre></div>
-<blockquote>
-<p><strong>200</strong> Response</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B9InbYzWM3bBGSwX2M5muYbLkAv1"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@doe.com"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"admin"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.portao3.com.br/johndoe.png"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"birthdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31/12/1990"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"companyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000001"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Diretor"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"mobilePhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(99) 99999-9999"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MALE"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"documents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"cnh"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"validUntil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31/12/2025"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"cpf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111.111.111-11"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"passport"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NT12345"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"validUntil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31/12/2025"</span><span class="p">,</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"rg"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"emitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SSPMG"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15683942"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shareholders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UBERLANDIA"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ANDAR 4"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JARDIM SUL"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"70"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"38411694"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MG"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AV DOS VINHEDOS"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1990-12-31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99999999999"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"financeiro@portao3.com.br"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JOHN"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DOE"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"motherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MOTHER DOE"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55999999999"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"64fa1412d3b438e3eb3fe6c8"</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sT9OPjOnetwj4Q6q776t"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"costCenter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DtG2lWrblX1yLx9Z2c7L"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Finance"</span><span class="p">,</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPEN"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"environment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LIVE"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-09-07T18:20:53.670Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"analysisResult"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"64fa1485096102607170c4bc"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"defaultWalletId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"652d87b1362a51d216112fa6"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPEN"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"environment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-09-07T18:20:55.389Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"analysisResult"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"64fa14878bc3af88503299f4"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-09-07T18:20:50.996Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-09-07T18:20:55.403Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"organizationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9d63955d-ce87-45d7-9bc8-5a87894acba2"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"realmId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"97025c3c-84ea-47a8-8e1c-bcc3ef43f45b"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="err">...</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="err">...</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div>
-<p>This will retrieve the users for an organization.</p>
-<h2 id='create-a-user'>Create a User</h2>
+</span></code></pre></div><h3 id='retrieve-an-account'>Retrieve an Account</h3>
 <blockquote>
-<p><strong>POST</strong> https://api.portao3.com.br/users</p>
+<p><strong>GET</strong> /realms/:realmId/organizations/:organizationId/accounts/:accountId</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://api.portao3.com.br/users <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET :url/realms/:realmId/organizations/:organizationId/accounts/:accountId <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer :token'</span>
+</code></pre></div>
+<blockquote>
+<p><strong>200</strong> Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"652d22af362a51d216112f9e"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"legalName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PORTAO 3 VIAGENS LTDA"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"tradingName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PORTAO 3"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"foundingDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-01"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28352868000170"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"businessType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LTDA"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"financeiro@portao3.com.br"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"mainActivity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99999"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55999999999"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UBERLANDIA"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ANDAR 4"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JARDIM SUL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"70"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"38411694"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MG"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AV DOS VINHEDOS"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"shareholders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UBERLANDIA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ANDAR 4"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JARDIM SUL"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"70"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"38411694"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MG"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AV DOS VINHEDOS"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1990-12-31"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99999999999"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"financeiro@portao3.com.br"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JOHN"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DOE"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"motherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MOTHER DOE"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55999999999"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"64fa1412d3b438e3eb3fe6c8"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPEN"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"environment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LIVE"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-09-07T18:20:53.670Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"analysisResult"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"64fa1485096102607170c4bc"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"defaultWalletId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"652d87b1362a51d216112fa6"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPEN"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"environment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-09-07T18:20:55.389Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"analysisResult"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"64fa14878bc3af88503299f4"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-09-07T18:20:50.996Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-09-07T18:20:55.403Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"organizationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9d63955d-ce87-45d7-9bc8-5a87894acba2"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"realmId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"97025c3c-84ea-47a8-8e1c-bcc3ef43f45b"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='wallet'>Wallet</h2><h3 id='create-a-wallet'>Create a Wallet</h3>
+<blockquote>
+<p><strong>POST</strong> /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST :url/realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer :token'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Environment: LIVE'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span> <span class="se">\</span>
   <span class="nt">-D</span> <span class="s1">'{
-    "firstName": "John",
-    "lastName": "Doe",
-    "email": "john@doe.com",
-    "birthdate": "31/12/1990",
-    "companyId": "000001",
-    "role": "Diretor",
-    "mobilePhoneNumber": "(99) 99999-9999",
-    "gender": "MALE",
-    "documents": {
-      "cnh": {
-        "number": "12345678",
-        "validUntil": "31/12/2025"
-      },
-      "cpf": {
-        "number": "111.111.111-11"
-      },
-      "passport": {
-        "country": "BR",
-        "number": "NT12345",
-        "validUntil": "31/12/2025"
-      },
-      "rg": {
-        "emitter": "SSPMG",
-        "number": "15683942"
-      }
-    },
-    "project": {
-      "id": "sT9OPjOnetwj4Q6q776t",
-      "name": "Apple"
-    },
-    "costCenter": {
-      "id": "DtG2lWrblX1yLx9Z2c7L",
-      "name": "Finance"
+    "currency": "986",
+    "customFields": {
+        "key": "value"
     }
   }'</span>
 </code></pre></div>
@@ -1004,305 +709,294 @@
 <p><strong>201</strong> Response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B9InbYzWM3bBGSwX2M5muYbLkAv1"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@doe.com"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"admin"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.portao3.com.br/johndoe.png"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"birthdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31/12/1990"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"companyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000001"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Diretor"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"mobilePhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(99) 99999-9999"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MALE"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"documents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"cnh"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"validUntil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31/12/2025"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"cpf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111.111.111-11"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"passport"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NT12345"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"validUntil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31/12/2025"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"rg"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"emitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SSPMG"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15683942"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+  </span><span class="nl">"realmId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"97025c3c-84ea-47a8-8e1c-bcc3ef43f45b"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"organizationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9d63955d-ce87-45d7-9bc8-5a87894acba2"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"652d86af362a51d216112f9e"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"environment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LIVE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"986"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"customFields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"project"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sT9OPjOnetwj4Q6q776t"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"costCenter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DtG2lWrblX1yLx9Z2c7L"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHECKING"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65516cbe6a73fae8ae4377d9"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-11-13T00:24:30.152Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-11-13T00:24:30.152Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This will create a new user for the organization</p>
-<h3 id='parameters-9'>Parameters</h3><h4 id='firstname-required'>firstName <strong>REQUIRED</strong></h4>
-<p>The first name of the person, this should be equal to the name in a government ID as to make issuing travel and credit cards for the user a breeze.</p>
-<h4 id='lastname-required'>lastName <strong>REQUIRED</strong></h4>
-<p>The last names of the person, this should be equal to the name in a government ID as to make issuing travel and credit cards for the user a breeze.</p>
-<h4 id='email-required'>email <strong>REQUIRED</strong></h4>
-<p>The email address for the user.</p>
-<h4 id='birthdate-required'>birthdate <strong>REQUIRED</strong></h4>
-<p>The birth date for the user, using the format DD/MM/YYYY. This should be equal to the name in a government ID as to make issuing travel and credit cards for the user a breeze.</p>
-<h4 id='companyid'>companyId</h4>
-<p>The ID for the user inside the organization. Usefull for integrating our solution with other third party systems in HR.</p>
-<h4 id='role'>role</h4>
-<p>The role for the user inside the organization. Usefull for creating policies based on the role for the person.</p>
-<h4 id='mobilephonenumber'>mobilePhoneNumber</h4>
-<p>The mobile phone number for the user, using the format (99) 99999-9999. Altough we will try to match other formats to this one, sending it correctly guarantees the integration works always the best way possible. It is not required, but usefull in case someone on our team needs to get ahold of the passenger to send additional information about a reservation.</p>
-<h4 id='gender'>gender</h4>
-<p>The gender for the user, it should be either &quot;MALE&quot; or &quot;FEMALE&quot;. Altough we, as a company, value every human that identifies with every gender, this is unfortunately standard while issuing air tickets for other countries or managing hotel reservations where sharing rooms are directed with specific laws for each country.</p>
-<h4 id='documents-cnh-number'>documents.cnh.number</h4>
-<p>The number for the user&#39;s Brazilian driver license. Although it is not required, it may be usefull to fill it out if a user ever needs to rent a car.</p>
-<h4 id='documents-cnh-validuntil'>documents.cnh.validUntil</h4>
-<p>The expiration for the user&#39;s Brazilian driver license, using the format DD/MM/YYYY. Although it is not required, it may be usefull to fill it out if a user ever needs to rent a car.</p>
-<h4 id='documents-cpf-number-required'>documents.cpf.number <strong>REQUIRED</strong></h4>
-<p>The government ID for the user, using the format 999.999.999-99 and a valid verification code. It is used whenever we have to issue reservations or credit cards for a user.</p>
-<h4 id='documents-passport-country'>documents.passport.country</h4>
-<p>The country ID according to <a href="https://www.iso.org/iso-3166-country-codes.html">ISO 3166</a> for the user&#39;s passport. It is a two digit string. Although it is not required, it is used whenever we have to issue reservations to other countries for a user.</p>
-<h4 id='documents-passport-number'>documents.passport.number</h4>
-<p>The number of the passport for the user&#39;s passport. Although it is not required, it is used whenever we have to issue reservations to other countries for a user.</p>
-<h4 id='documents-passport-validuntil'>documents.passport.validUntil</h4>
-<p>The expiration for the user&#39;s Brazilian driver license, using the format DD/MM/YYYY. Although it is not required, it is used whenever we have to issue reservations to other countries for a user.</p>
-<h4 id='documents-rg-emitter'>documents.rg.emitter</h4>
-<p>The government ID issuer for the user. Although it is not required, it may be used while issuing some hotel stays for a user.</p>
-<h4 id='documents-rg-number'>documents.rg.number</h4>
-<p>The government ID number for the user. Although it is not required, it may be used while issuing some hotel stays for a user.</p>
-<h4 id='project'>project</h4>
-<p>The project ID related to the user. Should be a valid ID from a project created inside the platform. Although it is not required, it will auto-fill the information whenever a user requests a travel or a budget.</p>
-<h4 id='costcenter'>costCenter</h4>
-<p>The cost center ID related to the user. Should be a valid ID from a cost center created inside the platform. Although it is not required, it will auto-fill the information whenever a user requests a travel or a budget.</p>
-<h2 id='update-a-user'>Update a User</h2>
+</span></code></pre></div><h3 id='retrieve-a-wallet'>Retrieve a Wallet</h3>
 <blockquote>
-<p><strong>PUT</strong> https://api.portao3.com.br/users/{id}</p>
+<p><strong>GET</strong> /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT https://api.portao3.com.br/users/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span> <span class="se">\</span>
-  <span class="nt">-D</span> <span class="s1">'{
-    "firstName": "John",
-    "lastName": "Doe",
-    "birthdate": "31/12/1990",
-    "companyId": "000001",
-    "role": "Diretor",
-    "mobilePhoneNumber": "(99) 99999-9999",
-    "gender": "MALE",
-    "documents": {
-      "cnh": {
-        "number": "12345678",
-        "validUntil": "31/12/2025"
-      },
-      "cpf": {
-        "number": "111.111.111-11"
-      },
-      "passport": {
-        "country": "BR",
-        "number": "NT12345",
-        "validUntil": "31/12/2025"
-      },
-      "rg": {
-        "emitter": "SSPMG",
-        "number": "15683942"
-      }
-    },
-    "project": {
-      "id": "sT9OPjOnetwj4Q6q776t",
-      "name": "Apple"
-    },
-    "costCenter": {
-      "id": "DtG2lWrblX1yLx9Z2c7L",
-      "name": "Finance"
-    }
-  }'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET :url/realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer :token'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Environment: LIVE'</span>
 </code></pre></div>
 <blockquote>
 <p><strong>200</strong> Response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B9InbYzWM3bBGSwX2M5muYbLkAv1"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@doe.com"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"admin"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.portao3.com.br/johndoe.png"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"birthdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31/12/1990"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"companyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000001"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Diretor"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"mobilePhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(99) 99999-9999"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MALE"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"documents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"cnh"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"validUntil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31/12/2025"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"cpf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111.111.111-11"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"passport"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NT12345"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"validUntil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31/12/2025"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"rg"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"emitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SSPMG"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15683942"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65516cbe6a73fae8ae4377d9"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"realmId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"97025c3c-84ea-47a8-8e1c-bcc3ef43f45b"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"organizationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9d63955d-ce87-45d7-9bc8-5a87894acba2"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"652d86af362a51d216112f9e"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"environment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LIVE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"986"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"customFields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"project"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sT9OPjOnetwj4Q6q776t"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"costCenter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DtG2lWrblX1yLx9Z2c7L"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHECKING"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-11-13T00:24:30.152Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-11-13T00:24:34.683Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"totalBalance"</span><span class="p">:</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"balances"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRAVEL"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MOBILITY"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">50000</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ADS"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAAS"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AIRLINES"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TOLL"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GAS"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FLEX_INTERNATIONAL"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">50000</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FLEX_NATIONAL"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HOTEL"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FOOD"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This will update a user for the organization. It is not possible to update a user email address.</p>
-<h3 id='parameters-10'>Parameters</h3><h4 id='firstname'>firstName</h4>
-<p>The first name of the person, this should be equal to the name in a government ID as to make issuing travel and credit cards for the user a breeze.</p>
-<h4 id='lastname'>lastName</h4>
-<p>The last names of the person, this should be equal to the name in a government ID as to make issuing travel and credit cards for the user a breeze.</p>
-<h4 id='birthdate'>birthdate</h4>
-<p>The birth date for the user, using the format DD/MM/YYYY. This should be equal to the name in a government ID as to make issuing travel and credit cards for the user a breeze.</p>
-<h4 id='companyid-2'>companyId</h4>
-<p>The ID for the user inside the organization. Usefull for integrating our solution with other third party systems in HR.</p>
-<h4 id='role-2'>role</h4>
-<p>The role for the user inside the organization. Usefull for creating policies based on the role for the person.</p>
-<h4 id='mobilephonenumber-2'>mobilePhoneNumber</h4>
-<p>The mobile phone number for the user, using the format (99) 99999-9999. Altough we will try to match other formats to this one, sending it correctly guarantees the integration works always the best way possible. It is not required, but usefull in case someone on our team needs to get ahold of the passenger to send additional information about a reservation.</p>
-<h4 id='gender-2'>gender</h4>
-<p>The gender for the user, it should be either &quot;MALE&quot; or &quot;FEMALE&quot;. Altough we, as a company, value every human that identifies with every gender, this is unfortunately standard while issuing air tickets for other countries or managing hotel reservations where sharing rooms are directed with specific laws for each country.</p>
-<h4 id='documents-cnh-number-2'>documents.cnh.number</h4>
-<p>The number for the user&#39;s Brazilian driver license. Although it is not required, it may be usefull to fill it out if a user ever needs to rent a car.</p>
-<h4 id='documents-cnh-validuntil-2'>documents.cnh.validUntil</h4>
-<p>The expiration for the user&#39;s Brazilian driver license, using the format DD/MM/YYYY. Although it is not required, it may be usefull to fill it out if a user ever needs to rent a car.</p>
-<h4 id='documents-cpf-number'>documents.cpf.number</h4>
-<p>The government ID for the user, using the format 999.999.999-99 and a valid verification code. It is used whenever we have to issue reservations or credit cards for a user.</p>
-<h4 id='documents-passport-country-2'>documents.passport.country</h4>
-<p>The country ID according to <a href="https://www.iso.org/iso-3166-country-codes.html">ISO 3166</a> for the user&#39;s passport. It is a two digit string. Although it is not required, it is used whenever we have to issue reservations to other countries for a user.</p>
-<h4 id='documents-passport-number-2'>documents.passport.number</h4>
-<p>The number of the passport for the user&#39;s passport. Although it is not required, it is used whenever we have to issue reservations to other countries for a user.</p>
-<h4 id='documents-passport-validuntil-2'>documents.passport.validUntil</h4>
-<p>The expiration for the user&#39;s Brazilian driver license, using the format DD/MM/YYYY. Although it is not required, it is used whenever we have to issue reservations to other countries for a user.</p>
-<h4 id='documents-rg-emitter-2'>documents.rg.emitter</h4>
-<p>The government ID issuer for the user. Although it is not required, it may be used while issuing some hotel stays for a user.</p>
-<h4 id='documents-rg-number-2'>documents.rg.number</h4>
-<p>The government ID number for the user. Although it is not required, it may be used while issuing some hotel stays for a user.</p>
-<h4 id='project-2'>project</h4>
-<p>The project ID related to the user. Should be a valid ID from a project created inside the platform. Although it is not required, it will auto-fill the information whenever a user requests a travel or a budget.</p>
-<h4 id='costcenter-2'>costCenter</h4>
-<p>The cost center ID related to the user. Should be a valid ID from a cost center created inside the platform. Although it is not required, it will auto-fill the information whenever a user requests a travel or a budget.</p>
-<h2 id='delete-a-user'>Delete a User</h2>
+</span></code></pre></div><h3 id='list-account-wallets'>List Account Wallets</h3>
 <blockquote>
-<p><strong>DELETE</strong> https://api.portao3.com.br/users/{id}</p>
+<p><strong>GET</strong> /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE https://api.portao3.com.br/users/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span>
-</code></pre></div>
-<blockquote>
-<p><strong>204</strong> Response</p>
-</blockquote>
-<div class="highlight"><pre class="highlight plaintext"><code>NO CONTENT
-</code></pre></div>
-<p>This will delete a User.</p>
-<h1 id='groups'>Groups</h1>
-<p>Groups are a collection of users. They are used to set permissions in batch or within a policy.</p>
-<h2 id='retrieve-groups'>Retrieve Groups</h2>
-<blockquote>
-<p><strong>GET</strong> https://api.portao3.com.br/organization/groups</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://api.portao3.com.br/organization/groups <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET :url/realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer :token'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Environment: LIVE'</span>
 </code></pre></div>
 <blockquote>
 <p><strong>200</strong> Response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mt4ILqGbuJNGfRqxULjr"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"International Expense"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"01R1U4jR7rQFtUuBWq0en36GFc23"</span><span class="p">,</span><span class="w"> </span><span class="s2">"2ihaJQ4EtHYaeRiZqTd16uk2FWn1"</span><span class="p">],</span><span class="w">
-    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6515902dec2d9822bf1c4852"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"652d86af362a51d216112f9e"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"environment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LIVE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"986"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"customFields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="err">...</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BLOCKED"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHECKING"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-09-28T14:39:41.975Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-11-06T12:26:21.649Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"organizationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9d63955d-ce87-45d7-9bc8-5a87894acba2"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"realmId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"97025c3c-84ea-47a8-8e1c-bcc3ef43f45b"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div>
-<p>This will retrieve the active groups in an organization.</p>
-<h2 id='create-a-group'>Create a Group</h2>
+</span></code></pre></div><h2 id='card'>Card</h2><h3 id='create-a-card'>Create a Card</h3>
 <blockquote>
-<p><strong>POST</strong> https://api.portao3.com.br/organization/groups</p>
+<p><strong>POST</strong> /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/cards</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://api.portao3.com.br/organization/groups <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST :url/realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/cards <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer :token'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Environment: LIVE'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span> <span class="se">\</span>
   <span class="nt">-D</span> <span class="s1">'{
-    "name": "",
-    "users": [""],
+    "type": "VIRTUAL",
+    "singleUse": false,
+    "customFields": {
+        "key": "value"
+    }
   }'</span>
 </code></pre></div>
 <blockquote>
 <p><strong>201</strong> Response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GobatSjVRwp9aBrOuSg9"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">""</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"realmId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"97025c3c-84ea-47a8-8e1c-bcc3ef43f45b"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"organizationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9d63955d-ce87-45d7-9bc8-5a87894acba2"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"652d86af362a51d216112f9e"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"walletId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65516cbe6a73fae8ae4377d9"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"environment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LIVE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"panMasked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"524674******0521"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expiryDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11/2029"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"tokenisationPermitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"singleUse"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIRTUAL"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
+  </span><span class="nl">"customFields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"cardLimitIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65516f8094a4e95ffbb43886"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-11-13T00:36:16.848Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-11-13T00:36:16.848Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This will create a new group for the organization</p>
-<h3 id='parameters-11'>Parameters</h3><h4 id='name-required-9'>name <strong>REQUIRED</strong></h4>
-<p>The name for the Group on all the information that is displayed to a user.</p>
-<h4 id='users-2'>users</h4>
-<p>An array of User IDs.</p>
-<h2 id='update-a-group'>Update a Group</h2>
+</span></code></pre></div><h3 id='retrieve-a-card'>Retrieve a Card</h3>
 <blockquote>
-<p><strong>PUT</strong> https://api.portao3.com.br/organization/groups/{id}</p>
+<p><strong>GET</strong> /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/cards/:cardId</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT https://api.portao3.com.br/organization/groups/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span> <span class="se">\</span>
-  <span class="nt">-D</span> <span class="s1">'{
-    "name": "",
-    "users": [""],
-  }'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET :url/realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/cards/:cardId <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer :token'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Environment: LIVE'</span>
 </code></pre></div>
 <blockquote>
 <p><strong>200</strong> Response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GobatSjVRwp9aBrOuSg9"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">""</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65516f8094a4e95ffbb43886"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"realmId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"97025c3c-84ea-47a8-8e1c-bcc3ef43f45b"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"organizationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9d63955d-ce87-45d7-9bc8-5a87894acba2"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"652d86af362a51d216112f9e"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"walletId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65516cbe6a73fae8ae4377d9"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"environment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LIVE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"panMasked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"524674******0521"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expiryDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11/2029"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"tokenisationPermitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"singleUse"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIRTUAL"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1624047780</span><span class="w">
+  </span><span class="nl">"customFields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"cardLimitIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-11-13T00:36:16.848Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-11-13T00:36:16.848Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This will update a group for the organization</p>
-<h3 id='parameters-12'>Parameters</h3><h4 id='name-required-10'>name <strong>REQUIRED</strong></h4>
-<p>The name for the Group on all the information that is displayed to a user.</p>
-<h4 id='users-3'>users</h4>
-<p>An array of User IDs. This will replace the list for the new one sent.</p>
-<h2 id='delete-a-group'>Delete a Group</h2>
+</span></code></pre></div><h3 id='retrieve-card-details'>Retrieve Card Details</h3>
 <blockquote>
-<p><strong>DELETE</strong> https://api.portao3.com.br/organization/groups/{id}</p>
+<p><strong>GET</strong> /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/cards/:cardId/details</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE https://api.portao3.com.br/organization/groups/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {token}'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET :url/realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/cards/:cardId/details <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer :token'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Environment: LIVE'</span>
 </code></pre></div>
 <blockquote>
-<p><strong>204</strong> Response</p>
+<p><strong>200</strong> Response</p>
 </blockquote>
-<div class="highlight"><pre class="highlight plaintext"><code>NO CONTENT
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65516f8094a4e95ffbb43886"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"realmId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"97025c3c-84ea-47a8-8e1c-bcc3ef43f45b"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"organizationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9d63955d-ce87-45d7-9bc8-5a87894acba2"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"652d86af362a51d216112f9e"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"walletId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65516cbe6a73fae8ae4377d9"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"environment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LIVE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"panMasked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"524674******0521"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expiryDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11/2029"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"tokenisationPermitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"singleUse"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIRTUAL"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"customFields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"cardLimitIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-11-13T00:36:16.848Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-11-13T00:36:16.848Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"pan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5246742051160521"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"cvv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"571"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='list-wallet-cards'>List Wallet Cards</h3>
+<blockquote>
+<p><strong>GET</strong> /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/cards</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET :url/realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/cards <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer :token'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Environment: LIVE'</span>
 </code></pre></div>
-<p>This will delete a Group.</p>
-<h1 id='errors'>Errors</h1>
+<blockquote>
+<p><strong>200</strong> Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65516f8094a4e95ffbb43886"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"realmId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"97025c3c-84ea-47a8-8e1c-bcc3ef43f45b"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"organizationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9d63955d-ce87-45d7-9bc8-5a87894acba2"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"652d86af362a51d216112f9e"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"walletId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65516cbe6a73fae8ae4377d9"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"environment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LIVE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"panMasked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"524674******0521"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"expiryDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11/2029"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tokenisationPermitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"singleUse"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIRTUAL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customFields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"cardLimitIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-11-13T00:36:16.848Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-11-13T00:36:16.848Z"</span><span class="p">,</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h3 id='list-account-cards'>List Account Cards</h3>
+<blockquote>
+<p><strong>GET</strong> /realms/:realmId/organizations/:organizationId/accounts/:accountId/cards</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET :url/realms/:realmId/organizations/:organizationId/accounts/:accountId/cards <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer :token'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Environment: LIVE'</span>
+</code></pre></div>
+<blockquote>
+<p><strong>200</strong> Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65516f8094a4e95ffbb43886"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"realmId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"97025c3c-84ea-47a8-8e1c-bcc3ef43f45b"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"organizationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9d63955d-ce87-45d7-9bc8-5a87894acba2"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"652d86af362a51d216112f9e"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"walletId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65516cbe6a73fae8ae4377d9"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"environment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LIVE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"panMasked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"524674******0521"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"expiryDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11/2029"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tokenisationPermitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"singleUse"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIRTUAL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customFields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"cardLimitIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-11-13T00:36:16.848Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-11-13T00:36:16.848Z"</span><span class="p">,</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h2 id='pix-payment'>Pix Payment</h2><h2 id='boleto-payment'>Boleto Payment</h2><h1 id='errors'>Errors</h1>
 <p>We use conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, invalid parameter, etc.). Codes in the 5xx range indicate an error with Portão 3&#39;s servers (these are rare).</p>
 
 <p>Some 4xx errors that could be handled programmatically (e.g., parameter invalid) include an error code that briefly explains the error reported.</p>
@@ -1343,11 +1037,6 @@
 <h1 id='service-status'>Service Status</h1>
 <p>We provide a full status page you can follow to check any updates on the status of our APIs and the overall infrastructure. Check it out <a href="https://status.portao3.com.br">here</a>.</p>
 
-      </div>
-      <div class="dark-box">
-          <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-          </div>
       </div>
     </div>
   </body>
