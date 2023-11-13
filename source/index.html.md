@@ -18,16 +18,18 @@ code_clipboard: true
 
 The Portão 3 API is organized around [REST](https://www.w3.org/TR/2004/NOTE-ws-arch-20040211/#relwwwrest). Our API has predictable resource-oriented URLs, accepts form-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.
 
-# Authentication
+# Identity
 
-> **POST** https://api.portao3.com.br/auth
+## Authentication
+
+> **POST** https://api.identity.v2.portao3.com.br/auth/sign-in
 
 ```shell
-curl -X POST https://api.portao3.com.br/auth \
+curl -X POST https://api.identity.v2.portao3.com.br/auth/sign-in \
   -H 'Content-Type: application/json' \
   -D '{
-    "client_id": "",
-    "client_secret": ""
+    "email": "",
+    "password": ""
   }'
 ```
 
@@ -35,9 +37,8 @@ curl -X POST https://api.portao3.com.br/auth \
 
 ```json
 {
-  "access_token": "Your_Access_Token_Will_Show_Up_Here",
-  "expires_in": 86400,
-  "token_type": "Bearer"
+  "accessToken": "Your_Access_Token_Will_Show_Up_Here",
+  "refreshToken": "Your_Refresh_Token_Will_Show_Up_Here"
 }
 ```
 
@@ -49,9 +50,9 @@ With Client Credentials Grant (defined in RFC 6749, section 4.4) an application 
 
 You can create new credentials and manage existing ones in your account dashboard.
 
-# Organization
+<!-- ## Realm
 
-## Retrieve an Organization
+### Retrieve a Realm
 
 > **GET** https://api.portao3.com.br/organization
 
@@ -83,20 +84,19 @@ curl -X GET https://api.portao3.com.br/organization \
 }
 ```
 
-This will retrieve the users' organization information.
+This will retrieve the users' organization information. -->
 
-# Cost Centers
+# Banking
 
-Cost centers are a way to categorize travel and budget expenses inside the platform.
+## Account
 
-## Retrieve Cost Centers
+### List Organization Accounts
 
-> **GET** https://api.portao3.com.br/organization/cost_centers
+> **GET** /realms/:realmId/organizations/:organizationId/accounts
 
 ```shell
-curl -X GET https://api.portao3.com.br/organization/cost_centers \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {token}'
+curl -X GET :url/realms/:realmId/organizations/:organizationId/accounts \
+-H 'Authorization: Bearer :token'
 ```
 
 > **200** Response
@@ -104,603 +104,162 @@ curl -X GET https://api.portao3.com.br/organization/cost_centers \
 ```json
 [
   {
-    "id": "0ZkEadksC0y8VW5DOKAY",
-    "name": "Finance",
-    "externalId": "12345",
-    "status": "ACTIVE",
-    "created_at": 1624047780
-  },
-  {
-    ...
-  }
-]
-```
-
-This will retrieve the users' organization active cost centers.
-
-## Create a Cost Center
-
-> **POST** https://api.portao3.com.br/organization/cost_centers
-
-```shell
-curl -X POST https://api.portao3.com.br/organization/cost_centers \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {token}' \
-  -D '{
-    "name": "",
-    "externalId": "",
-  }'
-```
-
-> **201** Response
-
-```json
-{
-  "id": "0ZkEadksC0y8VW5DOKAY",
-  "name": "",
-  "externalId": "",
-  "status": "ACTIVE",
-  "created_at": 1624047780
-}
-```
-
-This will create a new cost center for the organization
-
-### Parameters
-
-#### name **REQUIRED**
-
-The name for the Cost Center on all the information that is displayed to a user.
-
-#### externalId
-
-This represents an ID for the Cost Center in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.
-
-## Update a Cost Center
-
-> **PUT** https://api.portao3.com.br/organization/cost_centers/{id}
-
-```shell
-curl -X PUT https://api.portao3.com.br/organization/cost_centers/{id} \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {token}' \
-  -D '{
-    "name": "",
-    "externalId": "",
-  }'
-```
-
-> **200** Response
-
-```json
-{
-  "id": "0ZkEadksC0y8VW5DOKAY",
-  "name": "",
-  "externalId": "",
-  "status": "ACTIVE",
-  "created_at": 1624047780
-}
-```
-
-This will update a center for the organization
-
-### Parameters
-
-#### name **REQUIRED**
-
-The name for the Cost Center on all the information that is displayed to a user.
-
-#### externalId
-
-This represents an ID for the Cost Center in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.
-
-## Delete a Cost Center
-
-> **DELETE** https://api.portao3.com.br/organization/cost_centers/{id}
-
-```shell
-curl -X DELETE https://api.portao3.com.br/organization/cost_centers/{id} \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {token}'
-```
-
-> **204** Response
-
-```text
-NO CONTENT
-```
-
-This will delete a Cost Center.
-
-# Projects
-
-Projects are a way to categorize travel and budget expenses inside the platform.
-
-## Retrieve Projects
-
-> **GET** https://api.portao3.com.br/organization/projects
-
-```shell
-curl -X GET https://api.portao3.com.br/organization/projects \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {token}'
-```
-
-> **200** Response
-
-```json
-[
-  {
-    "id": "Mt4ILqGbuJNGfRqxULjr",
-    "name": "ERP Implementation",
-    "externalId": "0987",
-    "status": "ACTIVE",
-    "created_at": 1624047780
-  },
-  {
-    ...
-  }
-]
-```
-
-This will retrieve the users' organization active projects.
-
-## Create a Project
-
-> **POST** https://api.portao3.com.br/organization/projects
-
-```shell
-curl -X POST https://api.portao3.com.br/organization/projects \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {token}' \
-  -D '{
-    "name": "",
-    "externalId": "",
-  }'
-```
-
-> **201** Response
-
-```json
-{
-  "id": "Mt4ILqGbuJNGfRqxULjr",
-  "name": "",
-  "externalId": "",
-  "status": "ACTIVE",
-  "created_at": 1624047780
-}
-```
-
-This will create a new project for the organization
-
-### Parameters
-
-#### name **REQUIRED**
-
-The name for the Project on all the information that is displayed to a user.
-
-#### externalId
-
-This represents an ID for the Project in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.
-
-## Update a Project
-
-> **PUT** https://api.portao3.com.br/organization/projects/{id}
-
-```shell
-curl -X PUT https://api.portao3.com.br/organization/projects/{id} \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {token}' \
-  -D '{
-    "name": "",
-    "externalId": "",
-  }'
-```
-
-> **200** Response
-
-```json
-{
-  "id": "Mt4ILqGbuJNGfRqxULjr",
-  "name": "",
-  "externalId": "",
-  "status": "ACTIVE",
-  "created_at": 1624047780
-}
-```
-
-This will update a project for the organization
-
-### Parameters
-
-#### name **REQUIRED**
-
-The name for the Project on all the information that is displayed to a user.
-
-#### externalId
-
-This represents an ID for the Project in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.
-
-## Delete a Project
-
-> **DELETE** https://api.portao3.com.br/organization/projects/{id}
-
-```shell
-curl -X DELETE https://api.portao3.com.br/organization/projects/{id} \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {token}'
-```
-
-> **204** Response
-
-```text
-NO CONTENT
-```
-
-This will delete a Project.
-
-# Motivations
-
-Motivations are a way to categorize travel and budget expenses inside the platform.
-
-## Retrieve Motives
-
-> **GET** https://api.portao3.com.br/organization/motives
-
-```shell
-curl -X GET https://api.portao3.com.br/organization/motives \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {token}'
-```
-
-> **200** Response
-
-```json
-[
-  {
-    "id": "Mt4ILqGbuJNGfRqxULjr",
-    "name": "Client Visit",
-    "externalId": "4576",
-    "status": "ACTIVE",
-    "created_at": 1624047780
-  },
-  {
-    ...
-  }
-]
-```
-
-This will retrieve the users' organization active motives.
-
-## Create a Motive
-
-> **POST** https://api.portao3.com.br/organization/motives
-
-```shell
-curl -X POST https://api.portao3.com.br/organization/motives \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {token}' \
-  -D '{
-    "name": "",
-    "externalId": "",
-  }'
-```
-
-> **201** Response
-
-```json
-{
-  "id": "vqsj85qzi6E7uJMhgKbP",
-  "name": "",
-  "externalId": "",
-  "status": "ACTIVE",
-  "created_at": 1624047780
-}
-```
-
-This will create a new motive for the organization
-
-### Parameters
-
-#### name **REQUIRED**
-
-The name for the Motive on all the information that is displayed to a user.
-
-#### externalId
-
-This represents an ID for the Motive in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.
-
-## Update a Motive
-
-> **PUT** https://api.portao3.com.br/organization/motives/{id}
-
-```shell
-curl -X PUT https://api.portao3.com.br/organization/motives/{id} \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {token}' \
-  -D '{
-    "name": "",
-    "externalId": "",
-  }'
-```
-
-> **200** Response
-
-```json
-{
-  "id": "vqsj85qzi6E7uJMhgKbP",
-  "name": "",
-  "externalId": "",
-  "status": "ACTIVE",
-  "created_at": 1624047780
-}
-```
-
-This will update a motive for the organization
-
-### Parameters
-
-#### name **REQUIRED**
-
-The name for the Motive on all the information that is displayed to a user.
-
-#### externalId
-
-This represents an ID for the Motive in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.
-
-## Delete a Motive
-
-> **DELETE** https://api.portao3.com.br/organization/motives/{id}
-
-```shell
-curl -X DELETE https://api.portao3.com.br/organization/motives/{id} \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {token}'
-```
-
-> **204** Response
-
-```text
-NO CONTENT
-```
-
-This will delete a Motive.
-
-# Tags
-
-Tags are a way to categorize travel and budget expenses inside the platform.
-
-## Retrieve Tags
-
-> **GET** https://api.portao3.com.br/organization/tags
-
-```shell
-curl -X GET https://api.portao3.com.br/organization/tags \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {token}'
-```
-
-> **200** Response
-
-```json
-[
-  {
-    "id": "Mt4ILqGbuJNGfRqxULjr",
-    "name": "International Expense",
-    "externalId": "9273",
-    "status": "ACTIVE",
-    "created_at": 1624047780
-  },
-  {
-    ...
-  }
-]
-```
-
-This will retrieve the users' organization active tags.
-
-## Create a Tag
-
-> **POST** https://api.portao3.com.br/organization/tags
-
-```shell
-curl -X POST https://api.portao3.com.br/organization/tags \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {token}' \
-  -D '{
-    "name": "",
-    "externalId": "",
-  }'
-```
-
-> **201** Response
-
-```json
-{
-  "id": "GobatSjVRwp9aBrOuSg9",
-  "name": "",
-  "externalId": "",
-  "status": "ACTIVE",
-  "created_at": 1624047780
-}
-```
-
-This will create a new tag for the organization
-
-### Parameters
-
-#### name **REQUIRED**
-
-The name for the Tag on all the information that is displayed to a user.
-
-#### externalId
-
-This represents an ID for the Tag in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.
-
-## Update a Tag
-
-> **PUT** https://api.portao3.com.br/organization/tags/{id}
-
-```shell
-curl -X PUT https://api.portao3.com.br/organization/tags/{id} \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {token}' \
-  -D '{
-    "name": "",
-    "externalId": "",
-  }'
-```
-
-> **200** Response
-
-```json
-{
-  "id": "GobatSjVRwp9aBrOuSg9",
-  "name": "",
-  "externalId": "",
-  "status": "ACTIVE",
-  "created_at": 1624047780
-}
-```
-
-This will update a tag for the organization
-
-### Parameters
-
-#### name **REQUIRED**
-
-The name for the Tag on all the information that is displayed to a user.
-
-#### externalId
-
-This represents an ID for the Tag in other systems. Usefull for migrating data, or making sure the data we export is backwards compatible to other systems.
-
-## Delete a Tag
-
-> **DELETE** https://api.portao3.com.br/organization/tags/{id}
-
-```shell
-curl -X DELETE https://api.portao3.com.br/organization/tags/{id} \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {token}'
-```
-
-> **204** Response
-
-```text
-NO CONTENT
-```
-
-This will delete a Tag.
-
-# Users
-
-User management to every passenger, card holder or company employee that have access to the platform.
-
-## Retrieve Users
-
-> **GET** https://api.portao3.com.br/users
-
-```shell
-curl -X GET https://api.portao3.com.br/users \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {token}'
-```
-
-> **200** Response
-
-```json
-[
-  {
-    "uid": "B9InbYzWM3bBGSwX2M5muYbLkAv1",
-    "firstName": "John",
-    "lastName": "Doe",
-    "email": "john@doe.com",
-    "admin": true,
-    "avatar": "https://app.portao3.com.br/johndoe.png",
-    "birthdate": "31/12/1990",
-    "companyId": "000001",
-    "role": "Diretor",
-    "mobilePhoneNumber": "(99) 99999-9999",
-    "gender": "MALE",
-    "documents": {
-      "cnh": {
-        "number": "12345678",
-        "validUntil": "31/12/2025"
-      },
-      "cpf": {
-        "number": "111.111.111-11"
-      },
-      "passport": {
-        "country": "BR",
-        "number": "NT12345",
-        "validUntil": "31/12/2025",
-      },
-      "rg": {
-        "emitter": "SSPMG",
-        "number": "15683942",
+    "_id": "652d22af362a51d216112f9e",
+    "legalName": "PORTAO 3 VIAGENS LTDA",
+    "tradingName": "PORTAO 3",
+    "foundingDate": "2021-01-01",
+    "document": "28352868000170",
+    "businessType": "LTDA",
+    "email": "financeiro@portao3.com.br",
+    "mainActivity": "99999",
+    "phoneNumber": "55999999999",
+    "address": {
+      "city": "UBERLANDIA",
+      "complement": "ANDAR 4",
+      "neighborhood": "JARDIM SUL",
+      "number": "70",
+      "postalCode": "38411694",
+      "state": "MG",
+      "street": "AV DOS VINHEDOS"
+    },
+    "shareholders": [
+      {
+        "address": {
+          "city": "UBERLANDIA",
+          "complement": "ANDAR 4",
+          "neighborhood": "JARDIM SUL",
+          "number": "70",
+          "postalCode": "38411694",
+          "state": "MG",
+          "street": "AV DOS VINHEDOS"
+        },
+        "birthDate": "1990-12-31",
+        "document": "99999999999",
+        "email": "financeiro@portao3.com.br",
+        "firstName": "JOHN",
+        "lastName": "DOE",
+        "motherName": "MOTHER DOE",
+        "phoneNumber": "55999999999",
+        "_id": "64fa1412d3b438e3eb3fe6c8"
       }
-    },
-    "project": {
-      "id": "sT9OPjOnetwj4Q6q776t",
-      "name": "Apple"
-    },
-    "costCenter": {
-      "id": "DtG2lWrblX1yLx9Z2c7L",
-      "name": "Finance",
-    },
-    "status": "ACTIVE",
+    ],
+    "status": [
+        {
+            "status": "OPEN",
+            "environment": "LIVE",
+            "updatedAt": "2023-09-07T18:20:53.670Z",
+            "analysisResult": [],
+            "_id": "64fa1485096102607170c4bc",
+            "defaultWalletId": "652d87b1362a51d216112fa6"
+        },
+        {
+            "status": "OPEN",
+            "environment": "TEST",
+            "updatedAt": "2023-09-07T18:20:55.389Z",
+            "analysisResult": [],
+            "_id": "64fa14878bc3af88503299f4"
+        }
+    ],
+    "createdAt": "2023-09-07T18:20:50.996Z",
+    "updatedAt": "2023-09-07T18:20:55.403Z",
+    "organizationId": "9d63955d-ce87-45d7-9bc8-5a87894acba2",
+    "realmId": "97025c3c-84ea-47a8-8e1c-bcc3ef43f45b"
   },
-  {
-    ...
-  }
+  ...
 ]
 ```
 
-This will retrieve the users for an organization.
+### Retrieve an Account
 
-## Create a User
-
-> **POST** https://api.portao3.com.br/users
+> **GET** /realms/:realmId/organizations/:organizationId/accounts/:accountId
 
 ```shell
-curl -X POST https://api.portao3.com.br/users \
+curl -X GET :url/realms/:realmId/organizations/:organizationId/accounts/:accountId \
+-H 'Authorization: Bearer :token'
+```
+
+> **200** Response
+
+```json
+{
+  "_id": "652d22af362a51d216112f9e",
+  "legalName": "PORTAO 3 VIAGENS LTDA",
+  "tradingName": "PORTAO 3",
+  "foundingDate": "2021-01-01",
+  "document": "28352868000170",
+  "businessType": "LTDA",
+  "email": "financeiro@portao3.com.br",
+  "mainActivity": "99999",
+  "phoneNumber": "55999999999",
+  "address": {
+    "city": "UBERLANDIA",
+    "complement": "ANDAR 4",
+    "neighborhood": "JARDIM SUL",
+    "number": "70",
+    "postalCode": "38411694",
+    "state": "MG",
+    "street": "AV DOS VINHEDOS"
+  },
+  "shareholders": [
+    {
+      "address": {
+        "city": "UBERLANDIA",
+        "complement": "ANDAR 4",
+        "neighborhood": "JARDIM SUL",
+        "number": "70",
+        "postalCode": "38411694",
+        "state": "MG",
+        "street": "AV DOS VINHEDOS"
+      },
+      "birthDate": "1990-12-31",
+      "document": "99999999999",
+      "email": "financeiro@portao3.com.br",
+      "firstName": "JOHN",
+      "lastName": "DOE",
+      "motherName": "MOTHER DOE",
+      "phoneNumber": "55999999999",
+      "_id": "64fa1412d3b438e3eb3fe6c8"
+    }
+  ],
+  "status": [
+    {
+      "status": "OPEN",
+      "environment": "LIVE",
+      "updatedAt": "2023-09-07T18:20:53.670Z",
+      "analysisResult": [],
+      "_id": "64fa1485096102607170c4bc",
+      "defaultWalletId": "652d87b1362a51d216112fa6"
+    },
+    {
+      "status": "OPEN",
+      "environment": "TEST",
+      "updatedAt": "2023-09-07T18:20:55.389Z",
+      "analysisResult": [],
+      "_id": "64fa14878bc3af88503299f4"
+    }
+  ],
+  "createdAt": "2023-09-07T18:20:50.996Z",
+  "updatedAt": "2023-09-07T18:20:55.403Z",
+  "organizationId": "9d63955d-ce87-45d7-9bc8-5a87894acba2",
+  "realmId": "97025c3c-84ea-47a8-8e1c-bcc3ef43f45b"
+}
+```
+
+## Wallet
+
+### Create a Wallet
+
+> **POST** /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets
+
+```shell
+curl -X POST :url/realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets \
+  -H 'Authorization: Bearer :token' \
+  -H 'Environment: LIVE' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {token}' \
   -D '{
-    "firstName": "John",
-    "lastName": "Doe",
-    "email": "john@doe.com",
-    "birthdate": "31/12/1990",
-    "companyId": "000001",
-    "role": "Diretor",
-    "mobilePhoneNumber": "(99) 99999-9999",
-    "gender": "MALE",
-    "documents": {
-      "cnh": {
-        "number": "12345678",
-        "validUntil": "31/12/2025"
-      },
-      "cpf": {
-        "number": "111.111.111-11"
-      },
-      "passport": {
-        "country": "BR",
-        "number": "NT12345",
-        "validUntil": "31/12/2025"
-      },
-      "rg": {
-        "emitter": "SSPMG",
-        "number": "15683942"
-      }
-    },
-    "project": {
-      "id": "sT9OPjOnetwj4Q6q776t",
-      "name": "Apple"
-    },
-    "costCenter": {
-      "id": "DtG2lWrblX1yLx9Z2c7L",
-      "name": "Finance"
+    "currency": "986",
+    "customFields": {
+        "key": "value"
     }
   }'
 ```
@@ -709,303 +268,107 @@ curl -X POST https://api.portao3.com.br/users \
 
 ```json
 {
-  "uid": "B9InbYzWM3bBGSwX2M5muYbLkAv1",
-  "firstName": "John",
-  "lastName": "Doe",
-  "email": "john@doe.com",
-  "admin": true,
-  "avatar": "https://app.portao3.com.br/johndoe.png",
-  "birthdate": "31/12/1990",
-  "companyId": "000001",
-  "role": "Diretor",
-  "mobilePhoneNumber": "(99) 99999-9999",
-  "gender": "MALE",
-  "documents": {
-    "cnh": {
-      "number": "12345678",
-      "validUntil": "31/12/2025"
-    },
-    "cpf": {
-      "number": "111.111.111-11"
-    },
-    "passport": {
-      "country": "BR",
-      "number": "NT12345",
-      "validUntil": "31/12/2025"
-    },
-    "rg": {
-      "emitter": "SSPMG",
-      "number": "15683942"
-    }
+  "realmId": "97025c3c-84ea-47a8-8e1c-bcc3ef43f45b",
+  "organizationId": "9d63955d-ce87-45d7-9bc8-5a87894acba2",
+  "accountId": "652d86af362a51d216112f9e",
+  "environment": "LIVE",
+  "currency": "986",
+  "customFields": {
+    "key": "value"
   },
-  "project": "sT9OPjOnetwj4Q6q776t",
-  "costCenter": "DtG2lWrblX1yLx9Z2c7L",
-  "status": "ACTIVE"
+  "status": "PENDING",
+  "role": "CHECKING",
+  "_id": "65516cbe6a73fae8ae4377d9",
+  "createdAt": "2023-11-13T00:24:30.152Z",
+  "updatedAt": "2023-11-13T00:24:30.152Z"
 }
 ```
 
-This will create a new user for the organization
+### Retrieve a Wallet
 
-### Parameters
-
-#### firstName **REQUIRED**
-
-The first name of the person, this should be equal to the name in a government ID as to make issuing travel and credit cards for the user a breeze.
-
-#### lastName **REQUIRED**
-
-The last names of the person, this should be equal to the name in a government ID as to make issuing travel and credit cards for the user a breeze.
-
-#### email **REQUIRED**
-
-The email address for the user.
-
-#### birthdate **REQUIRED**
-
-The birth date for the user, using the format DD/MM/YYYY. This should be equal to the name in a government ID as to make issuing travel and credit cards for the user a breeze.
-
-#### companyId
-
-The ID for the user inside the organization. Usefull for integrating our solution with other third party systems in HR.
-
-#### role
-
-The role for the user inside the organization. Usefull for creating policies based on the role for the person.
-
-#### mobilePhoneNumber
-
-The mobile phone number for the user, using the format (99) 99999-9999. Altough we will try to match other formats to this one, sending it correctly guarantees the integration works always the best way possible. It is not required, but usefull in case someone on our team needs to get ahold of the passenger to send additional information about a reservation.
-
-#### gender
-
-The gender for the user, it should be either "MALE" or "FEMALE". Altough we, as a company, value every human that identifies with every gender, this is unfortunately standard while issuing air tickets for other countries or managing hotel reservations where sharing rooms are directed with specific laws for each country.
-
-#### documents.cnh.number
-
-The number for the user's Brazilian driver license. Although it is not required, it may be usefull to fill it out if a user ever needs to rent a car.
-
-#### documents.cnh.validUntil
-
-The expiration for the user's Brazilian driver license, using the format DD/MM/YYYY. Although it is not required, it may be usefull to fill it out if a user ever needs to rent a car.
-
-#### documents.cpf.number **REQUIRED**
-
-The government ID for the user, using the format 999.999.999-99 and a valid verification code. It is used whenever we have to issue reservations or credit cards for a user.
-
-#### documents.passport.country
-
-The country ID according to [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) for the user's passport. It is a two digit string. Although it is not required, it is used whenever we have to issue reservations to other countries for a user.
-
-#### documents.passport.number
-
-The number of the passport for the user's passport. Although it is not required, it is used whenever we have to issue reservations to other countries for a user.
-
-#### documents.passport.validUntil
-
-The expiration for the user's Brazilian driver license, using the format DD/MM/YYYY. Although it is not required, it is used whenever we have to issue reservations to other countries for a user.
-
-#### documents.rg.emitter
-
-The government ID issuer for the user. Although it is not required, it may be used while issuing some hotel stays for a user.
-
-#### documents.rg.number
-
-The government ID number for the user. Although it is not required, it may be used while issuing some hotel stays for a user.
-
-#### project
-
-The project ID related to the user. Should be a valid ID from a project created inside the platform. Although it is not required, it will auto-fill the information whenever a user requests a travel or a budget.
-
-#### costCenter
-
-The cost center ID related to the user. Should be a valid ID from a cost center created inside the platform. Although it is not required, it will auto-fill the information whenever a user requests a travel or a budget.
-
-## Update a User
-
-> **PUT** https://api.portao3.com.br/users/{id}
+> **GET** /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId
 
 ```shell
-curl -X PUT https://api.portao3.com.br/users/{id} \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {token}' \
-  -D '{
-    "firstName": "John",
-    "lastName": "Doe",
-    "birthdate": "31/12/1990",
-    "companyId": "000001",
-    "role": "Diretor",
-    "mobilePhoneNumber": "(99) 99999-9999",
-    "gender": "MALE",
-    "documents": {
-      "cnh": {
-        "number": "12345678",
-        "validUntil": "31/12/2025"
-      },
-      "cpf": {
-        "number": "111.111.111-11"
-      },
-      "passport": {
-        "country": "BR",
-        "number": "NT12345",
-        "validUntil": "31/12/2025"
-      },
-      "rg": {
-        "emitter": "SSPMG",
-        "number": "15683942"
-      }
-    },
-    "project": {
-      "id": "sT9OPjOnetwj4Q6q776t",
-      "name": "Apple"
-    },
-    "costCenter": {
-      "id": "DtG2lWrblX1yLx9Z2c7L",
-      "name": "Finance"
-    }
-  }'
+curl -X GET :url/realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId \
+  -H 'Authorization: Bearer :token' \
+  -H 'Environment: LIVE'
 ```
 
 > **200** Response
 
 ```json
 {
-  "uid": "B9InbYzWM3bBGSwX2M5muYbLkAv1",
-  "firstName": "John",
-  "lastName": "Doe",
-  "email": "john@doe.com",
-  "admin": true,
-  "avatar": "https://app.portao3.com.br/johndoe.png",
-  "birthdate": "31/12/1990",
-  "companyId": "000001",
-  "role": "Diretor",
-  "mobilePhoneNumber": "(99) 99999-9999",
-  "gender": "MALE",
-  "documents": {
-    "cnh": {
-      "number": "12345678",
-      "validUntil": "31/12/2025"
-    },
-    "cpf": {
-      "number": "111.111.111-11"
-    },
-    "passport": {
-      "country": "BR",
-      "number": "NT12345",
-      "validUntil": "31/12/2025"
-    },
-    "rg": {
-      "emitter": "SSPMG",
-      "number": "15683942"
-    }
+  "_id": "65516cbe6a73fae8ae4377d9",
+  "realmId": "97025c3c-84ea-47a8-8e1c-bcc3ef43f45b",
+  "organizationId": "9d63955d-ce87-45d7-9bc8-5a87894acba2",
+  "accountId": "652d86af362a51d216112f9e",
+  "environment": "LIVE",
+  "currency": "986",
+  "customFields": {
+    "key": "value"
   },
-  "project": "sT9OPjOnetwj4Q6q776t",
-  "costCenter": "DtG2lWrblX1yLx9Z2c7L",
-  "status": "ACTIVE"
+  "status": "ACTIVE",
+  "role": "CHECKING",
+  "createdAt": "2023-11-13T00:24:30.152Z",
+  "updatedAt": "2023-11-13T00:24:34.683Z",
+  "totalBalance": 100000,
+  "balances": [
+    {
+      "category": "TRAVEL",
+      "amount": 0
+    },
+    {
+      "category": "MOBILITY",
+      "amount": 50000
+    },
+    {
+      "category": "ADS",
+      "amount": 0
+    },
+    {
+      "category": "SAAS",
+      "amount": 0
+    },
+    {
+      "category": "AIRLINES",
+      "amount": 0
+    },
+    {
+      "category": "TOLL",
+      "amount": 0
+    },
+    {
+      "category": "GAS",
+      "amount": 0
+    },
+    {
+      "category": "FLEX_INTERNATIONAL",
+      "amount": 50000
+    },
+    {
+      "category": "FLEX_NATIONAL",
+      "amount": 0
+    },
+    {
+      "category": "HOTEL",
+      "amount": 0
+    },
+    {
+      "category": "FOOD",
+      "amount": 0
+    }
+  ]
 }
 ```
 
-This will update a user for the organization. It is not possible to update a user email address.
+### List Account Wallets
 
-### Parameters
-
-#### firstName
-
-The first name of the person, this should be equal to the name in a government ID as to make issuing travel and credit cards for the user a breeze.
-
-#### lastName
-
-The last names of the person, this should be equal to the name in a government ID as to make issuing travel and credit cards for the user a breeze.
-
-#### birthdate
-
-The birth date for the user, using the format DD/MM/YYYY. This should be equal to the name in a government ID as to make issuing travel and credit cards for the user a breeze.
-
-#### companyId
-
-The ID for the user inside the organization. Usefull for integrating our solution with other third party systems in HR.
-
-#### role
-
-The role for the user inside the organization. Usefull for creating policies based on the role for the person.
-
-#### mobilePhoneNumber
-
-The mobile phone number for the user, using the format (99) 99999-9999. Altough we will try to match other formats to this one, sending it correctly guarantees the integration works always the best way possible. It is not required, but usefull in case someone on our team needs to get ahold of the passenger to send additional information about a reservation.
-
-#### gender
-
-The gender for the user, it should be either "MALE" or "FEMALE". Altough we, as a company, value every human that identifies with every gender, this is unfortunately standard while issuing air tickets for other countries or managing hotel reservations where sharing rooms are directed with specific laws for each country.
-
-#### documents.cnh.number
-
-The number for the user's Brazilian driver license. Although it is not required, it may be usefull to fill it out if a user ever needs to rent a car.
-
-#### documents.cnh.validUntil
-
-The expiration for the user's Brazilian driver license, using the format DD/MM/YYYY. Although it is not required, it may be usefull to fill it out if a user ever needs to rent a car.
-
-#### documents.cpf.number
-
-The government ID for the user, using the format 999.999.999-99 and a valid verification code. It is used whenever we have to issue reservations or credit cards for a user.
-
-#### documents.passport.country
-
-The country ID according to [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) for the user's passport. It is a two digit string. Although it is not required, it is used whenever we have to issue reservations to other countries for a user.
-
-#### documents.passport.number
-
-The number of the passport for the user's passport. Although it is not required, it is used whenever we have to issue reservations to other countries for a user.
-
-#### documents.passport.validUntil
-
-The expiration for the user's Brazilian driver license, using the format DD/MM/YYYY. Although it is not required, it is used whenever we have to issue reservations to other countries for a user.
-
-#### documents.rg.emitter
-
-The government ID issuer for the user. Although it is not required, it may be used while issuing some hotel stays for a user.
-
-#### documents.rg.number
-
-The government ID number for the user. Although it is not required, it may be used while issuing some hotel stays for a user.
-
-#### project
-
-The project ID related to the user. Should be a valid ID from a project created inside the platform. Although it is not required, it will auto-fill the information whenever a user requests a travel or a budget.
-
-#### costCenter
-
-The cost center ID related to the user. Should be a valid ID from a cost center created inside the platform. Although it is not required, it will auto-fill the information whenever a user requests a travel or a budget.
-
-## Delete a User
-
-> **DELETE** https://api.portao3.com.br/users/{id}
+> **GET** /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets
 
 ```shell
-curl -X DELETE https://api.portao3.com.br/users/{id} \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {token}'
-```
-
-> **204** Response
-
-```text
-NO CONTENT
-```
-
-This will delete a User.
-
-# Groups
-
-Groups are a collection of users. They are used to set permissions in batch or within a policy.
-
-## Retrieve Groups
-
-> **GET** https://api.portao3.com.br/organization/groups
-
-```shell
-curl -X GET https://api.portao3.com.br/organization/groups \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {token}'
+curl -X GET :url/realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets \
+  -H 'Authorization: Bearer :token' \
+  -H 'Environment: LIVE'
 ```
 
 > **200** Response
@@ -1013,31 +376,41 @@ curl -X GET https://api.portao3.com.br/organization/groups \
 ```json
 [
   {
-    "id": "Mt4ILqGbuJNGfRqxULjr",
-    "name": "International Expense",
-    "users": ["01R1U4jR7rQFtUuBWq0en36GFc23", "2ihaJQ4EtHYaeRiZqTd16uk2FWn1"],
-    "status": "ACTIVE",
-    "created_at": 1624047780
+  "_id": "6515902dec2d9822bf1c4852",
+  "accountId": "652d86af362a51d216112f9e",
+  "environment": "LIVE",
+  "currency": "986",
+  "customFields": {
+    "key": "value"
   },
-  {
-    ...
-  }
+  "status": "BLOCKED",
+  "role": "CHECKING",
+  "createdAt": "2023-09-28T14:39:41.975Z",
+  "updatedAt": "2023-11-06T12:26:21.649Z",
+  "organizationId": "9d63955d-ce87-45d7-9bc8-5a87894acba2",
+  "realmId": "97025c3c-84ea-47a8-8e1c-bcc3ef43f45b"
+  },
+  ...
 ]
 ```
 
-This will retrieve the active groups in an organization.
+## Card
 
-## Create a Group
+### Create a Card
 
-> **POST** https://api.portao3.com.br/organization/groups
+> **POST** /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/cards
 
 ```shell
-curl -X POST https://api.portao3.com.br/organization/groups \
+curl -X POST :url/realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/cards \
+  -H 'Authorization: Bearer :token' \
+  -H 'Environment: LIVE' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {token}' \
   -D '{
-    "name": "",
-    "users": [""],
+    "type": "VIRTUAL",
+    "singleUse": false,
+    "customFields": {
+        "key": "value"
+    }
   }'
 ```
 
@@ -1045,78 +418,175 @@ curl -X POST https://api.portao3.com.br/organization/groups \
 
 ```json
 {
-  "id": "GobatSjVRwp9aBrOuSg9",
-  "name": "",
-  "users": [""],
+  "realmId": "97025c3c-84ea-47a8-8e1c-bcc3ef43f45b",
+  "organizationId": "9d63955d-ce87-45d7-9bc8-5a87894acba2",
+  "accountId": "652d86af362a51d216112f9e",
+  "walletId": "65516cbe6a73fae8ae4377d9",
+  "environment": "LIVE",
+  "panMasked": "524674******0521",
+  "expiryDate": "11/2029",
+  "tokenisationPermitted": true,
+  "singleUse": false,
+  "type": "VIRTUAL",
   "status": "ACTIVE",
-  "created_at": 1624047780
+  "customFields": {
+    "key": "value"
+  },
+  "cardLimitIds": [],
+  "_id": "65516f8094a4e95ffbb43886",
+  "createdAt": "2023-11-13T00:36:16.848Z",
+  "updatedAt": "2023-11-13T00:36:16.848Z"
 }
 ```
 
-This will create a new group for the organization
+### Retrieve a Card
 
-### Parameters
-
-#### name **REQUIRED**
-
-The name for the Group on all the information that is displayed to a user.
-
-#### users
-
-An array of User IDs.
-
-## Update a Group
-
-> **PUT** https://api.portao3.com.br/organization/groups/{id}
+> **GET** /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/cards/:cardId
 
 ```shell
-curl -X PUT https://api.portao3.com.br/organization/groups/{id} \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {token}' \
-  -D '{
-    "name": "",
-    "users": [""],
-  }'
+curl -X GET :url/realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/cards/:cardId \
+  -H 'Authorization: Bearer :token' \
+  -H 'Environment: LIVE'
 ```
 
 > **200** Response
 
 ```json
 {
-  "id": "GobatSjVRwp9aBrOuSg9",
-  "name": "",
-  "users": [""],
+  "_id": "65516f8094a4e95ffbb43886",
+  "realmId": "97025c3c-84ea-47a8-8e1c-bcc3ef43f45b",
+  "organizationId": "9d63955d-ce87-45d7-9bc8-5a87894acba2",
+  "accountId": "652d86af362a51d216112f9e",
+  "walletId": "65516cbe6a73fae8ae4377d9",
+  "environment": "LIVE",
+  "panMasked": "524674******0521",
+  "expiryDate": "11/2029",
+  "tokenisationPermitted": true,
+  "singleUse": false,
+  "type": "VIRTUAL",
   "status": "ACTIVE",
-  "created_at": 1624047780
+  "customFields": {
+    "key": "value"
+  },
+  "cardLimitIds": [],
+  "createdAt": "2023-11-13T00:36:16.848Z",
+  "updatedAt": "2023-11-13T00:36:16.848Z"
 }
 ```
 
-This will update a group for the organization
+### Retrieve Card Details
 
-### Parameters
-
-#### name **REQUIRED**
-
-The name for the Group on all the information that is displayed to a user.
-
-#### users
-
-An array of User IDs. This will replace the list for the new one sent.
-
-## Delete a Group
-
-> **DELETE** https://api.portao3.com.br/organization/groups/{id}
+> **GET** /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/cards/:cardId/details
 
 ```shell
-curl -X DELETE https://api.portao3.com.br/organization/groups/{id} \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {token}'
+curl -X GET :url/realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/cards/:cardId/details \
+  -H 'Authorization: Bearer :token' \
+  -H 'Environment: LIVE'
 ```
 
-> **204** Response
+> **200** Response
 
-```text
-NO CONTENT
+```json
+{
+  "_id": "65516f8094a4e95ffbb43886",
+  "realmId": "97025c3c-84ea-47a8-8e1c-bcc3ef43f45b",
+  "organizationId": "9d63955d-ce87-45d7-9bc8-5a87894acba2",
+  "accountId": "652d86af362a51d216112f9e",
+  "walletId": "65516cbe6a73fae8ae4377d9",
+  "environment": "LIVE",
+  "panMasked": "524674******0521",
+  "expiryDate": "11/2029",
+  "tokenisationPermitted": true,
+  "singleUse": false,
+  "type": "VIRTUAL",
+  "status": "ACTIVE",
+  "customFields": {
+    "key": "value"
+  },
+  "cardLimitIds": [],
+  "createdAt": "2023-11-13T00:36:16.848Z",
+  "updatedAt": "2023-11-13T00:36:16.848Z",
+  "pan": "5246742051160521",
+  "cvv": "571"
+}
 ```
 
-This will delete a Group.
+### List Wallet Cards
+
+> **GET** /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/cards
+
+```shell
+curl -X GET :url/realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/cards \
+  -H 'Authorization: Bearer :token' \
+  -H 'Environment: LIVE'
+```
+
+> **200** Response
+
+```json
+[
+  {
+    "_id": "65516f8094a4e95ffbb43886",
+    "realmId": "97025c3c-84ea-47a8-8e1c-bcc3ef43f45b",
+    "organizationId": "9d63955d-ce87-45d7-9bc8-5a87894acba2",
+    "accountId": "652d86af362a51d216112f9e",
+    "walletId": "65516cbe6a73fae8ae4377d9",
+    "environment": "LIVE",
+    "panMasked": "524674******0521",
+    "expiryDate": "11/2029",
+    "tokenisationPermitted": true,
+    "singleUse": false,
+    "type": "VIRTUAL",
+    "status": "ACTIVE",
+    "customFields": {
+      "key": "value"
+    },
+    "cardLimitIds": [],
+    "createdAt": "2023-11-13T00:36:16.848Z",
+    "updatedAt": "2023-11-13T00:36:16.848Z",
+  },
+  ...
+]
+```
+
+### List Account Cards
+
+> **GET** /realms/:realmId/organizations/:organizationId/accounts/:accountId/cards
+
+```shell
+curl -X GET :url/realms/:realmId/organizations/:organizationId/accounts/:accountId/cards \
+  -H 'Authorization: Bearer :token' \
+  -H 'Environment: LIVE'
+```
+
+> **200** Response
+
+```json
+[
+  {
+    "_id": "65516f8094a4e95ffbb43886",
+    "realmId": "97025c3c-84ea-47a8-8e1c-bcc3ef43f45b",
+    "organizationId": "9d63955d-ce87-45d7-9bc8-5a87894acba2",
+    "accountId": "652d86af362a51d216112f9e",
+    "walletId": "65516cbe6a73fae8ae4377d9",
+    "environment": "LIVE",
+    "panMasked": "524674******0521",
+    "expiryDate": "11/2029",
+    "tokenisationPermitted": true,
+    "singleUse": false,
+    "type": "VIRTUAL",
+    "status": "ACTIVE",
+    "customFields": {
+      "key": "value"
+    },
+    "cardLimitIds": [],
+    "createdAt": "2023-11-13T00:36:16.848Z",
+    "updatedAt": "2023-11-13T00:36:16.848Z",
+  },
+  ...
+]
+```
+
+## Pix Payment
+
+## Boleto Payment
