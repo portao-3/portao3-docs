@@ -591,7 +591,7 @@ curl -X GET :url/realms/:realmId/organizations/:organizationId/accounts/:account
 
 ## Boleto Payment
 
-<!-- aaaaaaaaa -->
+<!-- aaaaaaaaaaaa -->
 
 # Platform
 
@@ -626,43 +626,48 @@ The following information must be considered before using this endpoint
 
 Settings:
 In the body, the `settings` field is a not required object. But if your body contains the `settings` field, then some fields are required:
-| Field | Type | Required |
-| --- | --- | --- |
-| pix | boolean | true |
-| bankSlip | boolean | true |
-| card | boolean | true |
-| amount | number | false |
-| email | boolean | false |
-| isActive | boolean | false |
+
+| Field    | Type    | Required |
+| -------- | ------- | -------- |
+| pix      | boolean | true     |
+| bankSlip | boolean | true     |
+| card     | boolean | true     |
+| amount   | number  | false    |
+| email    | boolean | false    |
+| isActive | boolean | false    |
 
 ```json
-settings: {
-	payment: {
-		pix: true,
-		bankSlip: true,
-		card: true,
-	},
-	notification: {
-		balanceLimit: {
-			amount: 10000,
-			email: true,
-			isActive: true
-		}
-	}
+{
+  "settings": {
+    "payment": {
+      "pix": true,
+      "bankSlip": true,
+      "card": true
+    },
+    "notification": {
+      "balanceLimit": {
+        "amount": 10000,
+        "email": true,
+        "isActive": true
+      }
+    }
+  }
 }
 ```
 
 Custom Fields:
 In the body, the `customFields` field is a not required array. But if your body contains the `customFields` field, then some fields are required:
-| Field | Type | Required |
-| --- | --- | --- |
-| id | string | true |
-| label | string | false |
-| identifier | string | false |
-| values | array of string | true |
+
+| Field      | Type            | Required |
+| ---------- | --------------- | -------- |
+| id         | string          | true     |
+| label      | string          | false    |
+| identifier | string          | false    |
+| values     | array of string | true     |
 
 ```json
-customFields: [
+{
+  customFields: [
 		{
 			id: "1af48e91-bf83-4467-842b-839acd176c0a",
 			label: "label",
@@ -673,22 +678,26 @@ customFields: [
 			version: 1,
 		}
 ]
+}
 ```
 
 Shared:
 Shared is a required field that contains information about who is allowed to use the wallet and his role. Shared must have at least one item whit role OWNER.
-| Field | Type | Required | Allowed values |
-| --- | --- | --- | --- |
-| id | string (user_id) | true | |
-| role | string | true | OWNER, USER, READ_ONLY |
+
+| Field | Type             | Required | Allowed values         |
+| ----- | ---------------- | -------- | ---------------------- |
+| id    | string (user_id) | true     |                        |
+| role  | string           | true     | OWNER, USER, READ_ONLY |
 
 ```json
-shared: [
-	{
-		id: "a5ea899d-e45f-464d-8934-aed3d9fd7f40",
-		role: "OWNER",
-	}
-]
+{
+  "shared": [
+    {
+      "id": "a5ea899d-e45f-464d-8934-aed3d9fd7f40",
+      "role": "OWNER"
+    }
+  ]
+}
 ```
 
 ```shell
@@ -1247,14 +1256,15 @@ The following information must be considered before using this endpoint
 
 Settings:
 In the body, the settings field is a not required object. But if your body contains the settings field, then some fields are required:
-| Field | Type | Required |
-| --- | --- | --- |
-| pix | boolean | true |
-| bankSlip | boolean | true |
-| card | boolean | true |
-| amount | number | false |
-| email | boolean | false |
-| isActive | boolean | false |
+
+| Field    | Type    | Required |
+| -------- | ------- | -------- |
+| pix      | boolean | true     |
+| bankSlip | boolean | true     |
+| card     | boolean | true     |
+| amount   | number  | false    |
+| email    | boolean | false    |
+| isActive | boolean | false    |
 
 ```json
 settings: {
@@ -2049,15 +2059,17 @@ The following information must be considered before using this endpoint.
 
 Custom Fields:
 In the body, the `customFields` field is a not required array. But if your body contains the `customFields` field, then some fields are required:
-| Field | Type | Required |
-| --- | --- | --- |
-| id | string | true |
-| label | string | false |
-| identifier | string | false |
-| values | array of string | true |
+
+| Field      | Type            | Required |
+| ---------- | --------------- | -------- |
+| id         | string          | true     |
+| label      | string          | false    |
+| identifier | string          | false    |
+| values     | array of string | true     |
 
 ```json
-customFields: [
+{
+  customFields: [
 		{
 			id: "1af48e91-bf83-4467-842b-839acd176c0a",
 			label: "label",
@@ -2068,6 +2080,7 @@ customFields: [
 			version: 1,
 		}
 ]
+}
 ```
 
 ```shell
