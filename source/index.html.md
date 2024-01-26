@@ -591,6 +591,8 @@ curl -X GET :url/realms/:realmId/organizations/:organizationId/accounts/:account
 
 ## Boleto Payment
 
+<!-- aaaaaaaaa -->
+
 # Platform
 
 ## Wallet
