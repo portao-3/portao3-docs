@@ -1067,7 +1067,7 @@ Path Params
 | organizationId | string | true     |
 | userId         | string | true     |
 
-#### Query Params
+Query Params
 
 | Field   | Type    | Required |
 | ------- | ------- | -------- |
