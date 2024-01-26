@@ -601,41 +601,6 @@ curl -X GET :url/realms/:realmId/organizations/:organizationId/accounts/:account
 
 > **POST** /realms/:realmId/:organizations/:organizationId/wallets
 
-Use this endpoint to create a Wallet.
-
-Path Params
-
-| Field          | Type   | Required |
-| -------------- | ------ | -------- |
-| realmId        | string | true     |
-| organizationId | string | true     |
-
-Body Params
-
-| Field        | Type   | Required | Allowed values                 |
-| ------------ | ------ | -------- | ------------------------------ |
-| name         | string | true     |                                |
-| type         | string | true     | PERSONAL, ORGANIZATION, SHARED |
-| settings     | object | false    |                                |
-| customFields | array  | false    |                                |
-| shared       | array  | true     |                                |
-
-Important information:
-
-The following information must be considered before using this endpoint
-
-Settings:
-In the body, the `settings` field is a not required object. But if your body contains the `settings` field, then some fields are required:
-
-| Field    | Type    | Required |
-| -------- | ------- | -------- |
-| pix      | boolean | true     |
-| bankSlip | boolean | true     |
-| card     | boolean | true     |
-| amount   | number  | false    |
-| email    | boolean | false    |
-| isActive | boolean | false    |
-
 ```json
 {
   "settings": {
@@ -655,16 +620,6 @@ In the body, the `settings` field is a not required object. But if your body con
 }
 ```
 
-Custom Fields:
-In the body, the `customFields` field is a not required array. But if your body contains the `customFields` field, then some fields are required:
-
-| Field      | Type            | Required |
-| ---------- | --------------- | -------- |
-| id         | string          | true     |
-| label      | string          | false    |
-| identifier | string          | false    |
-| values     | array of string | true     |
-
 ```json
 {
   customFields: [
@@ -680,14 +635,6 @@ In the body, the `customFields` field is a not required array. But if your body 
   ]
 }
 ```
-
-Shared:
-Shared is a required field that contains information about who is allowed to use the wallet and his role. Shared must have at least one item whit role OWNER.
-
-| Field | Type             | Required | Allowed values         |
-| ----- | ---------------- | -------- | ---------------------- |
-| id    | string (user_id) | true     |                        |
-| role  | string           | true     | OWNER, USER, READ_ONLY |
 
 ```json
 {
@@ -804,27 +751,62 @@ curl --location 'https://api.platform.v2.portao3.com.br/realms/b7e3ed37-4f6f-46e
 }
 ```
 
-### Get Wallets
+Use this endpoint to create a Wallet.
 
-> **GET** /realms/:realmId/:organizations/:organizationId/wallets
-
-Use this endpoint to get organization's wallets.
-
-Path params
+Path Params
 
 | Field          | Type   | Required |
 | -------------- | ------ | -------- |
 | realmId        | string | true     |
 | organizationId | string | true     |
 
-Query Params
+Body Params
 
-| Field  | Type   | Required | Description                      | Allowed values      |
-| ------ | ------ | -------- | -------------------------------- | ------------------- |
-| name   | string | false    | Wallet name                      |                     |
-| status | string | false    | Wallet status                    | ACTIVE, DEACTIVATED |
-| limit  | number | false    | Max wallets to be returned       |                     |
-| next   | string | false    | Next wallet \_id to be paginated |                     |
+| Field        | Type   | Required | Allowed values                 |
+| ------------ | ------ | -------- | ------------------------------ |
+| name         | string | true     |                                |
+| type         | string | true     | PERSONAL, ORGANIZATION, SHARED |
+| settings     | object | false    |                                |
+| customFields | array  | false    |                                |
+| shared       | array  | true     |                                |
+
+Important information:
+
+The following information must be considered before using this endpoint
+
+Settings:
+In the body, the `settings` field is a not required object. But if your body contains the `settings` field, then some fields are required:
+
+| Field    | Type    | Required |
+| -------- | ------- | -------- |
+| pix      | boolean | true     |
+| bankSlip | boolean | true     |
+| card     | boolean | true     |
+| amount   | number  | false    |
+| email    | boolean | false    |
+| isActive | boolean | false    |
+
+Custom Fields:
+In the body, the `customFields` field is a not required array. But if your body contains the `customFields` field, then some fields are required:
+
+| Field      | Type            | Required |
+| ---------- | --------------- | -------- |
+| id         | string          | true     |
+| label      | string          | false    |
+| identifier | string          | false    |
+| values     | array of string | true     |
+
+Shared:
+Shared is a required field that contains information about who is allowed to use the wallet and his role. Shared must have at least one item whit role OWNER.
+
+| Field | Type             | Required | Allowed values         |
+| ----- | ---------------- | -------- | ---------------------- |
+| id    | string (user_id) | true     |                        |
+| role  | string           | true     | OWNER, USER, READ_ONLY |
+
+### Get Wallets
+
+> **GET** /realms/:realmId/:organizations/:organizationId/wallets
 
 ```shell
 curl --location --request GET 'https://api.platform.v2.portao3.com.br/realms/e829f181-e8b2-453c-9cde-5554c71d5c8d/organizations/9e020430-487b-4e43-a84b-a58bf5bf98a9/wallets?limit=1&next=657756fcf623d97eca90e752&name=SALES&status=ACTIVE' \
@@ -926,6 +908,24 @@ curl --location --request GET 'https://api.platform.v2.portao3.com.br/realms/e82
 }
 ```
 
+Use this endpoint to get organization's wallets.
+
+Path params
+
+| Field          | Type   | Required |
+| -------------- | ------ | -------- |
+| realmId        | string | true     |
+| organizationId | string | true     |
+
+Query Params
+
+| Field  | Type   | Required | Description                      | Allowed values      |
+| ------ | ------ | -------- | -------------------------------- | ------------------- |
+| name   | string | false    | Wallet name                      |                     |
+| status | string | false    | Wallet status                    | ACTIVE, DEACTIVATED |
+| limit  | number | false    | Max wallets to be returned       |                     |
+| next   | string | false    | Next wallet \_id to be paginated |                     |
+
 Important information:
 
 - Pagination is supported through the **`next`** token provided in the response.
@@ -933,16 +933,6 @@ Important information:
 ### Get Wallet
 
 > **GET** /realms/:realmId/organizations/:organizationId/wallets
-
-Use this endpoint to get a specific wallet.
-
-Path Params
-
-| Field          | Type   | Required | Allowed values |
-| -------------- | ------ | -------- | -------------- |
-| realmId        | string | true     |                |
-| organizationId | string | true     |                |
-| walletId       | string | true     | uuid, default  |
 
 ```shell
 curl --location 'https://api.platform.v2.portao3.com.br/realms/d5a27925-6043-4be9-912f-ffc13009855a/organizations/58d649cd-5da8-4b00-ac97-14274f7010d0/wallets/3526bb87-3120-47d3-b396-8dff2a0a2fe5' \
@@ -1049,6 +1039,16 @@ curl --location 'https://api.platform.v2.portao3.com.br/realms/d5a27925-6043-4be
 }
 ```
 
+Use this endpoint to get a specific wallet.
+
+Path Params
+
+| Field          | Type   | Required | Allowed values |
+| -------------- | ------ | -------- | -------------- |
+| realmId        | string | true     |                |
+| organizationId | string | true     |                |
+| walletId       | string | true     | uuid, default  |
+
 Important information:
 
 - If the **`walletId`** parameter is set to `default`, the API returns information about the organization's default wallet.
@@ -1056,22 +1056,6 @@ Important information:
 ### Get User Wallet Default
 
 > **GET** /realms/:realmId/organizations/:organizationId/users/:userId/wallets/default
-
-Use this endpoint to get a user default wallet
-
-Path Params
-
-| Field          | Type   | Required |
-| -------------- | ------ | -------- |
-| realmId        | string | true     |
-| organizationId | string | true     |
-| userId         | string | true     |
-
-Query Params
-
-| Field   | Type    | Required |
-| ------- | ------- | -------- |
-| details | boolean | false    |
 
 ```shell
 curl --location --request GET 'https://api.platform.v2.portao3.com.br/realms/b7b4fa83-34d4-45d7-a645-eedb303dfa4e/organizations/16df03a7-12f7-45c2-992c-98f550ec374b/users/b62087db-4a2b-4d07-9752-fcddc92ccf36/wallets/default?details=false' \
@@ -1132,15 +1116,7 @@ curl --location --request GET 'https://api.platform.v2.portao3.com.br/realms/b7b
 }
 ```
 
-Important information:
-
-- The **`details`** query parameter can be used to include additional details from the banking service.
-
-### Block Wallet
-
-> **POST** realms/:realmId/organizations/:organizationId/wallets/:walletId/block
-
-Use this endpoint to block a wallet
+Use this endpoint to get a user default wallet
 
 Path Params
 
@@ -1148,7 +1124,21 @@ Path Params
 | -------------- | ------ | -------- |
 | realmId        | string | true     |
 | organizationId | string | true     |
-| walletId       | string | true     |
+| userId         | string | true     |
+
+Query Params
+
+| Field   | Type    | Required |
+| ------- | ------- | -------- |
+| details | boolean | false    |
+
+Important information:
+
+- The **`details`** query parameter can be used to include additional details from the banking service.
+
+### Block Wallet
+
+> **POST** realms/:realmId/organizations/:organizationId/wallets/:walletId/block
 
 ```shell
 curl --location --request POST 'https://api.platform.v2.portao3.com.br/realms/fb125845-c001-4e39-af05-a975981c16ea/organizations/502a8142-2b43-401e-994c-1c075f2d6a7f/wallets/fb6252b2-367a-433f-b84b-f17e57d2e9ed/block' \
@@ -1181,11 +1171,7 @@ curl --location --request POST 'https://api.platform.v2.portao3.com.br/realms/fb
 }
 ```
 
-### Unblock Wallet
-
-> **POST** /realms/:realmId/organizations/:organizationId/wallets/:walletId/unblock
-
-Use this endpoint to unblock a wallet
+Use this endpoint to block a wallet
 
 Path Params
 
@@ -1194,6 +1180,10 @@ Path Params
 | realmId        | string | true     |
 | organizationId | string | true     |
 | walletId       | string | true     |
+
+### Unblock Wallet
+
+> **POST** /realms/:realmId/organizations/:organizationId/wallets/:walletId/unblock
 
 ```shell
 curl --location --request POST 'https://api.platform.v2.portao3.com.br/realms/a6ed97df-e4a5-4036-9340-2e12108fae3b/organizations/6354d4e4-9902-4245-a156-77a57b76a1c4/wallets/da66fa29-ac17-43e6-be08-c67ac643a7b9/unblock' \
@@ -1226,11 +1216,7 @@ curl --location --request POST 'https://api.platform.v2.portao3.com.br/realms/a6
 }
 ```
 
-### Update Wallet
-
-> **POST** /realms/:realmId/organizations/:organizationId/wallets/:walletId
-
-Use this endpoint to update a wallet.
+Use this endpoint to unblock a wallet
 
 Path Params
 
@@ -1240,31 +1226,9 @@ Path Params
 | organizationId | string | true     |
 | walletId       | string | true     |
 
-Body params
+### Update Wallet
 
-| Field        | Type   | Required | Allowed values                 |
-| ------------ | ------ | -------- | ------------------------------ |
-| name         | string | true     |                                |
-| type         | string | true     | PERSONAL, ORGANIZATION, SHARED |
-| settings     | object | false    |                                |
-| customFields | array  | false    |                                |
-| shared       | array  | true     |                                |
-
-Important information:
-
-The following information must be considered before using this endpoint
-
-Settings:
-In the body, the settings field is a not required object. But if your body contains the settings field, then some fields are required:
-
-| Field    | Type    | Required |
-| -------- | ------- | -------- |
-| pix      | boolean | true     |
-| bankSlip | boolean | true     |
-| card     | boolean | true     |
-| amount   | number  | false    |
-| email    | boolean | false    |
-| isActive | boolean | false    |
+> **POST** /realms/:realmId/organizations/:organizationId/wallets/:walletId
 
 ```json
 settings: {
@@ -1283,15 +1247,6 @@ settings: {
 }
 ```
 
-Custom Fields:
-In the body, the `customFields` field is a not required array. But if your body contains the `customFields` field, then some fields are required:
-| Field | Type | Required |
-| --- | --- | --- |
-| id | string | true |
-| label | string | false |
-| identifier | string | false |
-| values | array of string | true |
-
 ```json
 {
   customFields: [
@@ -1307,13 +1262,6 @@ In the body, the `customFields` field is a not required array. But if your body 
   ]
 }
 ```
-
-Shared:
-Shared is a required field that contains information about who is allowed to use the wallet and his role. Shared must have at least one item whit role OWNER.
-| Field | Type | Required | Allowed values |
-| --- | --- | --- | --- |
-| id | string (user_id) | true | |
-| role | string | true | OWNER, USER, READ_ONLY |
 
 ```json
 shared: [
@@ -1428,11 +1376,7 @@ curl --location --request PUT 'https://api.platform.v2.portao3.com.br/realms/b7e
 }
 ```
 
-### Clear Wallet Balance
-
-> **POST** /realms/:realmId/organizations/:organizationId/wallets/:walletId/clear-balance
-
-Use this endpoint to clear a wallet balance.
+Use this endpoint to update a wallet.
 
 Path Params
 
@@ -1441,6 +1385,54 @@ Path Params
 | realmId        | string | true     |
 | organizationId | string | true     |
 | walletId       | string | true     |
+
+Body params
+
+| Field        | Type   | Required | Allowed values                 |
+| ------------ | ------ | -------- | ------------------------------ |
+| name         | string | true     |                                |
+| type         | string | true     | PERSONAL, ORGANIZATION, SHARED |
+| settings     | object | false    |                                |
+| customFields | array  | false    |                                |
+| shared       | array  | true     |                                |
+
+Important information:
+
+The following information must be considered before using this endpoint
+
+Settings:
+In the body, the settings field is a not required object. But if your body contains the settings field, then some fields are required:
+
+| Field    | Type    | Required |
+| -------- | ------- | -------- |
+| pix      | boolean | true     |
+| bankSlip | boolean | true     |
+| card     | boolean | true     |
+| amount   | number  | false    |
+| email    | boolean | false    |
+| isActive | boolean | false    |
+
+Custom Fields:
+In the body, the `customFields` field is a not required array. But if your body contains the `customFields` field, then some fields are required:
+
+| Field      | Type            | Required |
+| ---------- | --------------- | -------- |
+| id         | string          | true     |
+| label      | string          | false    |
+| identifier | string          | false    |
+| values     | array of string | true     |
+
+Shared:
+Shared is a required field that contains information about who is allowed to use the wallet and his role. Shared must have at least one item whit role OWNER.
+
+| Field | Type             | Required | Allowed values         |
+| ----- | ---------------- | -------- | ---------------------- |
+| id    | string (user_id) | true     |                        |
+| role  | string           | true     | OWNER, USER, READ_ONLY |
+
+### Clear Wallet Balance
+
+> **POST** /realms/:realmId/organizations/:organizationId/wallets/:walletId/clear-balance
 
 ```shell
 curl --location --request POST 'https://api.platform.v2.portao3.com.br/realms/8d51a848-605d-4387-b508-dab63039348a/organizations/2e71c89e-25da-4a1a-a3c5-4109e5bb8d03/wallets/266cb22d-b3be-4f94-a502-1ce5f0fc77ad/clear-balance' \
@@ -1474,13 +1466,7 @@ curl --location --request POST 'https://api.platform.v2.portao3.com.br/realms/8d
 }
 ```
 
-## Card
-
-### Create card
-
-> **POST** realms/:realmId/organizations/:organizationId/wallets/:walletId/cards
-
-Use this endpoint to create a virtual card.
+Use this endpoint to clear a wallet balance.
 
 Path Params
 
@@ -1490,12 +1476,11 @@ Path Params
 | organizationId | string | true     |
 | walletId       | string | true     |
 
-Body Params
+## Card
 
-| Field | Type   | Required | Allowed values |
-| ----- | ------ | -------- | -------------- |
-| name  | string | true     |                |
-| type  | string | true     | VIRTUAL        |
+### Create card
+
+> **POST** realms/:realmId/organizations/:organizationId/wallets/:walletId/cards
 
 ```shell
 curl --location 'https://api.platform.v2.portao3.com.br/realms/7499fada-8453-49fb-9e4c-ef81c2f2c4f1/organizations/26dfd2a9-f4c5-40ec-afe8-0e26690c0767/wallets/097bf9ad-9149-41a5-baca-2e1cd9867a7d/cards' \
@@ -1555,11 +1540,7 @@ curl --location 'https://api.platform.v2.portao3.com.br/realms/7499fada-8453-49f
 }
 ```
 
-### Get Organization Card
-
-> **GET** realms/:realmId/organizations/:organizationId/cards
-
-Use this endpoint to get all organization cards.
+Use this endpoint to create a virtual card.
 
 Path Params
 
@@ -1567,15 +1548,18 @@ Path Params
 | -------------- | ------ | -------- |
 | realmId        | string | true     |
 | organizationId | string | true     |
+| walletId       | string | true     |
 
-Query Params
+Body Params
 
-| Field  | Type   | Required | Description                                      | Allowed values            |
-| ------ | ------ | -------- | ------------------------------------------------ | ------------------------- |
-| next   | string | false    | Token for paginating to the next set of results. |                           |
-| limit  | number | false    | Maximum number of items to return per page.      |                           |
-| name   | string | false    | Filter cards by name                             |                           |
-| status | string | false    | Filter cards by status                           | ACTIVE, BLOCKED, ARCHIVED |
+| Field | Type   | Required | Allowed values |
+| ----- | ------ | -------- | -------------- |
+| name  | string | true     |                |
+| type  | string | true     | VIRTUAL        |
+
+### Get Organization Card
+
+> **GET** realms/:realmId/organizations/:organizationId/cards
 
 ```shell
 curl --location --request GET 'https://api.platform.v2.portao3.com.br/realms/5106eb38-9eca-4da5-8a8f-24e6e558b70a/organizations/db93e224-9e8a-40b6-8feb-876be2763a42/cards' \
@@ -1636,25 +1620,16 @@ curl --location --request GET 'https://api.platform.v2.portao3.com.br/realms/510
 }
 ```
 
-Important information:
+Use this endpoint to get all organization cards.
 
-- Pagination is supported through the **`next`** token provided in the response.
-
-### Get Wallet Cards
-
-> **GET** realms/:realmId/organizations/:organizationId/wallets/:walletId/cards
-
-Use this endpoint to get cards from a wallet.
-
-Path params
+Path Params
 
 | Field          | Type   | Required |
 | -------------- | ------ | -------- |
 | realmId        | string | true     |
 | organizationId | string | true     |
-| walletId       | string | true     |
 
-Query params
+Query Params
 
 | Field  | Type   | Required | Description                                      | Allowed values            |
 | ------ | ------ | -------- | ------------------------------------------------ | ------------------------- |
@@ -1662,6 +1637,14 @@ Query params
 | limit  | number | false    | Maximum number of items to return per page.      |                           |
 | name   | string | false    | Filter cards by name                             |                           |
 | status | string | false    | Filter cards by status                           | ACTIVE, BLOCKED, ARCHIVED |
+
+Important information:
+
+- Pagination is supported through the **`next`** token provided in the response.
+
+### Get Wallet Cards
+
+> **GET** realms/:realmId/organizations/:organizationId/wallets/:walletId/cards
 
 ```shell
 curl --location --request GET 'https://api.platform.v2.portao3.com.br/realms/5106eb38-9eca-4da5-8a8f-24e6e558b70a/organizations/db93e224-9e8a-40b6-8feb-876be2763a42/wallets/d9b0f72e-d88c-434d-9c52-0bb738498941/cards' \
@@ -1722,15 +1705,7 @@ curl --location --request GET 'https://api.platform.v2.portao3.com.br/realms/510
 }
 ```
 
-Important information:
-
-- Pagination is supported through the **`next`** token provided in the response.
-
-### Get Card Details
-
-> **GET** /realms/:realmId/organizations/:organizationId/wallets/:walletId/cards/:cardId/details
-
-Use this endpoint to get details from a card.
+Use this endpoint to get cards from a wallet.
 
 Path params
 
@@ -1739,7 +1714,23 @@ Path params
 | realmId        | string | true     |
 | organizationId | string | true     |
 | walletId       | string | true     |
-| cardId         | string | true     |
+
+Query params
+
+| Field  | Type   | Required | Description                                      | Allowed values            |
+| ------ | ------ | -------- | ------------------------------------------------ | ------------------------- |
+| next   | string | false    | Token for paginating to the next set of results. |                           |
+| limit  | number | false    | Maximum number of items to return per page.      |                           |
+| name   | string | false    | Filter cards by name                             |                           |
+| status | string | false    | Filter cards by status                           | ACTIVE, BLOCKED, ARCHIVED |
+
+Important information:
+
+- Pagination is supported through the **`next`** token provided in the response.
+
+### Get Card Details
+
+> **GET** /realms/:realmId/organizations/:organizationId/wallets/:walletId/cards/:cardId/details
 
 ```shell
 curl --location --request GET 'https://api.platform.v2.portao3.com.br/realms/5106eb38-9eca-4da5-8a8f-24e6e558b70a/organizations/db93e224-9e8a-40b6-8feb-876be2763a42/wallets/d9b0f72e-d88c-434d-9c52-0bb738498941/cards/1360241d-1a13-4fea-8325-323dd56d5c4a/details' \
@@ -1800,13 +1791,9 @@ curl --location --request GET 'https://api.platform.v2.portao3.com.br/realms/510
 }
 ```
 
-### Block Card
+Use this endpoint to get details from a card.
 
-> **POST** /realms/:realmId/organizations/:organizationId/wallets/:walletId/cards/:cardId/block
-
-Use this endpoint to block a card.
-
-Path Params
+Path params
 
 | Field          | Type   | Required |
 | -------------- | ------ | -------- |
@@ -1814,6 +1801,10 @@ Path Params
 | organizationId | string | true     |
 | walletId       | string | true     |
 | cardId         | string | true     |
+
+### Block Card
+
+> **POST** /realms/:realmId/organizations/:organizationId/wallets/:walletId/cards/:cardId/block
 
 ```shell
 curl --location --request GET 'https://api.platform.v2.portao3.com.br/realms/5106eb38-9eca-4da5-8a8f-24e6e558b70a/organizations/db93e224-9e8a-40b6-8feb-876be2763a42/wallets/d9b0f72e-d88c-434d-9c52-0bb738498941/cards/1360241d-1a13-4fea-8325-323dd56d5c4a/block' \
@@ -1882,21 +1873,7 @@ curl --location --request GET 'https://api.platform.v2.portao3.com.br/realms/510
 }
 ```
 
-## Pix
-
-Use this endpoint to initiate a Pix transaction using the DICT key or EMV of the credited party. To create a Pix payment using the the DICT key, you must perform the following steps:
-
-### Step 1 - Initiate the Pix payment using the DICT key of the credited party.
-
-Portão 3 will return the details about the key owner (credited party). You must display this information to the user for validation.
-
-### Step 2- Confirm the payment
-
-After the user validation, confirm the PIX payment using the Confirm Pix endpoint.
-
-Initiate Pix
-
-> **POST** /realms/:realmId/organizations/:organizationId/wallets/:walletId/pix
+Use this endpoint to block a card.
 
 Path Params
 
@@ -1905,33 +1882,17 @@ Path Params
 | realmId        | string | true     |
 | organizationId | string | true     |
 | walletId       | string | true     |
+| cardId         | string | true     |
 
-Body params
+## Pix
 
-| Field          | Type   | Required | Allowed values               | Description                                                              |
-| -------------- | ------ | -------- | ---------------------------- | ------------------------------------------------------------------------ |
-| initiationType | string | true     | DICT, COPY_PASTE             |                                                                          |
-| dict           | string | false    | PHONE, EMAIL, CPF, CNPJ, EVP |                                                                          |
-| key            | string | false    |                              | The DICT key of the person who will receive the transaction.             |
-| emv            | string | false    |                              |                                                                          |
-| amount         | number | false    |                              | The amount that will be transferred, in cents. Must be a positive value. |
-| description    | string | false    |                              |                                                                          |
+Use this endpoint to initiate a Pix transaction using the DICT key or EMV of the credited party. To create a Pix payment using the the DICT key, you must perform the following steps:
 
-Important information:
+Step 1 - Initiate the Pix payment using the DICT key of the credited party.
 
-The following information must be considered before using this endpoint.
+### Initiate Pix
 
-Dict:
-If `initiationType` is DICT, then `dict` is a required field.
-
-Key:
-if `dict` , then `key` is a required field.
-
-Emv:
-If `initiationType` is COPY_PAST, then `emv` is a required field.
-
-Amount:
-If `initiationType` is DICT, then `amount` is a required field.
+> **POST** /realms/:realmId/organizations/:organizationId/wallets/:walletId/pix
 
 ```shell
 curl --location 'https://api.platform.v2.portao3.com.br/realms/3db25756-a1ae-4e13-a00b-9cab3cd68dcf/organizations/f9084d72-fd46-4065-80c0-8a4ce4ba35a6/wallets/default/pix' \
@@ -2034,10 +1995,6 @@ curl --location 'https://api.platform.v2.portao3.com.br/realms/3db25756-a1ae-4e1
 }
 ```
 
-Confirm Pix
-
-> **POST** /realms/:realmId/organizations/:organizationId/wallets/:walletId/pix/:pidId/confirm
-
 Path Params
 
 | Field          | Type   | Required |
@@ -2045,29 +2002,43 @@ Path Params
 | realmId        | string | true     |
 | organizationId | string | true     |
 | walletId       | string | true     |
-| pixId          | string | true     |
 
-Body Params
+Body params
 
-| Field        | Type   | Required | Allowed values                              |
-| ------------ | ------ | -------- | ------------------------------------------- |
-| amount       | number | true     |                                             |
-| category     | string | false    | FLEX_INTERNATIONAL (default), FLEX_NATIONAL |
-| customFields | array  | false    |                                             |
+| Field          | Type   | Required | Allowed values               | Description                                                              |
+| -------------- | ------ | -------- | ---------------------------- | ------------------------------------------------------------------------ |
+| initiationType | string | true     | DICT, COPY_PASTE             |                                                                          |
+| dict           | string | false    | PHONE, EMAIL, CPF, CNPJ, EVP |                                                                          |
+| key            | string | false    |                              | The DICT key of the person who will receive the transaction.             |
+| emv            | string | false    |                              |                                                                          |
+| amount         | number | false    |                              | The amount that will be transferred, in cents. Must be a positive value. |
+| description    | string | false    |                              |                                                                          |
 
 Important information:
 
 The following information must be considered before using this endpoint.
 
-Custom Fields:
-In the body, the `customFields` field is a not required array. But if your body contains the `customFields` field, then some fields are required:
+Dict:
+If `initiationType` is DICT, then `dict` is a required field.
 
-| Field      | Type            | Required |
-| ---------- | --------------- | -------- |
-| id         | string          | true     |
-| label      | string          | false    |
-| identifier | string          | false    |
-| values     | array of string | true     |
+Key:
+if `dict` , then `key` is a required field.
+
+Emv:
+If `initiationType` is COPY_PAST, then `emv` is a required field.
+
+Amount:
+If `initiationType` is DICT, then `amount` is a required field.
+
+Portão 3 will return the details about the key owner (credited party). You must display this information to the user for validation.
+
+Step 2- Confirm the payment
+
+After the user validation, confirm the PIX payment using the Confirm Pix endpoint.
+
+### Confirm Pix
+
+> **POST** /realms/:realmId/organizations/:organizationId/wallets/:walletId/pix/:pidId/confirm
 
 ```json
 {
@@ -2198,3 +2169,34 @@ curl --location 'https://api.platform.v2.portao3.com.br/realms/3db25756-a1ae-4e1
   "message": "Request failed with status code 400"
 }
 ```
+
+Path Params
+
+| Field          | Type   | Required |
+| -------------- | ------ | -------- |
+| realmId        | string | true     |
+| organizationId | string | true     |
+| walletId       | string | true     |
+| pixId          | string | true     |
+
+Body Params
+
+| Field        | Type   | Required | Allowed values                              |
+| ------------ | ------ | -------- | ------------------------------------------- |
+| amount       | number | true     |                                             |
+| category     | string | false    | FLEX_INTERNATIONAL (default), FLEX_NATIONAL |
+| customFields | array  | false    |                                             |
+
+Important information:
+
+The following information must be considered before using this endpoint.
+
+Custom Fields:
+In the body, the `customFields` field is a not required array. But if your body contains the `customFields` field, then some fields are required:
+
+| Field      | Type            | Required |
+| ---------- | --------------- | -------- |
+| id         | string          | true     |
+| label      | string          | false    |
+| identifier | string          | false    |
+| values     | array of string | true     |
