@@ -80,4 +80,6 @@ API errors cover any other type of problem (e.g., a temporary problem with Port√
 
 # Service Status
 
-We provide a full status page you can follow to check any updates on the status of our APIs and the overall infrastructure. Check it out [here](https://status.portao3.com.br).
+Work in progress
+
+<!-- We provide a full status page you can follow to check any updates on the status of our APIs and the overall infrastructure. Check it out [here](https://status.portao3.com.br). -->
