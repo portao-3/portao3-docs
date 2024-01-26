@@ -603,14 +603,14 @@ curl -X GET :url/realms/:realmId/organizations/:organizationId/accounts/:account
 
 Use this endpoint to create a Wallet.
 
-#### Path Params
+Path Params
 
 | Field          | Type   | Required |
 | -------------- | ------ | -------- |
 | realmId        | string | true     |
 | organizationId | string | true     |
 
-#### Body Params
+Body Params
 
 | Field        | Type   | Required | Allowed values                 |
 | ------------ | ------ | -------- | ------------------------------ |
@@ -620,7 +620,7 @@ Use this endpoint to create a Wallet.
 | customFields | array  | false    |                                |
 | shared       | array  | true     |                                |
 
-#### Important information:
+Important information:
 
 The following information must be considered before using this endpoint
 
@@ -677,7 +677,7 @@ In the body, the `customFields` field is a not required array. But if your body 
 			]
 			version: 1,
 		}
-]
+  ]
 }
 ```
 
@@ -810,14 +810,14 @@ curl --location 'https://api.platform.v2.portao3.com.br/realms/b7e3ed37-4f6f-46e
 
 Use this endpoint to get organization's wallets.
 
-#### Path params
+Path params
 
 | Field          | Type   | Required |
 | -------------- | ------ | -------- |
 | realmId        | string | true     |
 | organizationId | string | true     |
 
-#### Query Params
+Query Params
 
 | Field  | Type   | Required | Description                      | Allowed values      |
 | ------ | ------ | -------- | -------------------------------- | ------------------- |
@@ -926,7 +926,7 @@ curl --location --request GET 'https://api.platform.v2.portao3.com.br/realms/e82
 }
 ```
 
-#### Important information:
+Important information:
 
 - Pagination is supported through the **`next`** token provided in the response.
 
@@ -936,7 +936,7 @@ curl --location --request GET 'https://api.platform.v2.portao3.com.br/realms/e82
 
 Use this endpoint to get a specific wallet.
 
-#### Path Params
+Path Params
 
 | Field          | Type   | Required | Allowed values |
 | -------------- | ------ | -------- | -------------- |
@@ -1049,7 +1049,7 @@ curl --location 'https://api.platform.v2.portao3.com.br/realms/d5a27925-6043-4be
 }
 ```
 
-#### Important information:
+Important information:
 
 - If the **`walletId`** parameter is set to `default`, the API returns information about the organization's default wallet.
 
@@ -1059,7 +1059,7 @@ curl --location 'https://api.platform.v2.portao3.com.br/realms/d5a27925-6043-4be
 
 Use this endpoint to get a user default wallet
 
-#### Path Params
+Path Params
 
 | Field          | Type   | Required |
 | -------------- | ------ | -------- |
@@ -1132,7 +1132,7 @@ curl --location --request GET 'https://api.platform.v2.portao3.com.br/realms/b7b
 }
 ```
 
-#### Important information:
+Important information:
 
 - The **`details`** query parameter can be used to include additional details from the banking service.
 
@@ -1142,7 +1142,7 @@ curl --location --request GET 'https://api.platform.v2.portao3.com.br/realms/b7b
 
 Use this endpoint to block a wallet
 
-#### Path Params
+Path Params
 
 | Field          | Type   | Required |
 | -------------- | ------ | -------- |
@@ -1187,7 +1187,7 @@ curl --location --request POST 'https://api.platform.v2.portao3.com.br/realms/fb
 
 Use this endpoint to unblock a wallet
 
-#### Path Params
+Path Params
 
 | Field          | Type   | Required |
 | -------------- | ------ | -------- |
@@ -1232,7 +1232,7 @@ curl --location --request POST 'https://api.platform.v2.portao3.com.br/realms/a6
 
 Use this endpoint to update a wallet.
 
-#### Path Params
+Path Params
 
 | Field          | Type   | Required |
 | -------------- | ------ | -------- |
@@ -1240,7 +1240,7 @@ Use this endpoint to update a wallet.
 | organizationId | string | true     |
 | walletId       | string | true     |
 
-#### Body params
+Body params
 
 | Field        | Type   | Required | Allowed values                 |
 | ------------ | ------ | -------- | ------------------------------ |
@@ -1250,7 +1250,7 @@ Use this endpoint to update a wallet.
 | customFields | array  | false    |                                |
 | shared       | array  | true     |                                |
 
-#### Important information:
+Important information:
 
 The following information must be considered before using this endpoint
 
@@ -1293,7 +1293,8 @@ In the body, the `customFields` field is a not required array. But if your body 
 | values | array of string | true |
 
 ```json
-customFields: [
+{
+  customFields: [
 		{
 			id: "1af48e91-bf83-4467-842b-839acd176c0a",
 			label: "label",
@@ -1303,7 +1304,8 @@ customFields: [
 			]
 			version: 1,
 		}
-]
+  ]
+}
 ```
 
 Shared:
@@ -1432,7 +1434,7 @@ curl --location --request PUT 'https://api.platform.v2.portao3.com.br/realms/b7e
 
 Use this endpoint to clear a wallet balance.
 
-#### Path Params
+Path Params
 
 | Field          | Type   | Required |
 | -------------- | ------ | -------- |
@@ -1480,7 +1482,7 @@ curl --location --request POST 'https://api.platform.v2.portao3.com.br/realms/8d
 
 Use this endpoint to create a virtual card.
 
-#### Path Params
+Path Params
 
 | Field          | Type   | Required |
 | -------------- | ------ | -------- |
@@ -1488,7 +1490,7 @@ Use this endpoint to create a virtual card.
 | organizationId | string | true     |
 | walletId       | string | true     |
 
-#### Body Params
+Body Params
 
 | Field | Type   | Required | Allowed values |
 | ----- | ------ | -------- | -------------- |
@@ -1559,14 +1561,14 @@ curl --location 'https://api.platform.v2.portao3.com.br/realms/7499fada-8453-49f
 
 Use this endpoint to get all organization cards.
 
-#### Path Params
+Path Params
 
 | Field          | Type   | Required |
 | -------------- | ------ | -------- |
 | realmId        | string | true     |
 | organizationId | string | true     |
 
-#### Query Params
+Query Params
 
 | Field  | Type   | Required | Description                                      | Allowed values            |
 | ------ | ------ | -------- | ------------------------------------------------ | ------------------------- |
@@ -1634,7 +1636,7 @@ curl --location --request GET 'https://api.platform.v2.portao3.com.br/realms/510
 }
 ```
 
-#### Important information:
+Important information:
 
 - Pagination is supported through the **`next`** token provided in the response.
 
@@ -1644,7 +1646,7 @@ curl --location --request GET 'https://api.platform.v2.portao3.com.br/realms/510
 
 Use this endpoint to get cards from a wallet.
 
-#### Path params
+Path params
 
 | Field          | Type   | Required |
 | -------------- | ------ | -------- |
@@ -1652,7 +1654,7 @@ Use this endpoint to get cards from a wallet.
 | organizationId | string | true     |
 | walletId       | string | true     |
 
-#### Query params
+Query params
 
 | Field  | Type   | Required | Description                                      | Allowed values            |
 | ------ | ------ | -------- | ------------------------------------------------ | ------------------------- |
@@ -1720,7 +1722,7 @@ curl --location --request GET 'https://api.platform.v2.portao3.com.br/realms/510
 }
 ```
 
-#### Important information:
+Important information:
 
 - Pagination is supported through the **`next`** token provided in the response.
 
@@ -1730,7 +1732,7 @@ curl --location --request GET 'https://api.platform.v2.portao3.com.br/realms/510
 
 Use this endpoint to get details from a card.
 
-#### Path params
+Path params
 
 | Field          | Type   | Required |
 | -------------- | ------ | -------- |
@@ -1804,7 +1806,7 @@ curl --location --request GET 'https://api.platform.v2.portao3.com.br/realms/510
 
 Use this endpoint to block a card.
 
-#### Path Params
+Path Params
 
 | Field          | Type   | Required |
 | -------------- | ------ | -------- |
@@ -1892,11 +1894,11 @@ Portão 3 will return the details about the key owner (credited party). You must
 
 After the user validation, confirm the PIX payment using the Confirm Pix endpoint.
 
-### Initiate Pix
+Initiate Pix
 
 > **POST** /realms/:realmId/organizations/:organizationId/wallets/:walletId/pix
 
-#### Path Params
+Path Params
 
 | Field          | Type   | Required |
 | -------------- | ------ | -------- |
@@ -1904,7 +1906,7 @@ After the user validation, confirm the PIX payment using the Confirm Pix endpoin
 | organizationId | string | true     |
 | walletId       | string | true     |
 
-#### Body params
+Body params
 
 | Field          | Type   | Required | Allowed values               | Description                                                              |
 | -------------- | ------ | -------- | ---------------------------- | ------------------------------------------------------------------------ |
@@ -1915,7 +1917,7 @@ After the user validation, confirm the PIX payment using the Confirm Pix endpoin
 | amount         | number | false    |                              | The amount that will be transferred, in cents. Must be a positive value. |
 | description    | string | false    |                              |                                                                          |
 
-#### Important information:
+Important information:
 
 The following information must be considered before using this endpoint.
 
@@ -2032,11 +2034,11 @@ curl --location 'https://api.platform.v2.portao3.com.br/realms/3db25756-a1ae-4e1
 }
 ```
 
-### Confirm Pix
+Confirm Pix
 
 > **POST** /realms/:realmId/organizations/:organizationId/wallets/:walletId/pix/:pidId/confirm
 
-#### Path Params
+Path Params
 
 | Field          | Type   | Required |
 | -------------- | ------ | -------- |
@@ -2045,7 +2047,7 @@ curl --location 'https://api.platform.v2.portao3.com.br/realms/3db25756-a1ae-4e1
 | walletId       | string | true     |
 | pixId          | string | true     |
 
-#### Body Params
+Body Params
 
 | Field        | Type   | Required | Allowed values                              |
 | ------------ | ------ | -------- | ------------------------------------------- |
@@ -2053,7 +2055,7 @@ curl --location 'https://api.platform.v2.portao3.com.br/realms/3db25756-a1ae-4e1
 | category     | string | false    | FLEX_INTERNATIONAL (default), FLEX_NATIONAL |
 | customFields | array  | false    |                                             |
 
-#### Important information:
+Important information:
 
 The following information must be considered before using this endpoint.
 
@@ -2079,7 +2081,7 @@ In the body, the `customFields` field is a not required array. But if your body 
 			]
 			version: 1,
 		}
-]
+  ]
 }
 ```
 
