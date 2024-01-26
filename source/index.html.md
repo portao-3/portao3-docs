@@ -1049,7 +1049,7 @@ curl --location 'https://api.platform.v2.portao3.com.br/realms/d5a27925-6043-4be
 }
 ```
 
-#### Important information:
+Important information:
 
 - If the **`walletId`** parameter is set to `default`, the API returns information about the organization's default wallet.
 
@@ -1132,7 +1132,7 @@ curl --location --request GET 'https://api.platform.v2.portao3.com.br/realms/b7b
 }
 ```
 
-#### Important information:
+Important information:
 
 - The **`details`** query parameter can be used to include additional details from the banking service.
 
@@ -1240,7 +1240,7 @@ Path Params
 | organizationId | string | true     |
 | walletId       | string | true     |
 
-#### Body params
+Body params
 
 | Field        | Type   | Required | Allowed values                 |
 | ------------ | ------ | -------- | ------------------------------ |
@@ -1250,7 +1250,7 @@ Path Params
 | customFields | array  | false    |                                |
 | shared       | array  | true     |                                |
 
-#### Important information:
+Important information:
 
 The following information must be considered before using this endpoint
 
@@ -1634,7 +1634,7 @@ curl --location --request GET 'https://api.platform.v2.portao3.com.br/realms/510
 }
 ```
 
-#### Important information:
+Important information:
 
 - Pagination is supported through the **`next`** token provided in the response.
 
@@ -1720,7 +1720,7 @@ curl --location --request GET 'https://api.platform.v2.portao3.com.br/realms/510
 }
 ```
 
-#### Important information:
+Important information:
 
 - Pagination is supported through the **`next`** token provided in the response.
 
