@@ -1197,7 +1197,7 @@ This will retrieve the users' organization information. -->
   </span><span class="err">...</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div><h2 id='pix-payment'>Pix Payment</h2><h2 id='boleto-payment'>Boleto Payment</h2>
-<!-- aaaaaaaaa -->
+<!-- aaaaaaaaaaaa -->
 <h1 id='platform'>Platform</h1><h2 id='wallet-2'>Wallet</h2><h3 id='create-wallet'>Create Wallet</h3>
 <blockquote>
 <p><strong>POST</strong> /realms/:realmId/:organizations/:organizationId/wallets</p>
@@ -1267,39 +1267,96 @@ This will retrieve the users' organization information. -->
 <p>The following information must be considered before using this endpoint</p>
 
 <p>Settings:
-In the body, the <code>settings</code> field is a not required object. But if your body contains the <code>settings</code> field, then some fields are required:
-| Field | Type | Required |
-| --- | --- | --- |
-| pix | boolean | true |
-| bankSlip | boolean | true |
-| card | boolean | true |
-| amount | number | false |
-| email | boolean | false |
-| isActive | boolean | false |</p>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="err">settings:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="err">payment:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="err">pix:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="err">bankSlip:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="err">card:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+In the body, the <code>settings</code> field is a not required object. But if your body contains the <code>settings</code> field, then some fields are required:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pix</td>
+<td>boolean</td>
+<td>true</td>
+</tr>
+<tr>
+<td>bankSlip</td>
+<td>boolean</td>
+<td>true</td>
+</tr>
+<tr>
+<td>card</td>
+<td>boolean</td>
+<td>true</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>number</td>
+<td>false</td>
+</tr>
+<tr>
+<td>email</td>
+<td>boolean</td>
+<td>false</td>
+</tr>
+<tr>
+<td>isActive</td>
+<td>boolean</td>
+<td>false</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"pix"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"bankSlip"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"card"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="err">notification:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="err">balanceLimit:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="err">amount:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
-            </span><span class="err">email:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="err">isActive:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+    </span><span class="nl">"notification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"balanceLimit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Custom Fields:
-In the body, the <code>customFields</code> field is a not required array. But if your body contains the <code>customFields</code> field, then some fields are required:
-| Field | Type | Required |
-| --- | --- | --- |
-| id | string | true |
-| label | string | false |
-| identifier | string | false |
-| values | array of string | true |</p>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="err">customFields:</span><span class="w"> </span><span class="p">[</span><span class="w">
+In the body, the <code>customFields</code> field is a not required array. But if your body contains the <code>customFields</code> field, then some fields are required:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>true</td>
+</tr>
+<tr>
+<td>label</td>
+<td>string</td>
+<td>false</td>
+</tr>
+<tr>
+<td>identifier</td>
+<td>string</td>
+<td>false</td>
+</tr>
+<tr>
+<td>values</td>
+<td>array of string</td>
+<td>true</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">customFields:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="err">id:</span><span class="w"> </span><span class="s2">"1af48e91-bf83-4467-842b-839acd176c0a"</span><span class="p">,</span><span class="w">
             </span><span class="err">label:</span><span class="w"> </span><span class="s2">"label"</span><span class="p">,</span><span class="w">
@@ -1310,19 +1367,40 @@ In the body, the <code>customFields</code> field is a not required array. But if
             </span><span class="err">version:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Shared:
-Shared is a required field that contains information about who is allowed to use the wallet and his role. Shared must have at least one item whit role OWNER.
-| Field | Type | Required | Allowed values |
-| --- | --- | --- | --- |
-| id | string (user_id) | true | |
-| role | string | true | OWNER, USER, READ_ONLY |</p>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="err">shared:</span><span class="w"> </span><span class="p">[</span><span class="w">
+Shared is a required field that contains information about who is allowed to use the wallet and his role. Shared must have at least one item whit role OWNER.</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Allowed values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string (user_id)</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>role</td>
+<td>string</td>
+<td>true</td>
+<td>OWNER, USER, READ_ONLY</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"shared"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="err">id:</span><span class="w"> </span><span class="s2">"a5ea899d-e45f-464d-8934-aed3d9fd7f40"</span><span class="p">,</span><span class="w">
-        </span><span class="err">role:</span><span class="w"> </span><span class="s2">"OWNER"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a5ea899d-e45f-464d-8934-aed3d9fd7f40"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OWNER"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="s1">'https://api.platform.v2.portao3.com.br/realms/b7e3ed37-4f6f-46ef-9fe7-baede912a940/organizations/5785e88b-d2ea-453f-99f7-c562db038fbb/wallets'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer &lt;TOKEN&gt;'</span> <span class="se">\</span>
@@ -2006,15 +2084,46 @@ Shared is a required field that contains information about who is allowed to use
 <p>The following information must be considered before using this endpoint</p>
 
 <p>Settings:
-In the body, the settings field is a not required object. But if your body contains the settings field, then some fields are required:
-| Field | Type | Required |
-| --- | --- | --- |
-| pix | boolean | true |
-| bankSlip | boolean | true |
-| card | boolean | true |
-| amount | number | false |
-| email | boolean | false |
-| isActive | boolean | false |</p>
+In the body, the settings field is a not required object. But if your body contains the settings field, then some fields are required:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pix</td>
+<td>boolean</td>
+<td>true</td>
+</tr>
+<tr>
+<td>bankSlip</td>
+<td>boolean</td>
+<td>true</td>
+</tr>
+<tr>
+<td>card</td>
+<td>boolean</td>
+<td>true</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>number</td>
+<td>false</td>
+</tr>
+<tr>
+<td>email</td>
+<td>boolean</td>
+<td>false</td>
+</tr>
+<tr>
+<td>isActive</td>
+<td>boolean</td>
+<td>false</td>
+</tr>
+</tbody></table>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="err">settings:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="err">payment:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="err">pix:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -3004,14 +3113,38 @@ If <code>initiationType</code> is DICT, then <code>amount</code> is a required f
 <p>The following information must be considered before using this endpoint.</p>
 
 <p>Custom Fields:
-In the body, the <code>customFields</code> field is a not required array. But if your body contains the <code>customFields</code> field, then some fields are required:
-| Field | Type | Required |
-| --- | --- | --- |
-| id | string | true |
-| label | string | false |
-| identifier | string | false |
-| values | array of string | true |</p>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="err">customFields:</span><span class="w"> </span><span class="p">[</span><span class="w">
+In the body, the <code>customFields</code> field is a not required array. But if your body contains the <code>customFields</code> field, then some fields are required:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>true</td>
+</tr>
+<tr>
+<td>label</td>
+<td>string</td>
+<td>false</td>
+</tr>
+<tr>
+<td>identifier</td>
+<td>string</td>
+<td>false</td>
+</tr>
+<tr>
+<td>values</td>
+<td>array of string</td>
+<td>true</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">customFields:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="err">id:</span><span class="w"> </span><span class="s2">"1af48e91-bf83-4467-842b-839acd176c0a"</span><span class="p">,</span><span class="w">
             </span><span class="err">label:</span><span class="w"> </span><span class="s2">"label"</span><span class="p">,</span><span class="w">
@@ -3022,6 +3155,7 @@ In the body, the <code>customFields</code> field is a not required array. But if
             </span><span class="err">version:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="s1">'https://api.platform.v2.portao3.com.br/realms/3db25756-a1ae-4e13-a00b-9cab3cd68dcf/organizations/f9084d72-fd46-4065-80c0-8a4ce4ba35a6/wallets/default/pix/65b2c5a6fe07df79497d0abc/confirm'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer &lt;TOKEN&gt;'</span> <span class="se">\</span>
