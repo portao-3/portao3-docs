@@ -677,7 +677,7 @@ In the body, the `customFields` field is a not required array. But if your body 
 			]
 			version: 1,
 		}
-]
+  ]
 }
 ```
 
@@ -1293,7 +1293,8 @@ In the body, the `customFields` field is a not required array. But if your body 
 | values | array of string | true |
 
 ```json
-customFields: [
+{
+  customFields: [
 		{
 			id: "1af48e91-bf83-4467-842b-839acd176c0a",
 			label: "label",
@@ -1303,7 +1304,8 @@ customFields: [
 			]
 			version: 1,
 		}
-]
+  ]
+}
 ```
 
 Shared:
@@ -2079,7 +2081,7 @@ In the body, the `customFields` field is a not required array. But if your body 
 			]
 			version: 1,
 		}
-]
+  ]
 }
 ```
 
