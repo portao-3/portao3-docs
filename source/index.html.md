@@ -598,7 +598,7 @@ Step 1 - Initiate the Pix payment using the DICT key of the credited party.
 > **POST** /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/pix
 
 ```shell
-curl --location ':url/realms/8c8f1749-2616-423b-8130-356725cbffc/organizations/8c8f1749-2616-423b-8130-3567251cbffc/accounts/6500a6968956183d96ed5fe2/wallets/default/pix' \
+curl --location ':url/realms/c82f1b81-bf7d-429d-a2e9-345d3ac06a46/organizations/c82f1b81-bf7d-429d-a2e9-345d3ac06a46/accounts/6500a6968956183d96ed5fe2/wallets/default/pix' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <TOKEN>' \
 --data-raw '{
@@ -616,8 +616,8 @@ curl --location ':url/realms/8c8f1749-2616-423b-8130-356725cbffc/organizations/8
 ```json
 {
   "environment": "LIVE",
-  "realmId": "8c8f1749-2616-423b-8130-3567251cbffc",
-  "organizationId": "8c8f1749-2616-423b-8130-3567251cbffc",
+  "realmId": "c82f1b81-bf7d-429d-a2e9-345d3ac06a46",
+  "organizationId": "c82f1b81-bf7d-429d-a2e9-345d3ac06a46",
   "accountId": "6500a6968956183d96edk932",
   "walletId": "65031ef0659fd5018a9fmk28",
   "txnCurrency": "986",
@@ -631,15 +631,15 @@ curl --location ':url/realms/8c8f1749-2616-423b-8130-356725cbffc/organizations/8
   "txnUpdatedAmount": 2,
   "creditParty": {
     "bankIspb": "31680151",
-    "document": "57421121000124",
-    "key": "8c8f1749-2616-423b-8130-3567251cbffc",
+    "document": "27892586000100",
+    "key": "c82f1b81-bf7d-429d-a2e9-345d3ac06a46",
     "name": "PORTAO 3 - DEV TESTING",
     "_id": "65c13a39988c89e8dd7ca0e3"
   },
   "debitParty": {
     "bankIspb": "31689302",
     "accountType": "TRAN",
-    "document": "57421121000124",
+    "document": "27892586000100",
     "name": "PORTAO 3 - DEV TESTING",
     "_id": "65c13a39988c89e8dd7ca0e4"
   },
@@ -745,7 +745,7 @@ After the user validation, confirm the PIX payment using the Confirm Pix endpoin
 > **POST** /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/pix/:pixId/confirm
 
 ```shell
-curl --location ':url/realms/bdc158fc-cb1e-4220-8df0-26e205aea5d7/organizations/bdc158fc-cb1e-4220-8df0-26e205aea5d7/accounts/6500a6968956183d96ed5fe2/wallets/65031ef0659fd5018afke09dk/pix/65c13a39988c89e8ddfki39a/confirm' \
+curl --location ':url/realms/c82f1b81-bf7d-429d-a2e9-345d3ac06a46/organizations/c82f1b81-bf7d-429d-a2e9-345d3ac06a46/accounts/6500a6968956183d96ed5fe2/wallets/65031ef0659fd5018afke09dk/pix/65c13a39988c89e8ddfki39a/confirm' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <TOKEN>' \
 --data '{
@@ -771,8 +771,8 @@ curl --location ':url/realms/bdc158fc-cb1e-4220-8df0-26e205aea5d7/organizations/
   },
   "_id": "65c13ca3cba4adf20f16ba56",
   "environment": "LIVE",
-  "realmId": "bdc158fc-cb1e-4220-8df0-26e205aea5d7",
-  "organizationId": "bdc158fc-cb1e-4220-8df0-26e205aea5d7",
+  "realmId": "c82f1b81-bf7d-429d-a2e9-345d3ac06a46",
+  "organizationId": "c82f1b81-bf7d-429d-a2e9-345d3ac06a46",
   "accountId": "6500a6968956183d96kd94ip",
   "walletId": "65031ef0659fd5018ap0dlok4",
   "txnCurrency": "986",
@@ -786,7 +786,7 @@ curl --location ':url/realms/bdc158fc-cb1e-4220-8df0-26e205aea5d7/organizations/
   "txnUpdatedAmount": 1,
   "creditParty": {
     "bankIspb": "31680151",
-    "document": "57421121000124",
+    "document": "27892586000100",
     "key": "bdc158fc-cb1e-4220-8df0-26e205aea5d7",
     "name": "PORTAO 3 - DEV TESTING",
     "_id": "65c13ca3cba4adf20f16ba5f"
@@ -794,7 +794,7 @@ curl --location ':url/realms/bdc158fc-cb1e-4220-8df0-26e205aea5d7/organizations/
   "debitParty": {
     "bankIspb": "31680151",
     "accountType": "TRAN",
-    "document": "57421121000124",
+    "document": "27892586000100",
     "name": "PORTAO 3 - DEV TESTING",
     "_id": "65c13ca3cba4adf20f16ba60"
   },
@@ -903,7 +903,7 @@ Step 1 - Initiate the billet payment searching the billet informations.
 > **POST** /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/boleto
 
 ```shell
-curl --location ':url/realms/bdc158fc-cb1e-4220-8df0-26e205aea5d7/organizations/bdc158fc-cb1e-4220-8df0-26e205aea5d7/accounts/6500a6968956183d96ed5fe2/wallets/default/boleto' \
+curl --location ':url/realms/c82f1b81-bf7d-429d-a2e9-345d3ac06a46/organizations/c82f1b81-bf7d-429d-a2e9-345d3ac06a46/accounts/6500a6968956183d96ed5fe2/wallets/default/boleto' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <TOKEN>' \
 --data-raw '{
@@ -1020,7 +1020,7 @@ After the create billet payment using the Confirm billet endpoint.
 > **POST** /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/boleto/:boletoId/confirm
 
 ```shell
-curl --location ':url/realms/bdc158fc-cb1e-4220-8df0-26e205aea5d7/organizations/bdc158fc-cb1e-4220-8df0-26e205aea5d7/accounts/6500a6968956deokeed5fe2/wallets/default/boleto/653815e365482eb039or038d/confirm' \
+curl --location ':url/realms/c82f1b81-bf7d-429d-a2e9-345d3ac06a46/organizations/c82f1b81-bf7d-429d-a2e9-345d3ac06a46/accounts/6500a6968956deokeed5fe2/wallets/default/boleto/653815e365482eb039or038d/confirm' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <TOKEN>' \
 --data '{
