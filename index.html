@@ -394,9 +394,25 @@
                   </li>
                   <li>
                     <a href="#pix-payment" class="toc-h2 toc-link" data-title="Pix Payment">Pix Payment</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#initiate-pix" class="toc-h3 toc-link" data-title="Initiate Pix">Initiate Pix</a>
+                          </li>
+                          <li>
+                            <a href="#confirm-pix" class="toc-h3 toc-link" data-title="Confirm Pix">Confirm Pix</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
                     <a href="#boleto-payment" class="toc-h2 toc-link" data-title="Boleto Payment">Boleto Payment</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#initiate-billet" class="toc-h3 toc-link" data-title="Initiate Billet">Initiate Billet</a>
+                          </li>
+                          <li>
+                            <a href="#confirm-billet" class="toc-h3 toc-link" data-title="Confirm Billet">Confirm Billet</a>
+                          </li>
+                      </ul>
                   </li>
               </ul>
           </li>
@@ -456,10 +472,10 @@
                     <a href="#pix" class="toc-h2 toc-link" data-title="Pix">Pix</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#initiate-pix" class="toc-h3 toc-link" data-title="Initiate Pix">Initiate Pix</a>
+                            <a href="#initiate-pix-2" class="toc-h3 toc-link" data-title="Initiate Pix">Initiate Pix</a>
                           </li>
                           <li>
-                            <a href="#confirm-pix" class="toc-h3 toc-link" data-title="Confirm Pix">Confirm Pix</a>
+                            <a href="#confirm-pix-2" class="toc-h3 toc-link" data-title="Confirm Pix">Confirm Pix</a>
                           </li>
                       </ul>
                   </li>
@@ -1061,7 +1077,743 @@ This will retrieve the users' organization information. -->
   </span><span class="p">},</span><span class="w">
   </span><span class="err">...</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h2 id='pix-payment'>Pix Payment</h2><h2 id='boleto-payment'>Boleto Payment</h2>
+</span></code></pre></div><h2 id='pix-payment'>Pix Payment</h2>
+<p>Use this endpoint to initiate a Pix transaction using the DICT key or EMV of the credited party. To create a Pix payment using the the DICT key, you must perform the following steps:</p>
+
+<p>Step 1 - Initiate the Pix payment using the DICT key of the credited party.</p>
+<h3 id='initiate-pix'>Initiate Pix</h3>
+<blockquote>
+<p><strong>POST</strong> /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/pix</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="s1">':url/realms/c9f2597b-b035-4f74-82bc-ab19534535b9/organizations/c9f2597b-b035-4f74-82bc-ab19534535b9/accounts/6500a6968956183d96ed5fe2/wallets/default/pix'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer &lt;TOKEN&gt;'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "amount": "10000",
+    "description": "Pix",
+    "key": "someone@dictkey.com",
+    "dict": "EMAIL",
+    "initiationType": "DICT"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>RESPONSE
+200 (OK)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"environment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LIVE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"realmId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c9f2597b-b035-4f74-82bc-ab19534535b9"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"organizationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c9f2597b-b035-4f74-82bc-ab19534535b9"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6500a6968956183d96edk932"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"walletId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65031ef0659fd5018a9fmk28"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"986"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnAllowAmountChange"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnOriginalAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnDiscountAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnFineAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnInterestAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnPurchaseAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnWithdrawalAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnUpdatedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"creditParty"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"bankIspb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31680151"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27892586000100"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c9f2597b-b035-4f74-82bc-ab19534535b9"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PORTAO 3 - DEV TESTING"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65c13a39988c89e8dd7ca0e3"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"debitParty"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"bankIspb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31689302"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRAN"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27892586000100"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PORTAO 3 - DEV TESTING"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65c13a39988c89e8dd7ca0e4"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docs"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"receipt"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"endToEndId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9FFD89299E9C50BB5FC656E1F68P2PIPT"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"initiationType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DICT"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REQUESTED"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"transactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSFER"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"confirmedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65c13a39988c89e8dd7ca0da"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"additionalInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-05T19:42:49.418Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-05T19:42:49.418Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"__v"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"external"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>400 (BAD REQUEST)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BAD_REQUEST"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bad Request: Your request is invalid or incomplete. Please make sure you are requesting with the right fields."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>403 (INSUFFICIENT PERMISSIONS)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>{
+    "code": "INSUFFICIENT_PERMISSIONS",
+    "message": "insufficient permissions"
+}
+</code></pre></div>
+<blockquote>
+<p>403 (FORBIDDEN) - Occurs when a realm or organization is incorrect.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forbidden"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>500 (INTERNAL SERVER ERROR)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ERR_BAD_REQUEST"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"traceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-65b2c689-762893851e0f3f505713b2b1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BANKING"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request failed with status code 400"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Path Params</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>realmId</td>
+<td>string</td>
+<td>true</td>
+</tr>
+<tr>
+<td>organizationId</td>
+<td>string</td>
+<td>true</td>
+</tr>
+<tr>
+<td>accountId</td>
+<td>string</td>
+<td>true</td>
+</tr>
+<tr>
+<td>walletId</td>
+<td>string</td>
+<td>true</td>
+</tr>
+</tbody></table>
+
+<p>Body params</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Allowed values</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>initiationType</td>
+<td>string</td>
+<td>true</td>
+<td>DICT, COPY_PASTE, INITIAL_QRCODE, STATIC_QRCODE, DYNAMIC_QRCODE</td>
+<td></td>
+</tr>
+<tr>
+<td>dict</td>
+<td>string</td>
+<td>false</td>
+<td>PHONE, EMAIL, CPF, CNPJ, EVP</td>
+<td>Type of DICT KEY</td>
+</tr>
+<tr>
+<td>key</td>
+<td>string</td>
+<td>false</td>
+<td></td>
+<td>The DICT key of the person who will receive the transaction.</td>
+</tr>
+<tr>
+<td>emv</td>
+<td>string</td>
+<td>false</td>
+<td></td>
+<td>Text representing the QR Code information.</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>number</td>
+<td>false</td>
+<td></td>
+<td>The amount that will be transferred, in cents. Must be a positive value.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>false</td>
+<td></td>
+<td>Open field to send pix information.</td>
+</tr>
+</tbody></table>
+
+<p>Important information:</p>
+
+<p>The following information must be considered before using this endpoint.</p>
+
+<p>Dict:
+If <code>initiationType</code> is DICT, then <code>dict</code> is a required field.</p>
+
+<p>Key:
+if <code>dict</code> , then <code>key</code> is a required field.</p>
+
+<p>Emv:
+If <code>initiationType</code> is COPY_PAST, STATIC_QRCODE, DYNAMIC_QRCODE, UNDEFINED_QRCODE then <code>emv</code> is a required field.</p>
+
+<p>Amount:
+If <code>initiationType</code> is DICT, then <code>amount</code> is a required field.</p>
+
+<p>Portão 3 will return the details about the key owner (credited party). You must display this information to the user for validation.</p>
+
+<p>Step 2- Confirm the payment</p>
+
+<p>After the user validation, confirm the PIX payment using the Confirm Pix endpoint.</p>
+<h3 id='confirm-pix'>Confirm Pix</h3>
+<blockquote>
+<p><strong>POST</strong> /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/pix/:pixId/confirm</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="s1">':url/realms/c9f2597b-b035-4f74-82bc-ab19534535b9/organizations/c9f2597b-b035-4f74-82bc-ab19534535b9/accounts/6500a6968956183d96ed5fe2/wallets/65031ef0659fd5018afke09dk/pix/65c13a39988c89e8ddfki39a/confirm'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer &lt;TOKEN&gt;'</span> <span class="se">\</span>
+<span class="nt">--data</span> <span class="s1">'{
+    "amount": 10000,
+    "category": "FLEX_INTERNATIONAL",
+    "customFields": [{
+        "id": "1af48e91-bf83-4467-842b-839acd176c0a",
+        "version": 1,
+        "label": "label",
+        "identifier": "identifier",
+        "values": [ "value1", "value2" ]
+    }]
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>RESPONSE
+200 (OK)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"receipt"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"endToEndId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9FFD89299E9C50BB5FC656E1F68P2PIPT"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65c13ca3cba4adf20f16ba56"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"environment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LIVE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"realmId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c9f2597b-b035-4f74-82bc-ab19534535b9"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"organizationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c9f2597b-b035-4f74-82bc-ab19534535b9"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6500a6968956183d96kd94ip"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"walletId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65031ef0659fd5018ap0dlok4"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"986"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnAllowAmountChange"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnOriginalAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnDiscountAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnFineAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnInterestAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnPurchaseAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnWithdrawalAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnUpdatedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"creditParty"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"bankIspb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31680151"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27892586000100"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c9f2597b-b035-4f74-82bc-ab19534535b9"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PORTAO 3 - DEV TESTING"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65c13ca3cba4adf20f16ba5f"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"debitParty"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"bankIspb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31680151"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRAN"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27892586000100"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PORTAO 3 - DEV TESTING"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65c13ca3cba4adf20f16ba60"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"initiationType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DICT"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONFIRMED"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"transactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSFER"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"confirmedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"additionalInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-05T19:53:07.671Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-05T19:53:16.473Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"__v"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"confirmedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-05T19:53:16.473Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"confirmedBalanceCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FLEX_INTERNATIONAL"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"external"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"0"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c82f1b81-bf7d-429d-a2e9-345d3ac06a46"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Input"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste PIX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65c13cac0db75d4d798e124d"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>400 (BAD REQUEST)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BAD_REQUEST"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bad Request: Your request is invalid or incomplete. Please make sure you are requesting with the right fields."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>403 (INSUFFICIENT PERMISSIONS)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>{
+    "code": "INSUFFICIENT_PERMISSIONS",
+    "message": "insufficient permissions"
+}
+</code></pre></div>
+<blockquote>
+<p>403 (FORBIDDEN) - Occurs when a realm or organization is incorrect.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forbidden"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>500 (INTERNAL SERVER ERROR)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ERR_BAD_REQUEST"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"traceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-65b2c689-762893851e0f3f505713b2b1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BANKING"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request failed with status code 400"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Path Params</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>realmId</td>
+<td>string</td>
+<td>true</td>
+</tr>
+<tr>
+<td>organizationId</td>
+<td>string</td>
+<td>true</td>
+</tr>
+<tr>
+<td>accountId</td>
+<td>string</td>
+<td>true</td>
+</tr>
+<tr>
+<td>walletId</td>
+<td>string</td>
+<td>true</td>
+</tr>
+<tr>
+<td>pixId</td>
+<td>string</td>
+<td>true</td>
+</tr>
+</tbody></table>
+
+<p>Body Params</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Allowed values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>amount</td>
+<td>number</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>category</td>
+<td>string</td>
+<td>false</td>
+<td>FLEX_INTERNATIONAL, FLEX_NATIONAL, FOOD, GAS, MOBILITY, TOLL, ADS, SAAS, HOTEL, AIRLINES, TRAVEL</td>
+</tr>
+<tr>
+<td>customFields</td>
+<td>array</td>
+<td>false</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>Important information:</p>
+
+<p>The following information must be considered before using this endpoint.</p>
+
+<p>Custom Fields:
+In the body, the <code>customFields</code> field is a not required array. But if your body contains the <code>customFields</code> field, then some fields are required:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>true</td>
+</tr>
+<tr>
+<td>label</td>
+<td>string</td>
+<td>false</td>
+</tr>
+<tr>
+<td>identifier</td>
+<td>string</td>
+<td>false</td>
+</tr>
+<tr>
+<td>values</td>
+<td>array of string</td>
+<td>true</td>
+</tr>
+</tbody></table>
+<h2 id='boleto-payment'>Boleto Payment</h2>
+<p>Use this endpoint to initiate a billet payment. You must perform the following steps:</p>
+
+<p>Step 1 - Initiate the billet payment searching the billet informations.</p>
+<h3 id='initiate-billet'>Initiate Billet</h3>
+<blockquote>
+<p><strong>POST</strong> /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/boleto</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="s1">':url/realms/c9f2597b-b035-4f74-82bc-ab19534535b9/organizations/c9f2597b-b035-4f74-82bc-ab19534535b9/accounts/6500a6968956183d96ed5fe2/wallets/default/boleto'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer &lt;TOKEN&gt;'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "barcode": "34191091311376463730571444640008295150000000300"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>RESPONSE
+201 (OK)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"environment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LIVE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"realmId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"organizationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"walletId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"barcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"receipt"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"authentication"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"authenticationApi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"receipt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REQUESTED"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"986"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnMaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnMinAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnOriginalAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnDiscountAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnFineAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnInterestAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnUpdatedAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"confirmedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"confirmedAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"confirmedBalanceCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FLEX_NATIONAL"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"dueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expiresAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"canceledAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"settlesAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"refundedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"issuer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"payee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"payeeDocument"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"payer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"payerDocument"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GENERIC"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"external"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"boletoId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"platformCustomFields"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>400 (BAD REQUEST)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BAD_REQUEST"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bad Request: Your request is invalid or incomplete. Please make sure you are requesting with the right fields."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>403 (INSUFFICIENT PERMISSIONS)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>{
+    "code": "INSUFFICIENT_PERMISSIONS",
+    "message": "insufficient permissions"
+}
+</code></pre></div>
+<blockquote>
+<p>403 (FORBIDDEN) - Occurs when a realm or organization is incorrect.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forbidden"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>500 (INTERNAL SERVER ERROR)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ERR_BAD_REQUEST"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"traceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-65b2c689-762893851e0f3f505713b2b1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BANKING"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request failed with status code 400"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Path Params</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>realmId</td>
+<td>string</td>
+<td>true</td>
+</tr>
+<tr>
+<td>organizationId</td>
+<td>string</td>
+<td>true</td>
+</tr>
+<tr>
+<td>accountId</td>
+<td>string</td>
+<td>true</td>
+</tr>
+<tr>
+<td>walletId</td>
+<td>string</td>
+<td>true</td>
+</tr>
+</tbody></table>
+
+<p>Body Params</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Allowed values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>barcode</td>
+<td>number</td>
+<td>true</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>After the create billet payment using the Confirm billet endpoint.</p>
+<h3 id='confirm-billet'>Confirm Billet</h3>
+<blockquote>
+<p><strong>POST</strong> /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/boleto/:boletoId/confirm</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="s1">':url/realms/c9f2597b-b035-4f74-82bc-ab19534535b9/organizations/c9f2597b-b035-4f74-82bc-ab19534535b9/accounts/6500a6968956deokeed5fe2/wallets/default/boleto/653815e365482eb039or038d/confirm'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer &lt;TOKEN&gt;'</span> <span class="se">\</span>
+<span class="nt">--data</span> <span class="s1">'{
+    "amount": 10000,
+    "category": "FLEX_INTERNATIONAL",
+    "customFields": [{
+        "id": "1af48e91-bf83-4467-842b-839acd176c0a",
+        "version": 1,
+        "label": "label",
+        "identifier": "identifier",
+        "values": [ "value1", "value2" ]
+    }]
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>RESPONSE
+200 (OK)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"environment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LIVE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"realmId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"organizationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"walletId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"barcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"receipt"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"authentication"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"authenticationApi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"receipt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAID"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"986"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnMaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnMinAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnOriginalAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnDiscountAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnFineAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnInterestAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"txnUpdatedAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"confirmedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"confirmedAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"confirmedBalanceCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FLEX_NATIONAL"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"dueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expiresAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"canceledAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"settlesAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"refundedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"issuer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"payee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"payeeDocument"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"payer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"payerDocument"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GENERIC"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"external"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"boletoId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"platformCustomFields"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>400 (BAD REQUEST)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BAD_REQUEST"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bad Request: Your request is invalid or incomplete. Please make sure you are requesting with the right fields."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>403 (INSUFFICIENT PERMISSIONS)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>{
+    "code": "INSUFFICIENT_PERMISSIONS",
+    "message": "insufficient permissions"
+}
+</code></pre></div>
+<blockquote>
+<p>403 (FORBIDDEN) - Occurs when a realm or organization is incorrect.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forbidden"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>500 (INTERNAL SERVER ERROR)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ERR_BAD_REQUEST"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"traceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-65b2c689-762893851e0f3f505713b2b1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BANKING"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request failed with status code 400"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Path Params</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>realmId</td>
+<td>string</td>
+<td>true</td>
+</tr>
+<tr>
+<td>organizationId</td>
+<td>string</td>
+<td>true</td>
+</tr>
+<tr>
+<td>accountId</td>
+<td>string</td>
+<td>true</td>
+</tr>
+<tr>
+<td>walletId</td>
+<td>string</td>
+<td>true</td>
+</tr>
+<tr>
+<td>boletoId</td>
+<td>string</td>
+<td>true</td>
+</tr>
+</tbody></table>
+
+<p>Body Params</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Allowed values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>amount</td>
+<td>number</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>category</td>
+<td>string</td>
+<td>false</td>
+<td>FLEX_INTERNATIONAL, FLEX_NATIONAL, FOOD, GAS, MOBILITY, TOLL, ADS, SAAS, HOTEL, AIRLINES, TRAVEL</td>
+</tr>
+<tr>
+<td>customFields</td>
+<td>array</td>
+<td>false</td>
+<td></td>
+</tr>
+</tbody></table>
+
 <!-- aaaaaaaaaaaa -->
 <h1 id='platform'>Platform</h1><h2 id='wallet-2'>Wallet</h2><h3 id='create-wallet'>Create Wallet</h3>
 <blockquote>
@@ -2820,7 +3572,7 @@ Shared is a required field that contains information about who is allowed to use
 <p>Use this endpoint to initiate a Pix transaction using the DICT key or EMV of the credited party. To create a Pix payment using the the DICT key, you must perform the following steps:</p>
 
 <p>Step 1 - Initiate the Pix payment using the DICT key of the credited party.</p>
-<h3 id='initiate-pix'>Initiate Pix</h3>
+<h3 id='initiate-pix-2'>Initiate Pix</h3>
 <blockquote>
 <p><strong>POST</strong> /realms/:realmId/organizations/:organizationId/wallets/:walletId/pix</p>
 </blockquote>
@@ -3020,7 +3772,7 @@ If <code>initiationType</code> is DICT, then <code>amount</code> is a required f
 <p>Step 2- Confirm the payment</p>
 
 <p>After the user validation, confirm the PIX payment using the Confirm Pix endpoint.</p>
-<h3 id='confirm-pix'>Confirm Pix</h3>
+<h3 id='confirm-pix-2'>Confirm Pix</h3>
 <blockquote>
 <p><strong>POST</strong> /realms/:realmId/organizations/:organizationId/wallets/:walletId/pix/:pidId/confirm</p>
 </blockquote>
