@@ -589,7 +589,557 @@ curl -X GET :url/realms/:realmId/organizations/:organizationId/accounts/:account
 
 ## Pix Payment
 
+Use this endpoint to initiate a Pix transaction using the DICT key or EMV of the credited party. To create a Pix payment using the the DICT key, you must perform the following steps:
+
+Step 1 - Initiate the Pix payment using the DICT key of the credited party.
+
+### Initiate Pix
+
+> **POST** /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/pix
+
+```shell
+curl --location ':url/realms/c9f2597b-b035-4f74-82bc-ab19534535b9/organizations/c9f2597b-b035-4f74-82bc-ab19534535b9/accounts/6500a6968956183d96ed5fe2/wallets/default/pix' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <TOKEN>' \
+--data-raw '{
+    "amount": "10000",
+    "description": "Pix",
+    "key": "someone@dictkey.com",
+    "dict": "EMAIL",
+    "initiationType": "DICT"
+}'
+```
+
+> RESPONSE
+> 200 (OK)
+
+```json
+{
+  "environment": "LIVE",
+  "realmId": "c9f2597b-b035-4f74-82bc-ab19534535b9",
+  "organizationId": "c9f2597b-b035-4f74-82bc-ab19534535b9",
+  "accountId": "6500a6968956183d96edk932",
+  "walletId": "65031ef0659fd5018a9fmk28",
+  "txnCurrency": "986",
+  "txnAllowAmountChange": false,
+  "txnOriginalAmount": 2,
+  "txnDiscountAmount": 0,
+  "txnFineAmount": 0,
+  "txnInterestAmount": 0,
+  "txnPurchaseAmount": 0,
+  "txnWithdrawalAmount": 0,
+  "txnUpdatedAmount": 2,
+  "creditParty": {
+    "bankIspb": "31680151",
+    "document": "27892586000100",
+    "key": "c9f2597b-b035-4f74-82bc-ab19534535b9",
+    "name": "PORTAO 3 - DEV TESTING",
+    "_id": "65c13a39988c89e8dd7ca0e3"
+  },
+  "debitParty": {
+    "bankIspb": "31689302",
+    "accountType": "TRAN",
+    "document": "27892586000100",
+    "name": "PORTAO 3 - DEV TESTING",
+    "_id": "65c13a39988c89e8dd7ca0e4"
+  },
+  "description": "docs",
+  "receipt": {
+    "endToEndId": "9FFD89299E9C50BB5FC656E1F68P2PIPT"
+  },
+  "initiationType": "DICT",
+  "status": "REQUESTED",
+  "transactionType": "TRANSFER",
+  "confirmedAmount": 0,
+  "_id": "65c13a39988c89e8dd7ca0da",
+  "additionalInfo": [],
+  "createdAt": "2024-02-05T19:42:49.418Z",
+  "updatedAt": "2024-02-05T19:42:49.418Z",
+  "__v": 0,
+  "external": {}
+}
+```
+
+> 400 (BAD REQUEST)
+
+```json
+{
+  "code": "BAD_REQUEST",
+  "message": "Bad Request: Your request is invalid or incomplete. Please make sure you are requesting with the right fields.",
+  "fields": []
+}
+```
+
+> 403 (INSUFFICIENT PERMISSIONS)
+
+```
+{
+	"code": "INSUFFICIENT_PERMISSIONS",
+	"message": "insufficient permissions"
+}
+```
+
+> 403 (FORBIDDEN) - Occurs when a realm or organization is incorrect.
+
+```json
+{
+  "message": "Forbidden"
+}
+```
+
+> 500 (INTERNAL SERVER ERROR)
+
+```json
+{
+  "code": "ERR_BAD_REQUEST",
+  "traceId": "1-65b2c689-762893851e0f3f505713b2b1",
+  "origin": "BANKING",
+  "message": "Request failed with status code 400"
+}
+```
+
+Path Params
+
+| Field          | Type   | Required |
+| -------------- | ------ | -------- |
+| realmId        | string | true     |
+| organizationId | string | true     |
+| accountId      | string | true     |
+| walletId       | string | true     |
+
+Body params
+
+| Field          | Type   | Required | Allowed values                                                  | Description                                                              |
+| -------------- | ------ | -------- | --------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| initiationType | string | true     | DICT, COPY_PASTE, INITIAL_QRCODE, STATIC_QRCODE, DYNAMIC_QRCODE |                                                                          |
+| dict           | string | false    | PHONE, EMAIL, CPF, CNPJ, EVP                                    | Type of DICT KEY                                                         |
+| key            | string | false    |                                                                 | The DICT key of the person who will receive the transaction.             |
+| emv            | string | false    |                                                                 | Text representing the QR Code information.                               |
+| amount         | number | false    |                                                                 | The amount that will be transferred, in cents. Must be a positive value. |
+| description    | string | false    |                                                                 | Open field to send pix information.                                      |
+
+Important information:
+
+The following information must be considered before using this endpoint.
+
+Dict:
+If `initiationType` is DICT, then `dict` is a required field.
+
+Key:
+if `dict` , then `key` is a required field.
+
+Emv:
+If `initiationType` is COPY_PAST, STATIC_QRCODE, DYNAMIC_QRCODE, UNDEFINED_QRCODE then `emv` is a required field.
+
+Amount:
+If `initiationType` is DICT, then `amount` is a required field.
+
+Portão 3 will return the details about the key owner (credited party). You must display this information to the user for validation.
+
+Step 2- Confirm the payment
+
+After the user validation, confirm the PIX payment using the Confirm Pix endpoint.
+
+### Confirm Pix
+
+> **POST** /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/pix/:pixId/confirm
+
+```shell
+curl --location ':url/realms/c9f2597b-b035-4f74-82bc-ab19534535b9/organizations/c9f2597b-b035-4f74-82bc-ab19534535b9/accounts/6500a6968956183d96ed5fe2/wallets/65031ef0659fd5018afke09dk/pix/65c13a39988c89e8ddfki39a/confirm' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <TOKEN>' \
+--data '{
+    "amount": 10000,
+    "category": "FLEX_INTERNATIONAL",
+    "customFields": [{
+        "id": "1af48e91-bf83-4467-842b-839acd176c0a",
+        "version": 1,
+        "label": "label",
+        "identifier": "identifier",
+        "values": [ "value1", "value2" ]
+    }]
+}'
+```
+
+> RESPONSE
+> 200 (OK)
+
+```json
+{
+  "receipt": {
+    "endToEndId": "9FFD89299E9C50BB5FC656E1F68P2PIPT"
+  },
+  "_id": "65c13ca3cba4adf20f16ba56",
+  "environment": "LIVE",
+  "realmId": "c9f2597b-b035-4f74-82bc-ab19534535b9",
+  "organizationId": "c9f2597b-b035-4f74-82bc-ab19534535b9",
+  "accountId": "6500a6968956183d96kd94ip",
+  "walletId": "65031ef0659fd5018ap0dlok4",
+  "txnCurrency": "986",
+  "txnAllowAmountChange": false,
+  "txnOriginalAmount": 1,
+  "txnDiscountAmount": 0,
+  "txnFineAmount": 0,
+  "txnInterestAmount": 0,
+  "txnPurchaseAmount": 0,
+  "txnWithdrawalAmount": 0,
+  "txnUpdatedAmount": 1,
+  "creditParty": {
+    "bankIspb": "31680151",
+    "document": "27892586000100",
+    "key": "c9f2597b-b035-4f74-82bc-ab19534535b9",
+    "name": "PORTAO 3 - DEV TESTING",
+    "_id": "65c13ca3cba4adf20f16ba5f"
+  },
+  "debitParty": {
+    "bankIspb": "31680151",
+    "accountType": "TRAN",
+    "document": "27892586000100",
+    "name": "PORTAO 3 - DEV TESTING",
+    "_id": "65c13ca3cba4adf20f16ba60"
+  },
+  "description": "",
+  "initiationType": "DICT",
+  "status": "CONFIRMED",
+  "transactionType": "TRANSFER",
+  "confirmedAmount": 1,
+  "additionalInfo": [],
+  "createdAt": "2024-02-05T19:53:07.671Z",
+  "updatedAt": "2024-02-05T19:53:16.473Z",
+  "__v": 0,
+  "confirmedAt": "2024-02-05T19:53:16.473Z",
+  "confirmedBalanceCategory": "FLEX_INTERNATIONAL",
+  "external": {
+    "0": {
+      "id": "c82f1b81-bf7d-429d-a2e9-345d3ac06a46",
+      "version": 1,
+      "label": "Teste Input",
+      "identifier": "Teste PIX",
+      "values": [],
+      "_id": "65c13cac0db75d4d798e124d"
+    }
+  }
+}
+```
+
+> 400 (BAD REQUEST)
+
+```json
+{
+  "code": "BAD_REQUEST",
+  "message": "Bad Request: Your request is invalid or incomplete. Please make sure you are requesting with the right fields.",
+  "fields": []
+}
+```
+
+> 403 (INSUFFICIENT PERMISSIONS)
+
+```
+{
+	"code": "INSUFFICIENT_PERMISSIONS",
+	"message": "insufficient permissions"
+}
+```
+
+> 403 (FORBIDDEN) - Occurs when a realm or organization is incorrect.
+
+```json
+{
+  "message": "Forbidden"
+}
+```
+
+> 500 (INTERNAL SERVER ERROR)
+
+```json
+{
+  "code": "ERR_BAD_REQUEST",
+  "traceId": "1-65b2c689-762893851e0f3f505713b2b1",
+  "origin": "BANKING",
+  "message": "Request failed with status code 400"
+}
+```
+
+Path Params
+
+| Field          | Type   | Required |
+| -------------- | ------ | -------- |
+| realmId        | string | true     |
+| organizationId | string | true     |
+| accountId      | string | true     |
+| walletId       | string | true     |
+| pixId          | string | true     |
+
+Body Params
+
+| Field        | Type   | Required | Allowed values                                                                                   |
+| ------------ | ------ | -------- | ------------------------------------------------------------------------------------------------ |
+| amount       | number | true     |                                                                                                  |
+| category     | string | false    | FLEX_INTERNATIONAL, FLEX_NATIONAL, FOOD, GAS, MOBILITY, TOLL, ADS, SAAS, HOTEL, AIRLINES, TRAVEL |
+| customFields | array  | false    |                                                                                                  |
+
+Important information:
+
+The following information must be considered before using this endpoint.
+
+Custom Fields:
+In the body, the `customFields` field is a not required array. But if your body contains the `customFields` field, then some fields are required:
+
+| Field      | Type            | Required |
+| ---------- | --------------- | -------- |
+| id         | string          | true     |
+| label      | string          | false    |
+| identifier | string          | false    |
+| values     | array of string | true     |
+
 ## Boleto Payment
+
+Use this endpoint to initiate a billet payment. You must perform the following steps:
+
+Step 1 - Initiate the billet payment searching the billet informations.
+
+### Initiate Billet
+
+> **POST** /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/boleto
+
+```shell
+curl --location ':url/realms/c9f2597b-b035-4f74-82bc-ab19534535b9/organizations/c9f2597b-b035-4f74-82bc-ab19534535b9/accounts/6500a6968956183d96ed5fe2/wallets/default/boleto' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <TOKEN>' \
+--data-raw '{
+    "barcode": "34191091311376463730571444640008295150000000300"
+}'
+```
+
+> RESPONSE
+> 201 (OK)
+
+```json
+{
+  "_id": "string",
+  "environment": "LIVE",
+  "realmId": "string",
+  "organizationId": "string",
+  "accountId": "string",
+  "walletId": "string",
+  "barcode": "string",
+  "receipt": {
+    "authentication": "string",
+    "authenticationApi": "string",
+    "receipt": "string"
+  },
+  "status": "REQUESTED",
+  "txnCurrency": "986",
+  "txnMaxAmount": "number",
+  "txnMinAmount": "number",
+  "txnOriginalAmount": "number",
+  "txnDiscountAmount": "number",
+  "txnFineAmount": "number",
+  "txnInterestAmount": "number",
+  "txnUpdatedAmount": "number",
+  "confirmedAt": "string",
+  "confirmedAmount": "number",
+  "confirmedBalanceCategory": "FLEX_NATIONAL",
+  "dueDate": "string",
+  "expiresAt": "string",
+  "canceledAt": "string",
+  "settlesAt": "string",
+  "refundedAt": "string",
+  "issuer": "string",
+  "payee": "string",
+  "payeeDocument": "string",
+  "payer": "string",
+  "payerDocument": "string",
+  "type": "GENERIC",
+  "external": {
+    "boletoId": "string",
+    "platformCustomFields": []
+  },
+  "createdAt": "string",
+  "updatedAt": "string"
+}
+```
+
+> 400 (BAD REQUEST)
+
+```json
+{
+  "code": "BAD_REQUEST",
+  "message": "Bad Request: Your request is invalid or incomplete. Please make sure you are requesting with the right fields.",
+  "fields": []
+}
+```
+
+> 403 (INSUFFICIENT PERMISSIONS)
+
+```
+{
+	"code": "INSUFFICIENT_PERMISSIONS",
+	"message": "insufficient permissions"
+}
+```
+
+> 403 (FORBIDDEN) - Occurs when a realm or organization is incorrect.
+
+```json
+{
+  "message": "Forbidden"
+}
+```
+
+> 500 (INTERNAL SERVER ERROR)
+
+```json
+{
+  "code": "ERR_BAD_REQUEST",
+  "traceId": "1-65b2c689-762893851e0f3f505713b2b1",
+  "origin": "BANKING",
+  "message": "Request failed with status code 400"
+}
+```
+
+Path Params
+
+| Field          | Type   | Required |
+| -------------- | ------ | -------- |
+| realmId        | string | true     |
+| organizationId | string | true     |
+| accountId      | string | true     |
+| walletId       | string | true     |
+
+Body Params
+
+| Field   | Type   | Required | Allowed values |
+| ------- | ------ | -------- | -------------- |
+| barcode | number | true     |                |
+
+After the create billet payment using the Confirm billet endpoint.
+
+### Confirm Billet
+
+> **POST** /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/boleto/:boletoId/confirm
+
+```shell
+curl --location ':url/realms/c9f2597b-b035-4f74-82bc-ab19534535b9/organizations/c9f2597b-b035-4f74-82bc-ab19534535b9/accounts/6500a6968956deokeed5fe2/wallets/default/boleto/653815e365482eb039or038d/confirm' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <TOKEN>' \
+--data '{
+    "amount": 10000,
+    "category": "FLEX_INTERNATIONAL",
+    "customFields": [{
+        "id": "1af48e91-bf83-4467-842b-839acd176c0a",
+        "version": 1,
+        "label": "label",
+        "identifier": "identifier",
+        "values": [ "value1", "value2" ]
+    }]
+}'
+```
+
+> RESPONSE
+> 200 (OK)
+
+```json
+{
+  "_id": "string",
+  "environment": "LIVE",
+  "realmId": "string",
+  "organizationId": "string",
+  "accountId": "string",
+  "walletId": "string",
+  "barcode": "string",
+  "receipt": {
+    "authentication": "string",
+    "authenticationApi": "string",
+    "receipt": "string"
+  },
+  "status": "PAID",
+  "txnCurrency": "986",
+  "txnMaxAmount": "number",
+  "txnMinAmount": "number",
+  "txnOriginalAmount": "number",
+  "txnDiscountAmount": "number",
+  "txnFineAmount": "number",
+  "txnInterestAmount": "number",
+  "txnUpdatedAmount": "number",
+  "confirmedAt": "string",
+  "confirmedAmount": "number",
+  "confirmedBalanceCategory": "FLEX_NATIONAL",
+  "dueDate": "string",
+  "expiresAt": "string",
+  "canceledAt": "string",
+  "settlesAt": "string",
+  "refundedAt": "string",
+  "issuer": "string",
+  "payee": "string",
+  "payeeDocument": "string",
+  "payer": "string",
+  "payerDocument": "string",
+  "type": "GENERIC",
+  "external": {
+    "boletoId": "string",
+    "platformCustomFields": []
+  },
+  "createdAt": "string",
+  "updatedAt": "string"
+}
+```
+
+> 400 (BAD REQUEST)
+
+```json
+{
+  "code": "BAD_REQUEST",
+  "message": "Bad Request: Your request is invalid or incomplete. Please make sure you are requesting with the right fields.",
+  "fields": []
+}
+```
+
+> 403 (INSUFFICIENT PERMISSIONS)
+
+```
+{
+	"code": "INSUFFICIENT_PERMISSIONS",
+	"message": "insufficient permissions"
+}
+```
+
+> 403 (FORBIDDEN) - Occurs when a realm or organization is incorrect.
+
+```json
+{
+  "message": "Forbidden"
+}
+```
+
+> 500 (INTERNAL SERVER ERROR)
+
+```json
+{
+  "code": "ERR_BAD_REQUEST",
+  "traceId": "1-65b2c689-762893851e0f3f505713b2b1",
+  "origin": "BANKING",
+  "message": "Request failed with status code 400"
+}
+```
+
+Path Params
+
+| Field          | Type   | Required |
+| -------------- | ------ | -------- |
+| realmId        | string | true     |
+| organizationId | string | true     |
+| accountId      | string | true     |
+| walletId       | string | true     |
+| boletoId       | string | true     |
+
+Body Params
+
+| Field        | Type   | Required | Allowed values                                                                                   |
+| ------------ | ------ | -------- | ------------------------------------------------------------------------------------------------ |
+| amount       | number | true     |                                                                                                  |
+| category     | string | false    | FLEX_INTERNATIONAL, FLEX_NATIONAL, FOOD, GAS, MOBILITY, TOLL, ADS, SAAS, HOTEL, AIRLINES, TRAVEL |
+| customFields | array  | false    |
 
 <!-- aaaaaaaaaaaa -->
 
