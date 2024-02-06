@@ -916,47 +916,47 @@ curl --location ':url/realms/c9f2597b-b035-4f74-82bc-ab19534535b9/organizations/
 
 ```json
 {
-  "_id": "string";
-  "environment": "LIVE";
-  "realmId": "string";
-  "organizationId": "string";
-  "accountId": "string";
-  "walletId": "string";
-  "barcode": "string";
+  "_id": "string",
+  "environment": "LIVE",
+  "realmId": "string",
+  "organizationId": "string",
+  "accountId": "string",
+  "walletId": "string",
+  "barcode": "string",
   "receipt": {
-    "authentication": "string";
-    "authenticationApi": "string";
-    "receipt": "string";
-  };
-  "status": "REQUESTED";
-  "txnCurrency": "986";
-  "txnMaxAmount": "number";
-  "txnMinAmount": "number";
-  "txnOriginalAmount": "number";
-  "txnDiscountAmount": "number";
-  "txnFineAmount": "number";
-  "txnInterestAmount": "number";
-  "txnUpdatedAmount": "number";
-  "confirmedAt": "string";
-  "confirmedAmount": "number";
-  "confirmedBalanceCategory": "FLEX_NATIONAL";
-  "dueDate": "string";
-  "expiresAt": "string";
-  "canceledAt": "string";
-  "settlesAt": "string";
-  "refundedAt": "string";
-  "issuer": "string";
-  "payee": "string";
-  "payeeDocument": "string";
-  "payer": "string";
-  "payerDocument": "string";
-  "type": "GENERIC";
+    "authentication": "string",
+    "authenticationApi": "string",
+    "receipt": "string"
+  },
+  "status": "REQUESTED",
+  "txnCurrency": "986",
+  "txnMaxAmount": "number",
+  "txnMinAmount": "number",
+  "txnOriginalAmount": "number",
+  "txnDiscountAmount": "number",
+  "txnFineAmount": "number",
+  "txnInterestAmount": "number",
+  "txnUpdatedAmount": "number",
+  "confirmedAt": "string",
+  "confirmedAmount": "number",
+  "confirmedBalanceCategory": "FLEX_NATIONAL",
+  "dueDate": "string",
+  "expiresAt": "string",
+  "canceledAt": "string",
+  "settlesAt": "string",
+  "refundedAt": "string",
+  "issuer": "string",
+  "payee": "string",
+  "payeeDocument": "string",
+  "payer": "string",
+  "payerDocument": "string",
+  "type": "GENERIC",
   "external": {
-    "boletoId": "string";
-    "platformCustomFields": [];
-  };
-  "createdAt": "string";
-  "updatedAt": "string";
+    "boletoId": "string",
+    "platformCustomFields": []
+  },
+  "createdAt": "string",
+  "updatedAt": "string"
 }
 ```
 
@@ -1041,47 +1041,47 @@ curl --location ':url/realms/c9f2597b-b035-4f74-82bc-ab19534535b9/organizations/
 
 ```json
 {
-  "_id": "string";
-  "environment": "LIVE";
-  "realmId": "string";
-  "organizationId": "string";
-  "accountId": "string";
-  "walletId": "string";
-  "barcode": "string";
+  "_id": "string",
+  "environment": "LIVE",
+  "realmId": "string",
+  "organizationId": "string",
+  "accountId": "string",
+  "walletId": "string",
+  "barcode": "string",
   "receipt": {
-    "authentication": "string";
-    "authenticationApi": "string";
-    "receipt": "string";
-  };
-  "status": "PAID";
-  "txnCurrency": "986";
-  "txnMaxAmount": "number";
-  "txnMinAmount": "number";
-  "txnOriginalAmount": "number";
-  "txnDiscountAmount": "number";
-  "txnFineAmount": "number";
-  "txnInterestAmount": "number";
-  "txnUpdatedAmount": "number";
-  "confirmedAt": "string";
-  "confirmedAmount": "number";
-  "confirmedBalanceCategory": "FLEX_NATIONAL";
-  "dueDate": "string";
-  "expiresAt": "string";
-  "canceledAt": "string";
-  "settlesAt": "string";
-  "refundedAt": "string";
-  "issuer": "string";
-  "payee": "string";
-  "payeeDocument": "string";
-  "payer": "string";
-  "payerDocument": "string";
-  "type": "GENERIC";
+    "authentication": "string",
+    "authenticationApi": "string",
+    "receipt": "string"
+  },
+  "status": "PAID",
+  "txnCurrency": "986",
+  "txnMaxAmount": "number",
+  "txnMinAmount": "number",
+  "txnOriginalAmount": "number",
+  "txnDiscountAmount": "number",
+  "txnFineAmount": "number",
+  "txnInterestAmount": "number",
+  "txnUpdatedAmount": "number",
+  "confirmedAt": "string",
+  "confirmedAmount": "number",
+  "confirmedBalanceCategory": "FLEX_NATIONAL",
+  "dueDate": "string",
+  "expiresAt": "string",
+  "canceledAt": "string",
+  "settlesAt": "string",
+  "refundedAt": "string",
+  "issuer": "string",
+  "payee": "string",
+  "payeeDocument": "string",
+  "payer": "string",
+  "payerDocument": "string",
+  "type": "GENERIC",
   "external": {
-    "boletoId": "string";
-    "platformCustomFields": [];
-  };
-  "createdAt": "string";
-  "updatedAt": "string";
+    "boletoId": "string",
+    "platformCustomFields": []
+  },
+  "createdAt": "string",
+  "updatedAt": "string"
 }
 ```
 
