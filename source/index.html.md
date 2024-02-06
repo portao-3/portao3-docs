@@ -598,7 +598,7 @@ Step 1 - Initiate the Pix payment using the DICT key of the credited party.
 > **POST** /realms/:realmId/organizations/:organizationId/accounts/:accountId/wallets/:walletId/pix
 
 ```shell
-curl --location ':url/realms/8c8f1749-2616-423b-8130-3567251cbffc/organizations/8c8f1749-2616-423b-8130-3567251cbffc/accounts/6500a6968956183d96ed5fe2/wallets/default/pix' \
+curl --location ':url/realms/8c8f1749-2616-423b-8130-356725cbffc/organizations/8c8f1749-2616-423b-8130-3567251cbffc/accounts/6500a6968956183d96ed5fe2/wallets/default/pix' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <TOKEN>' \
 --data-raw '{
