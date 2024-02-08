@@ -342,6 +342,9 @@
                   <li>
                     <a href="#authentication" class="toc-h2 toc-link" data-title="Authentication">Authentication</a>
                   </li>
+                  <li>
+                    <a href="#refresh-token" class="toc-h2 toc-link" data-title="Refresh token">Refresh token</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -588,7 +591,35 @@
 <p>With Client Credentials Grant (defined in RFC 6749, section 4.4) an application can directly request an Access Token from the Authorization Server by using its Client Credentials (a Client Id and a Client Secret).</p>
 
 <p>You can create new credentials and manage existing ones in your account dashboard.</p>
+<h2 id='refresh-token'>Refresh token</h2>
+<p>This endpoint allows users to refresh their access tokens by exchanging a valid refresh token. When an access token expires, clients can make a request to this endpoint with a refresh token to obtain a new, valid access token. The refresh token serves as a secure means of obtaining extended access without requiring the user to re-enter their credentials.</p>
 
+<blockquote>
+<p><strong>POST</strong> https://api.identity.v2.portao3.com.br/auth/refresh-token</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://api.identity.v2.portao3.com.br/auth/refresh-token <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-D</span> <span class="s1">'{
+    "accessToken": "string",
+    "refreshToken": "string"
+  }'</span>
+</code></pre></div>
+<blockquote>
+<p><strong>200</strong> Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"accessToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your_Access_Token_Will_Show_Up_Here"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"refreshToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your_Refresh_Token_Will_Show_Up_Here"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>401 (INVALID CREDENTIALS)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>{
+    "code": "INVALID_CREDENTIALS",
+    "message": "invalid credentials"
+}
+</code></pre></div>
 <!-- ## Realm
 
 ### Retrieve a Realm
