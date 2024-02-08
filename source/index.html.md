@@ -50,6 +50,39 @@ With Client Credentials Grant (defined in RFC 6749, section 4.4) an application 
 
 You can create new credentials and manage existing ones in your account dashboard.
 
+## Refresh token
+
+This endpoint allows users to refresh their access tokens by exchanging a valid refresh token. When an access token expires, clients can make a request to this endpoint with a refresh token to obtain a new, valid access token. The refresh token serves as a secure means of obtaining extended access without requiring the user to re-enter their credentials.
+
+> **POST** https://api.identity.v2.portao3.com.br/auth/refresh-token
+
+```shell
+curl -X POST https://api.identity.v2.portao3.com.br/auth/refresh-token \
+  -H 'Content-Type: application/json' \
+  -D '{
+    "accessToken": "string",
+    "refreshToken": "string"
+  }'
+```
+
+> **200** Response
+
+```json
+{
+  "accessToken": "Your_Access_Token_Will_Show_Up_Here",
+  "refreshToken": "Your_Refresh_Token_Will_Show_Up_Here"
+}
+```
+
+> 401 (INVALID CREDENTIALS)
+
+```
+{
+	"code": "INVALID_CREDENTIALS",
+	"message": "invalid credentials"
+}
+```
+
 <!-- ## Realm
 
 ### Retrieve a Realm
